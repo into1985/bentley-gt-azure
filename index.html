@@ -1,0 +1,5239 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bentley Continental GT Azure V8 Hybrid · Läbisõit 62 km</title>
+<meta name="description" content="62 km läbisõiduga Bentley Continental GT Azure V8 Hybrid Satin Orange konfiguratsioonis. Azure-varustus, Naim audio, Bentley Rotating Display.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Bentley Tallinn · Auto 100 Premium OÜ">
+<link rel="canonical" href="https://bentley-gt-azure.vercel.app/">
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<!-- Open Graph (Facebook, LinkedIn, Slack jne) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="et_EE">
+<meta property="og:url" content="https://bentley-gt-azure.vercel.app/">
+<meta property="og:title" content="Bentley Continental GT Azure V8 Hybrid">
+<meta property="og:description" content="62 km läbisõitu, Satin Orange viimistlus ja Azure-varustus.">
+<meta property="og:image" content="https://bentley-gt-azure.vercel.app/Bentley-Open-Graphic.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bentley Continental GT Azure V8 Hybrid Orange Flame Satin">
+<meta property="og:site_name" content="Bentley Tallinn">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bentley Continental GT Azure V8 Hybrid">
+<meta name="twitter:description" content="62 km läbisõitu, Satin Orange viimistlus ja Azure-varustus.">
+<meta name="twitter:image" content="https://bentley-gt-azure.vercel.app/Bentley-Open-Graphic.jpg">
+
+<!-- JSON-LD Car schema (Google Rich Results) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Car",
+  "name": "Bentley Continental GT Azure V8 Hybrid",
+  "brand": { "@type": "Brand", "name": "Bentley" },
+  "model": "Continental GT Azure",
+  "vehicleModelDate": "2026",
+  "itemCondition": "https://schema.org/NewCondition",
+  "vehicleConfiguration": "Coupe",
+  "numberOfDoors": "2",
+  "color": "Orange Flame Satin (Mulliner)",
+  "mileageFromOdometer": {
+    "@type": "QuantitativeValue",
+    "value": "62",
+    "unitCode": "KMT"
+  },
+  "vehicleEngine": {
+    "@type": "EngineSpecification",
+    "engineType": "V8 Hybrid",
+    "fuelType": "Hybrid",
+    "engineDisplacement": {
+      "@type": "QuantitativeValue",
+      "value": "4.0",
+      "unitCode": "LTR"
+    },
+    "enginePower": {
+      "@type": "QuantitativeValue",
+      "value": "500",
+      "unitCode": "KWT"
+    }
+  },
+  "image": "https://bentley-gt-azure.vercel.app/Bentley-Open-Graphic.jpg",
+  "url": "https://bentley-gt-azure.vercel.app/",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "EUR",
+    "price": "386653",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "seller": {
+      "@type": "AutoDealer",
+      "name": "Bentley Tallinn",
+      "legalName": "Auto 100 Premium OÜ",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Pirni 1",
+        "addressLocality": "Tallinn",
+        "addressCountry": "EE"
+      }
+    }
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=neue-montreal@400,500&display=swap">
+
+<style>
+  /* ============================================================
+     RESET
+     ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; -webkit-text-size-adjust: 100%; scrollbar-gutter: stable; }
+  img, svg { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; background: none; border: 0; color: inherit; }
+
+  /* ============================================================
+     SELECTION — brand-aware tekstivalik
+     Accent (flame) taust + bone tekst kontrastiks.
+     Universaalreegel: iga listing-projekti accent + heledaim toon.
+     ============================================================ */
+  ::selection {
+    background: var(--flame);
+    color: var(--bone);
+    text-shadow: none;
+  }
+  ::-moz-selection {
+    background: var(--flame);
+    color: var(--bone);
+    text-shadow: none;
+  }
+
+  /* ============================================================
+     FONTS — Migra (self-hosted) + PP Neue Montreal (Fontshare)
+     Indrek lisas Migra font-failid font/ kausta.
+     Italic-variante EI kasuta (feedback_no_italic.md).
+     ============================================================ */
+  @font-face {
+    font-family: 'Migra';
+    src: url('font/Migra-Extralight.woff2') format('woff2'),
+         url('font/Migra-Extralight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Migra';
+    src: url('font/Migra-Extrabold.woff2') format('woff2'),
+         url('font/Migra-Extrabold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* ============================================================
+     TOKENS — Bentley palett "Matt Atelier"
+     ============================================================ */
+  :root {
+    --bone: #E8E2D6;
+    --bone-deep: #DDD5C5;
+    --graphite: #1B1814;
+    --flame: #C25928;
+    --clay: #7A5544;
+    --brass-dim: #8C6A3E;
+    --line: rgba(27, 24, 20, 0.1);
+
+    --font-display: 'Migra', 'Times New Roman', serif;
+    --font-body: 'Neue Montreal', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+
+    --gutter: 2.5rem;
+    --page-max: 1700px;
+  }
+
+  body {
+    background: var(--bone);
+    color: var(--graphite);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* ============================================================
+     CUSTOM SCROLLBAR — Faas 6.3 (A: hairline graphite)
+     6px lai · track nähtamatu · thumb graphite 25% → 55% hover
+     ============================================================ */
+  /* Firefox */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(27, 24, 20, 0.25) transparent;
+  }
+  /* WebKit / Blink (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(27, 24, 20, 0.25);
+    border-radius: 0;
+    transition: background 0.3s ease;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(27, 24, 20, 0.55);
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /* ============================================================
+     BRAND BAR — top-fixed: mark + hamburger only (no nav links)
+     ============================================================ */
+  .brand-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem var(--gutter);
+    pointer-events: none;
+  }
+  .brand-bar > * { pointer-events: auto; }
+
+  .brand-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--graphite);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  /* Scroll-direction-aware hide: alla-kerides peidab, üles-kerides ilmub.
+     Hamburger (.nav-toggle) jääb alati nähtavaks — see on UNIVERSAALREEGEL. */
+  .brand-bar-left.is-hidden {
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .brand-bar-left { transition: opacity 0.15s linear; }
+    .brand-bar-left.is-hidden { transform: none; }
+  }
+  .brand-bar-divider {
+    display: inline-block;
+    width: 4px; height: 4px;
+    background: var(--clay);
+    border-radius: 50%;
+    margin: 0 0.1em;
+    vertical-align: middle;
+  }
+
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 44px; height: 44px;
+    color: var(--graphite);
+  }
+  .nav-toggle-icon { width: 28px; height: auto; display: block; }
+  .nav-toggle-icon line { transition: transform 0.3s ease; transform-origin: center; }
+  /* Hamburger morph → X kui nav-menu avatud */
+  .nav-toggle[aria-expanded="true"] .nav-toggle-icon line:nth-child(1) {
+    transform: translateY(3px) rotate(45deg);
+  }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-icon line:nth-child(2) {
+    transform: translateY(-3px) rotate(-45deg);
+  }
+
+  /* Scroll-lock helper — overlay avab ilma layout-nihketa.
+     scrollbar-gutter: stable on <html> reserveerib gutter'i alati;
+     is-scroll-locked klass lukustab scrolling'u ilma scrollbari kaotamiseta. */
+  html.is-scroll-locked { overflow: hidden; }
+
+  /* ============================================================
+     NAV MENU — Faas 3.1 (kanooniline skelett + Bentley B-layout)
+     Full-screen overlay, asümmeetriline editorial spread:
+       LEFT: sektsioonide lingid (big Migra Extralight typograafia)
+       RIGHT-BOTTOM: müüja kontakt + ET/EN lang-lüliti
+     Skelett: .nav-menu > .nav-menu-inner > .nav-sections + .nav-footer
+       (.nav-contact + .nav-lang > .lang-btn)
+     Default-OPEN Faas 3 review'ks (aria-hidden="false"); Faas 4 lisab toggle.
+     ============================================================ */
+  .nav-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: var(--bone);
+    display: flex;
+    flex-direction: column;
+    padding: 6.5rem var(--gutter) 2.5rem;
+  }
+  .nav-menu[aria-hidden="true"] { display: none; }
+
+  .nav-menu-inner {
+    flex: 1;
+    max-width: var(--page-max);
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    column-gap: 3rem;
+    align-items: end;
+  }
+
+  .nav-sections {
+    grid-column: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .nav-sections a {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    line-height: 1.05;
+    letter-spacing: -0.028em;
+    color: var(--graphite);
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.25rem 0;
+    transition: color 0.2s ease, padding-left 0.3s ease;
+  }
+  .nav-sections a:hover {
+    color: var(--flame);
+    padding-left: 0.5em;
+  }
+
+  .nav-footer {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-self: end;
+    padding-bottom: 0.5rem;
+  }
+
+  .nav-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .nav-contact-label {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--clay);
+    margin-bottom: 0.7rem;
+  }
+  .nav-contact-name {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(1.4rem, 2.2vw, 2rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: var(--graphite);
+    margin-bottom: 1.5rem;
+  }
+  .nav-contact-role {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--clay);
+    margin-bottom: 0.7rem;
+  }
+  .nav-contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  .nav-contact-links a {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--graphite);
+    text-decoration: none;
+    letter-spacing: -0.005em;
+    transition: color 0.2s ease;
+    padding: 0.4rem 0;
+  }
+  .nav-contact-links a:hover { color: var(--flame); }
+
+  .nav-lang {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+  .lang-btn {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--clay);
+    padding: 0.5rem 0;
+    cursor: pointer;
+    border: 0;
+    background: none;
+    transition: color 0.2s ease;
+  }
+  .lang-btn:hover { color: var(--graphite); }
+  .lang-btn--active { color: var(--graphite); }
+  .lang-sep {
+    color: var(--clay);
+    opacity: 0.5;
+    font-size: 0.78rem;
+    user-select: none;
+  }
+
+  /* ============================================================
+     LIGHTBOX — Faas 3.2 (galerii suurendus, B-layout: bottom-control-bar)
+     Skelett kanooniline: .lightbox, .lightbox-stage, .lightbox-img,
+       .lightbox-close, .lightbox-prev, .lightbox-next, .lightbox-counter
+     Bentley layout: pilt üleval-keskel, controls flush-row all servas.
+     Z-index 60 = üle nav-menu (40) ja brand-bar (50).
+     Default-OPEN Faas 3 review'ks; Faas 4 lisab JS-i + click-on-thumb.
+     ============================================================ */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: rgba(27, 24, 20, 0.96);
+    display: flex;
+    flex-direction: column;
+  }
+  .lightbox[aria-hidden="true"] { display: none; }
+
+  .lightbox-stage {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem var(--gutter) 2rem;
+    min-height: 0;
+  }
+  .lightbox-frame {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 0;
+    gap: 1rem;
+  }
+  .lightbox-img {
+    max-width: 100%;
+    min-height: 0;
+    flex: 1 1 auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .lightbox-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem var(--gutter) 2.25rem;
+    color: var(--bone);
+    gap: 1.4rem;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: var(--gutter);
+    z-index: 2;
+  }
+
+  .lightbox-close {
+    width: 44px;
+    height: 44px;
+    background: none;
+    color: var(--bone);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  .lightbox-close:hover {
+    color: var(--flame);
+  }
+  .lightbox-close:focus,
+  .lightbox-close:focus-visible {
+    outline: none;
+  }
+  .lightbox-close:focus-visible {
+    color: var(--flame);
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: 0;
+    color: var(--bone);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  .lightbox-prev:hover,
+  .lightbox-next:hover {
+    color: var(--flame);
+  }
+
+  .lightbox-close svg,
+  .lightbox-prev svg,
+  .lightbox-next svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .lightbox-counter {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--bone);
+    min-width: 6em;
+    justify-content: center;
+  }
+  .lightbox-counter-current { color: var(--flame); }
+  .lightbox-counter-sep { opacity: 0.5; }
+  .lightbox-counter-total { opacity: 0.65; }
+
+  /* Progress-rada — 1px hairline pildi all, kasvab vasakult paremale
+     kui kasutaja kerib läbi galeriid. Kaks kihti (track + fill).
+     Faas 4-s: JS sünkroniseerib `.lightbox-progress-fill` width counter'iga. */
+  .lightbox-progress {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    background: rgba(232, 226, 214, 0.15);
+  }
+  .lightbox-progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--flame);
+    transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: width;
+  }
+
+  /* ============================================================
+     BOOKING MODAL — Faas 3.3 (A: centered card, dim backdrop)
+     3-pane voog: visit-type → form (custom date+time picker) → success
+     Faas 3 staatiline: kõik paneelid stacked review'ks; Faas 4 JS hides 2-3.
+     ============================================================ */
+  .booking-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    background: rgba(27, 24, 20, 0.72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--gutter);
+    overflow-y: auto;
+  }
+  .booking-overlay[aria-hidden="true"] { display: none; }
+
+  .booking-modal {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    max-height: 90vh;
+    background: var(--bone);
+    padding: 3.5rem 3rem 3rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .booking-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: 0;
+    color: var(--graphite);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+  }
+  .booking-close:hover { color: var(--flame); }
+  .booking-close svg { width: 16px; height: 16px; }
+
+  .booking-progress {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0 auto;
+  }
+  .booking-step-dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(27, 24, 20, 0.15);
+    border-radius: 50%;
+    transition: background 0.3s ease;
+  }
+  .booking-step-dot--active { background: var(--flame); }
+  .booking-step-line {
+    width: 48px;
+    height: 1px;
+    background: rgba(27, 24, 20, 0.15);
+  }
+
+  .booking-pane {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  /* Faas 4 JS — ainult üks paneel nähtav korraga */
+  .booking-pane[aria-hidden="true"] { display: none; }
+
+  .booking-pane-title {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--graphite);
+  }
+
+  .booking-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .booking-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: rgba(27, 24, 20, 0.04);
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: left;
+    position: relative;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .booking-card:hover { border-color: var(--flame); }
+  .booking-card[aria-pressed="true"] {
+    border-color: var(--flame);
+    background: rgba(194, 89, 40, 0.06);
+  }
+  .booking-card-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--graphite);
+  }
+  .booking-card-desc {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--clay);
+  }
+  .booking-card-check {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 18px;
+    height: 18px;
+    border: 1px solid rgba(27, 24, 20, 0.22);
+    border-radius: 50%;
+  }
+  .booking-card[aria-pressed="true"] .booking-card-check {
+    background: var(--flame);
+    border-color: var(--flame);
+  }
+
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .booking-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .booking-field label {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    color: var(--clay);
+  }
+  .booking-field input,
+  .booking-textarea {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--graphite);
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(27, 24, 20, 0.18);
+    padding: 0.6rem 0;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .booking-field input:focus,
+  .booking-textarea:focus { border-color: var(--flame); }
+  .booking-textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  .booking-error {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--flame);
+  }
+
+  /* Custom date-picker */
+  .date-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding-top: 0.5rem;
+  }
+  .date-picker-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .date-picker-prev,
+  .date-picker-next {
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: var(--graphite);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+  }
+  .date-picker-prev:hover,
+  .date-picker-next:hover { color: var(--flame); }
+  .date-picker-prev svg,
+  .date-picker-next svg { width: 14px; height: 14px; }
+  .date-picker-month {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: -0.005em;
+    color: var(--graphite);
+  }
+  .date-picker-weekdays,
+  .date-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.3rem;
+  }
+  .date-picker-weekdays span {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--clay);
+  }
+  .date-picker-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--graphite);
+    background: none;
+    border: 0;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .date-picker-day:hover { background: rgba(27, 24, 20, 0.06); }
+  .date-picker-day--selected {
+    background: var(--flame);
+    color: var(--bone);
+  }
+  .date-picker-day--empty {
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  /* Time-picker */
+  .time-picker {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+  }
+  .time-picker-option {
+    padding: 0.95rem 0.6rem;
+    background: rgba(27, 24, 20, 0.04);
+    border: 1px solid transparent;
+    font-family: var(--font-body);
+    font-size: 0.76rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--graphite);
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .time-picker-option:hover { border-color: var(--flame); }
+  .time-picker-option[aria-pressed="true"] {
+    border-color: var(--flame);
+    background: rgba(194, 89, 40, 0.08);
+  }
+
+  .booking-submit { margin-top: 0.5rem; align-self: flex-start; }
+
+  /* Pane 3 — success */
+  .booking-success {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+    text-align: center;
+  }
+  .booking-success-mark {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--flame);
+    color: var(--bone);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+  .booking-success-mark svg { width: 22px; height: 22px; }
+  .booking-success p {
+    font-family: var(--font-body);
+    color: var(--clay);
+    max-width: 26em;
+    line-height: 1.5;
+  }
+  .booking-summary {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 1.5rem;
+    margin: 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(27, 24, 20, 0.12);
+  }
+  .booking-summary dt {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--clay);
+  }
+  .booking-summary dd {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--graphite);
+    margin: 0;
+  }
+
+  @media (max-width: 720px) {
+    .booking-modal { padding: 3rem 1.5rem 2rem; }
+    .booking-cards { grid-template-columns: 1fr; }
+    .booking-step-line { width: 36px; }
+    .time-picker { grid-template-columns: 1fr; }
+  }
+
+  /* ============================================================
+     FHW WIDGET — Faas 3.4 (A: pill-nupp + Bentley diamond-mesh ikoon)
+     Paremas alanurgas: pill-button + teaser-bubble + panel (KKK/Küsi tab).
+     Default Faas 3 staatiline: panel OPEN, teaser HIDDEN, btn visible.
+     z-index 75 review'ks (Faas 6 võib alandada 35-le).
+     ============================================================ */
+  #fhw-root {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 75;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.85rem;
+    max-width: calc(100vw - 3rem);
+  }
+  /* Sticky scroll-fade: peidetud hero'le, ilmub Hook-sektsiooni sisenedes.
+     JS-driven, set initial state via html.js et vältida FOUC'i. */
+  html.js #fhw-root {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(10px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.js #fhw-root { transform: none; }
+  }
+
+  .fhw-panel {
+    width: 380px;
+    max-width: 100%;
+    max-height: 70vh;
+    background: var(--bone);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(27, 24, 20, 0.08);
+  }
+  .fhw-panel[aria-hidden="true"] { display: none; }
+
+  .fhw-panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.15rem 1.5rem;
+    border-bottom: 1px solid rgba(27, 24, 20, 0.1);
+  }
+  .fhw-panel-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--graphite);
+  }
+  .fhw-panel-close {
+    width: 44px; height: 44px;
+    background: none; border: 0;
+    color: var(--clay);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    margin: -8px -8px -8px 0; /* offset suurem hit-area visuaalselt ilma kujundust muutmata */
+  }
+  .fhw-panel-close:hover { color: var(--flame); }
+
+  .fhw-booking-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+    background: rgba(194, 89, 40, 0.06);
+    border: 0;
+    text-align: left;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(27, 24, 20, 0.08);
+    transition: background 0.2s ease;
+  }
+  .fhw-booking-card:hover { background: rgba(194, 89, 40, 0.1); }
+  .fhw-booking-card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .fhw-booking-card-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--flame);
+  }
+  .fhw-booking-card-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--graphite);
+  }
+  .fhw-booking-card-arrow { color: var(--flame); flex-shrink: 0; }
+
+  .fhw-tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(27, 24, 20, 0.08);
+  }
+  .fhw-tab {
+    flex: 1;
+    background: none;
+    border: 0;
+    padding: 0.95rem;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--clay);
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .fhw-tab[aria-selected="true"] {
+    color: var(--graphite);
+    border-bottom-color: var(--flame);
+  }
+
+  .fhw-tab-panel {
+    flex: 1;
+    overflow-y: auto;
+  }
+  .fhw-tab-panel[aria-hidden="true"] { display: none; }
+
+  .fhw-faq { display: flex; flex-direction: column; }
+  .fhw-faq-item { border-bottom: 1px solid rgba(27, 24, 20, 0.08); }
+  .fhw-faq-item:last-child { border-bottom: 0; }
+  .fhw-faq-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.95rem 1.5rem;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: 0.86rem;
+    font-weight: 500;
+    color: var(--graphite);
+    gap: 1rem;
+  }
+  .fhw-faq-icon {
+    flex-shrink: 0;
+    color: var(--clay);
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+  .fhw-faq-trigger[aria-expanded="true"] .fhw-faq-icon { color: var(--flame); }
+  /* Faas 4.6 — smooth collapse via max-height (JS-managed) */
+  /* Faas 5.5 lisand — clip-path mask sweep paralleelselt max-height'iga */
+  .fhw-faq-content {
+    overflow: hidden;
+    max-height: 0;
+    padding: 0 1.5rem;
+    transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                clip-path 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--clay);
+  }
+  html.js .fhw-faq-content {
+    clip-path: inset(0 100% 0 0);
+  }
+  .fhw-faq-content > .fhw-faq-inner {
+    padding-bottom: 1rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fhw-faq-content { transition: none; }
+    html.js .fhw-faq-content { clip-path: none; }
+  }
+
+  .fhw-tab-chat {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--clay);
+    line-height: 1.5;
+  }
+
+  .fhw-teaser {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.85rem 1rem 0.85rem 1.25rem;
+    background: var(--graphite);
+    color: var(--bone);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    max-width: 280px;
+  }
+  .fhw-teaser[aria-hidden="true"] { display: none; }
+  .fhw-teaser-close {
+    background: none;
+    border: 0;
+    color: var(--bone);
+    opacity: 0.65;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  .fhw-teaser-close:hover { opacity: 1; }
+
+  /* Pill-nupp + Bentley diamond-mesh ikoon (eristub Urus/Mercedes hexagonist) */
+  .fhw-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    height: 56px;
+    padding: 0 1.5rem;
+    background: var(--graphite);
+    color: var(--bone);
+    border: 0;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    transition: background 0.2s ease;
+  }
+  .fhw-btn:hover { background: #25211c; }
+  .fhw-btn-mesh {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    color: var(--flame);
+  }
+
+  @media (max-width: 540px) {
+    #fhw-root {
+      bottom: 1rem;
+      right: 1rem;
+      left: 1rem;
+      max-width: none;
+      align-items: stretch;
+    }
+    .fhw-panel { width: 100%; max-height: 75vh; }
+    .fhw-btn { align-self: flex-end; }
+    .fhw-teaser { max-width: 100%; }
+  }
+
+  /* ============================================================
+     HERO — Split layout (text 5/12 left, image 7/12 right).
+     Kasutamata layout-muster (vs Urus full-bleed, vs Mercedes alanurka).
+     Canonical naming: section.hero#hero, .hero-image, .hero-content,
+       .hero-headline (.hero-eyebrow > .inner + .hero-title > .line > .inner),
+       .hero-meta > .hero-meta-left + .hero-price-block
+     ============================================================ */
+  .hero {
+    min-height: 100vh;
+    background: var(--bone);
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-media {
+    grid-column: 2;
+    grid-row: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    background-image: url('images/hero.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero-content {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 7rem var(--gutter) 2.5rem var(--gutter);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-headline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.85rem;
+    margin-top: auto;
+    margin-bottom: 2rem;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--clay);
+    overflow: hidden;
+  }
+  .hero-eyebrow .inner { display: inline-block; }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(4rem, 9.5vw, 11rem);
+    line-height: 0.88;
+    letter-spacing: -0.028em;
+    color: var(--graphite);
+  }
+  .hero-title .line {
+    display: block;
+    overflow: hidden;
+  }
+  .hero-title .line .inner { display: inline-block; }
+  .hero-title .line:nth-child(2)
+
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .hero-meta-left {
+    font-family: var(--font-body);
+    font-size: clamp(0.9rem, 1vw, 1rem);
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--graphite);
+    max-width: 22em;
+  }
+
+  .hero-price-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    text-align: right;
+  }
+  .hero-price-label {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--clay);
+  }
+  .hero-price {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.3rem, 1.7vw, 1.7rem);
+    letter-spacing: -0.012em;
+    color: var(--brass-dim);
+    line-height: 1;
+  }
+  .hero-price-vat {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 400;
+    color: var(--clay);
+    margin-left: 0.6em;
+    letter-spacing: 0.05em;
+  }
+
+  /* ============================================================
+     HOOK + SPECS — üks sektsioon (Mercedes-mall, Urus-spec-card-skelett).
+     section.hook#ulevaade > .hook-inner
+       > .section-mesh (Bentley signature SVG)
+       > h2.hook-statement (.em rõhuarvudele)
+       > .spec-cards > 8× .spec-card (.spec-icon + .spec-content > .spec-label + .spec-value)
+     ============================================================ */
+  .hook {
+    min-height: 100vh;
+    padding: 7rem var(--gutter) 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--bone);
+    position: relative;
+  }
+
+  .hook-inner {
+    max-width: 1240px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+
+  /* Bentley signature mark — diamond-mesh hairline (grille echo).
+     Sama roll kui Mercedes .section-grille, Urus .divider. */
+  .section-mesh {
+    width: 120px;
+    height: 14px;
+    color: var(--clay);
+    opacity: 0.7;
+  }
+
+  .hook-statement {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(1.7rem, 3.1vw, 3.2rem);
+    line-height: 1.22;
+    letter-spacing: -0.012em;
+    color: var(--graphite);
+    max-width: 22em;
+  }
+  .hook-statement .em {
+    color: var(--flame);
+    font-weight: 800;
+    font-variant-numeric: lining-nums;
+  }
+
+  /* Spec-cards — 4×2 grid hairline'idega (mitte gap'idega).
+     Card-skelett Urus järgi: .spec-icon + .spec-content > .spec-label + .spec-value */
+  .spec-cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 1rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .spec-card {
+    padding: 1.85rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    position: relative;
+    border-left: 1px solid var(--line);
+  }
+  .spec-card:nth-child(4n+1) { border-left: 0; }
+  .spec-card:nth-child(n+5) { border-top: 1px solid var(--line); }
+
+  .spec-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--flame);
+    stroke: currentColor;
+    stroke-width: 1.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+
+  .spec-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .spec-label {
+    font-family: var(--font-body);
+    font-size: 0.66rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--clay);
+  }
+  .spec-value {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: -0.005em;
+    color: var(--graphite);
+    line-height: 1.2;
+  }
+  .spec-value-accent {
+    color: var(--flame);
+  }
+
+  /* ============================================================
+     STORY — Two-column quote-led layout (kasutamata muster vs Urus & Mercedes).
+     Komponendi-skelett kanooniline: .story, .story-inner, .story-title, .em,
+       .story-text, .accent, .story-media, .story-image, .es-player, .es-btn,
+       .es-info, .es-label, .es-sub, .es-cylinders, .es-cyl, .es-cyl-fire, .es-error, #es-audio.
+     Layout-paigutus: 2-col title|paragraph row + content-width foto all
+       + Bentley V8 cylinder-bank es-player (8 silindrit, firing order 1-8-4-3-6-5-7-2).
+     ============================================================ */
+  .story {
+    min-height: 100vh;
+    padding: 7rem var(--gutter) 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--bone);
+    position: relative;
+  }
+
+  .story-inner {
+    max-width: 1240px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .story-body {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .story-text-lead {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .story-title {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(1.85rem, 3.4vw, 3.6rem);
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    color: var(--graphite);
+    max-width: 14em;
+  }
+  .story-title .em {
+    color: var(--flame);
+    font-weight: 800;
+    font-variant-numeric: lining-nums;
+  }
+
+  .story-text {
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--graphite);
+    padding-top: 1.6rem;
+  }
+  .story-text p { max-width: 30em; }
+  .story-text p + p { margin-top: 1.2rem; }
+  .story-text .accent {
+    color: var(--graphite);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  /* Story media — max-width matches .story-inner (1240px), not viewport */
+  .story-media {
+    width: 100%;
+    margin: 0;
+  }
+  .story-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Engine-sound player — Bentley V8 cylinder bank.
+     8 vertikaalset silindrit süttivad crossplane firing-order järgi 1-8-4-3-6-5-7-2.
+     Kandiline switchgear-nupp (mitte ring) eristub Mercedes'i ringnupust. */
+  .es-player {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 1.4rem 1.6rem;
+    width: 100%;
+    position: relative;
+  }
+
+  .es-btn {
+    width: 48px; height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--graphite);
+    color: var(--bone);
+    border-radius: 2px;
+    position: relative;
+    transition: background 0.35s ease;
+  }
+  .es-btn:hover { background: #0e0e0e; }
+  .es-btn .es-icon-play,
+  .es-btn .es-icon-pause {
+    width: 18px;
+    height: 18px;
+    color: currentColor;
+    transition: color 0.35s ease;
+  }
+  .es-btn:hover .es-icon-play,
+  .es-btn:hover .es-icon-pause,
+  .es-btn:focus-visible .es-icon-play,
+  .es-btn:focus-visible .es-icon-pause {
+    color: var(--flame);
+  }
+  .es-btn .es-icon-play { display: block; margin-left: 2px; }
+  .es-btn .es-icon-pause { display: none; }
+  .es-btn.is-playing .es-icon-play { display: none; }
+  .es-btn.is-playing .es-icon-pause { display: block; margin-left: 0; }
+
+  .es-info {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .es-label {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--graphite);
+  }
+  .es-sub {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--clay);
+  }
+
+  /* V8 cylinder bank — 8 püstist silindrit, "süttivad" alt-üles flame-värvis */
+  .es-cylinders {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    gap: 6px;
+    height: 48px;
+    padding-left: 0.4rem;
+    position: relative;
+  }
+  .es-cyl {
+    position: relative;
+    flex: 0 1 40px;
+    width: 40px;
+    min-width: 2px;
+    background: var(--line);
+    overflow: hidden;
+    opacity: 0.75;
+    transition: opacity 0.45s ease;
+  }
+  .es-cyl::before {
+    /* spark-plug tip — peen detail iga silindri kohale */
+    content: '';
+    position: absolute;
+    top: -4px; left: 50%;
+    width: 2px; height: 4px;
+    background: var(--graphite);
+    transform: translateX(-50%);
+    opacity: 0.6;
+  }
+  .es-cyl-fire {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 80%;
+    background: var(--flame);
+    transform-origin: bottom center;
+    transform: scaleY(0.05);
+  }
+  .es-player.is-playing .es-cyl { opacity: 1; }
+  .es-player.is-playing .es-cyl-fire {
+    animation: es-cyl-fire 0.8s linear infinite;
+  }
+  /* Crossplane V8 firing order 1-8-4-3-6-5-7-2 jagatud 0.8s tsükli vahel */
+  .es-player.is-playing .es-cyl:nth-child(1) .es-cyl-fire { animation-delay: 0.00s; }
+  .es-player.is-playing .es-cyl:nth-child(2) .es-cyl-fire { animation-delay: 0.70s; }
+  .es-player.is-playing .es-cyl:nth-child(3) .es-cyl-fire { animation-delay: 0.30s; }
+  .es-player.is-playing .es-cyl:nth-child(4) .es-cyl-fire { animation-delay: 0.20s; }
+  .es-player.is-playing .es-cyl:nth-child(5) .es-cyl-fire { animation-delay: 0.50s; }
+  .es-player.is-playing .es-cyl:nth-child(6) .es-cyl-fire { animation-delay: 0.40s; }
+  .es-player.is-playing .es-cyl:nth-child(7) .es-cyl-fire { animation-delay: 0.60s; }
+  .es-player.is-playing .es-cyl:nth-child(8) .es-cyl-fire { animation-delay: 0.10s; }
+  @keyframes es-cyl-fire {
+    0%   { transform: scaleY(0.08); }
+    8%   { transform: scaleY(1); }
+    22%  { transform: scaleY(0.45); }
+    35%  { transform: scaleY(0.12); }
+    100% { transform: scaleY(0.08); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .es-player.is-playing .es-cyl-fire { animation: none; transform: scaleY(0.55); }
+  }
+
+  .es-error {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: var(--clay);
+  }
+
+  /* ============================================================
+     GALLERY — Diagonal staggered grid (kasutamata muster vs Urus & Mercedes)
+     Komponendi-skelett (Mercedes-evolved): .gallery, .gallery-inner, .gallery-head,
+       .gallery-title, .gallery-intro, .gallery-grid, .gallery-item (figure),
+       .g-img, .gallery-hover-icon (Faas 4-s lisame zoom-ikooni hover-state).
+     Layout-paigutus: 4 vertikaalset veergu offset top-padding'utega (0 / 5rem / 2rem / 7rem)
+       loob diagonaalse cascade'i. Pildid säilitavad natiivse aspect-ratio (<img>).
+     ============================================================ */
+  .gallery {
+    padding: 7rem var(--gutter) 7rem;
+    background: var(--bone);
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .gallery-inner {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .gallery-head {
+    margin-bottom: 4rem;
+    max-width: 38em;
+  }
+
+  .gallery-title {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(2rem, 4vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--graphite);
+    margin-bottom: 1.25rem;
+  }
+
+  .gallery-intro {
+    font-family: var(--font-body);
+    font-size: clamp(0.92rem, 1vw, 1rem);
+    font-weight: 400;
+    color: var(--clay);
+    line-height: 1.6;
+  }
+
+  .gallery-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .gallery-slides {
+    position: relative;
+    height: clamp(480px, 55vw, 720px);
+    overflow: hidden;
+  }
+
+  .gallery-slide {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+  }
+
+  .gallery-slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.3s ease;
+  }
+
+  .g-left {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .g-top {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .g-bot {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .g-right {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+
+  .gallery-item {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    cursor: zoom-in;
+  }
+
+  .gallery-item .g-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* Hover-icon — üles-paremasse nurka, sujuv diagonal entry */
+  .gallery-hover-icon {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(27, 24, 20, 0.78);
+    color: var(--bone);
+    border-radius: 2px;
+    opacity: 0;
+    transform: translate(6px, -6px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .gallery-item:hover .gallery-hover-icon,
+  .gallery-item:focus-visible .gallery-hover-icon {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  .gallery-hover-icon svg { width: 16px; height: 16px; }
+
+  .gallery-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .gallery-controls .lightbox-prev,
+  .gallery-controls .lightbox-next {
+    color: var(--graphite);
+  }
+
+  .gallery-controls .lightbox-prev:hover,
+  .gallery-controls .lightbox-next:hover,
+  .gallery-controls .lightbox-prev:focus-visible,
+  .gallery-controls .lightbox-next:focus-visible {
+    color: var(--flame);
+  }
+
+  .gallery-progress {
+    width: 100px;
+    height: 1px;
+    background: rgba(27, 24, 20, 0.15);
+    overflow: hidden;
+  }
+
+  .gallery-progress-fill {
+    display: block;
+    width: 16.6667%;
+    height: 100%;
+    background: var(--graphite);
+    transition: width 0.3s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-slide,
+    .gallery-slide.is-active,
+    .gallery-hover-icon,
+    .gallery-progress-fill {
+      transition: none;
+    }
+  }
+
+  /* ============================================================
+     ADP — Konfiguratsioon, tehnika, ostuinfo (kanooniline 3-accordion'i set)
+     Komponendi-skelett: .adp, .adp-inner, .adp-head, .adp-title, .adp-intro,
+       .accordion-set, .accordion[data-accordion], .accordion-trigger,
+       .accordion-label, .accordion-icon, .accordion-content, .accordion-panel-body,
+       .tech-grid > .tech-item (.tech-label + .tech-value),
+       .equipment-categories > .equipment-category (.equipment-cat-title + .equipment-list),
+       .description-section > .description-copy (.description-text .accent) + .purchase-facts > .purchase-fact (.purchase-label + .purchase-value)
+     Layout-valikud Bentley:
+       - Plus/miinus ikoon (Urus + Mercedes = chevron — visuaalne erinevus)
+       - Default-OPEN Faas 2 review'ks
+       - Mulliner-tellimus eraldi kategooria esimesena
+     ============================================================ */
+  .adp {
+    padding: 7rem var(--gutter) 7rem;
+    background: var(--bone);
+    position: relative;
+  }
+
+  .adp-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .adp-head {
+    margin-bottom: 4rem;
+    max-width: 38em;
+  }
+  .adp-title {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(2rem, 4vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--graphite);
+    margin-bottom: 1.25rem;
+  }
+  .adp-intro {
+    font-family: var(--font-body);
+    font-size: clamp(0.92rem, 1vw, 1rem);
+    line-height: 1.6;
+    color: var(--clay);
+  }
+
+  .accordion-set {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+
+  .accordion {
+    border-bottom: 1px solid var(--line);
+  }
+  .accordion[data-accordion="purchase"] {
+    transition: border-bottom-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .accordion[data-accordion="purchase"]:has(.accordion-trigger[aria-expanded="true"]) {
+    border-bottom-color: transparent;
+  }
+
+  .accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.25rem 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    text-align: left;
+    color: var(--graphite);
+    gap: 2rem;
+  }
+
+  .accordion-label {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(1.4rem, 2.4vw, 2.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    transition: color 0.25s ease;
+  }
+  .accordion-trigger[aria-expanded="true"] .accordion-label {
+    color: var(--flame);
+  }
+
+  /* Plus/miinus icon — Bentley layout-valik (Urus & Mercedes kasutavad chevron) */
+  .accordion-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: var(--graphite);
+    transition: color 0.25s ease;
+  }
+  .accordion-trigger:hover .accordion-icon,
+  .accordion-trigger:focus-visible .accordion-icon {
+    color: var(--flame);
+  }
+  .accordion-icon .plus-v {
+    transform-origin: center;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .accordion-trigger[aria-expanded="true"] .accordion-icon .plus-v {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+
+  /* Faas 4.6 — smooth height-collapse via max-height (JS-managed) */
+  /* Faas 5.5 lisand — clip-path mask sweep paralleelselt max-height'iga */
+  .accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                clip-path 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  html.js .accordion-content {
+    clip-path: inset(0 100% 0 0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .accordion[data-accordion="purchase"] { transition: none; }
+    .accordion-content { transition: none; }
+    html.js .accordion-content { clip-path: none; }
+  }
+
+  .accordion-panel-body {
+    padding: 0 0 3rem 0;
+  }
+
+  /* Tech-grid */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem 3.5rem;
+  }
+  .tech-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .tech-item::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--flame);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  .tech-item:hover::after {
+    transform: scaleX(1);
+  }
+  .tech-item:nth-last-child(-n+2) {
+    border-bottom: 0;
+  }
+  .tech-item:nth-last-child(-n+2)::after {
+    display: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tech-item::after { transition: none; }
+  }
+  .tech-label {
+    font-family: var(--font-body);
+    font-size: 0.86rem;
+    color: var(--clay);
+  }
+  .tech-value {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--graphite);
+    text-align: right;
+    letter-spacing: -0.005em;
+  }
+
+  /* Equipment categories */
+  .equipment-categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 3rem;
+  }
+  .equipment-category {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  .equipment-cat-title {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    color: var(--clay);
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .equipment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--graphite);
+    line-height: 1.45;
+  }
+  .equipment-list li {
+    position: relative;
+    padding-left: 0.85rem;
+  }
+  .equipment-list li::before {
+    content: '';
+    position: absolute;
+    top: 0.65em;
+    left: 0;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: currentColor;
+    transition: background 0.25s ease;
+  }
+  .equipment-list li:hover::before {
+    background: var(--flame);
+  }
+
+  /* Description + purchase facts */
+  .description-section {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .description-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .description-text {
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+    line-height: 1.65;
+    color: var(--graphite);
+    max-width: 36em;
+  }
+  .description-text .accent {
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--graphite);
+  }
+  .purchase-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  .purchase-fact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .purchase-fact::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--flame);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  .purchase-fact:hover::after {
+    transform: scaleX(1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .purchase-fact::after { transition: none; }
+  }
+  .purchase-label {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    color: var(--clay);
+  }
+  .purchase-value {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--graphite);
+    letter-spacing: -0.005em;
+  }
+  .purchase-value--price {
+    font-size: 1.7rem;
+    color: var(--flame);
+  }
+
+  /* ============================================================
+     WELLNESS — Azure-spetsiifiline editorial sektsioon (Bentley-only)
+     Item-specific deep-dive (per SKILL.md). Bentley Azure variant'i
+     keskne väärtus on Wellness — postural istmed, õhupuhastus, Dynamic Ride.
+     Skelett uus aga klassinime-konventsioon kanooniline:
+       .wellness, .wellness-inner, .wellness-head (.wellness-title + .wellness-intro),
+       .wellness-rows > .wellness-row > .wellness-icon + .wellness-text
+         (.wellness-row-title + .wellness-row-body)
+     ============================================================ */
+  .wellness {
+    padding: 7rem var(--gutter) 7rem;
+    background: var(--bone);
+    position: relative;
+  }
+
+  .wellness-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Sketch — sektsiooni avapilt, max-width = wellness-inner */
+  .wellness-sketch {
+    width: 100%;
+    margin: 0 0 clamp(3.5rem, 7vw, 6rem);
+  }
+  .wellness-sketch img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .wellness-head {
+    width: min(100%, calc(980px - (var(--gutter) * 2)));
+    margin-bottom: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .wellness-title {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(2rem, 4vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--graphite);
+    margin-bottom: 1.25rem;
+  }
+  .wellness-title .em {
+    color: var(--flame);
+    font-weight: 800;
+  }
+  .wellness-intro {
+    font-family: var(--font-body);
+    font-size: clamp(0.92rem, 1vw, 1rem);
+    line-height: 1.6;
+    color: var(--clay);
+    max-width: 36em;
+  }
+
+  .wellness-rows {
+    width: min(100%, calc(980px - (var(--gutter) * 2)));
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+
+  .wellness-row {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 2.5rem;
+    padding: 2.75rem 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .wellness-row[data-wellness-image="images/ride.png"] {
+    border-bottom: 0;
+  }
+
+  .wellness-icon {
+    width: 38px;
+    height: 38px;
+    max-height: 38px;
+    color: var(--flame);
+    stroke: currentColor;
+    stroke-width: 0.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+
+  .wellness-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    max-width: 30em;
+  }
+
+  .wellness-row-title {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(1.4rem, 2.2vw, 2rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--graphite);
+  }
+
+  .wellness-row-body {
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+    line-height: 1.65;
+    color: var(--graphite);
+  }
+  .wellness-row-body .accent {
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--graphite);
+  }
+
+  .wellness-hover-preview {
+    display: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .wellness-rows {
+      position: relative;
+    }
+    .wellness-hover-preview {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 30;
+      width: 160px;
+      height: 160px;
+      border-radius: 8px;
+      box-shadow: 0 18px 44px rgba(27, 24, 20, 0.22);
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 0;
+      transform: translate3d(-999px, -999px, 0);
+      transition: opacity 0.3s ease;
+      will-change: transform, opacity;
+    }
+    .wellness-hover-preview.is-visible {
+      opacity: 1;
+    }
+    .wellness-hover-preview img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .wellness-hover-preview img.is-active {
+      opacity: 1;
+    }
+  }
+
+
+  /* ============================================================
+     CONTACT — Faas 2.10 (paranduspass: graphite bg + subtle foto + invert text)
+     Üks isik (Kristjan Uuk). Bentley layout = vertikaalne editorial stack.
+     Värvid invert'itud bone bg-lt graphite bg-le (kasutades olemasolevaid token'eid
+     + bone-opacity variandid muted-tooni jaoks). CTA invert (bone block).
+     ============================================================ */
+  .contact {
+    background: var(--graphite);
+    color: var(--bone);
+    padding: 7rem 0 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Subtle footer-foto atmosfäärilise tausta jaoks */
+  .contact-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('images/footer.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.07;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .contact-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 var(--gutter) 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2.5rem;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+  }
+
+  .contact-title {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(2.2rem, 5vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--bone);
+    max-width: 10em;
+  }
+  .contact-title .em {
+    color: var(--flame);
+    font-weight: 800;
+  }
+
+  .contact-lede {
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+    line-height: 1.6;
+    color: var(--bone);
+    opacity: 0.65;
+    max-width: 36em;
+  }
+
+  .contact-card {
+    margin-top: 1rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid rgba(232, 226, 214, 0.15);
+    border-bottom: 1px solid rgba(232, 226, 214, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .contact-org {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--bone);
+    opacity: 0.55;
+    margin-bottom: 0.85rem;
+  }
+  .contact-name {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.018em;
+    color: var(--bone);
+    margin-bottom: 1.5rem;
+  }
+  .contact-role {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--bone);
+    opacity: 0.65;
+    margin-bottom: 1.1rem;
+  }
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--bone);
+  }
+  .contact-info-link {
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--bone);
+    letter-spacing: -0.005em;
+    transition: color 0.2s ease;
+    padding: 0.4rem 0;
+  }
+  .contact-info-link:hover { color: var(--flame); }
+
+  .contact-ctas {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  /* Share-button — secondary action primary-CTA all (universaalreegel listing'utes) */
+  .contact-share {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.6em;
+    padding: 0.4em 0;
+    font-family: var(--font-body);
+    font-size: 0.74rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: rgba(232, 226, 214, 0.65);
+    transition: color 0.35s ease;
+  }
+  .contact-share-icon { flex-shrink: 0; transition: transform 0.35s ease; }
+  .contact-share:hover { color: var(--flame); }
+  .contact-share:hover .contact-share-icon { transform: translateX(3px); }
+  .contact-share.is-success { color: var(--flame); cursor: default; }
+  .contact-share.is-success .contact-share-icon { display: none; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85em;
+    padding: 1.45em 2.85em;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: var(--graphite);
+    background: var(--bone);
+    border: 1px solid var(--bone-deep);
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    isolation: isolate;
+    transition: color 0.55s ease, border-color 0.55s ease;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--flame);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.55s cubic-bezier(0.76, 0, 0.24, 1);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .btn-primary:hover {
+    color: var(--bone);
+    border-color: var(--flame);
+  }
+  .btn-primary:hover::before {
+    transform: scaleY(1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary { transition: color 0.2s ease, border-color 0.2s ease; }
+    .btn-primary::before { transition: none; }
+  }
+
+  .contact-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.6rem var(--gutter);
+    color: var(--bone);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+     ============================================================ */
+  @media (max-width: 980px) {
+    :root { --gutter: 1.5rem; }
+
+    .brand-bar { padding: 1.1rem var(--gutter); }
+    .brand-bar-left { font-size: 0.62rem; letter-spacing: 0.2em; }
+    .hero {
+      grid-template-columns: 1fr;
+      grid-template-rows: 50vh auto;
+      min-height: 100vh;
+    }
+    .hero-media { grid-column: 1; grid-row: 1; }
+    .hero-content {
+      grid-column: 1;
+      grid-row: 2;
+      padding: 2.5rem var(--gutter) 2rem;
+      gap: 2rem;
+    }
+    .hero-headline { gap: 1.3rem; margin: 0; }
+    .hero-title { font-size: clamp(3rem, 13vw, 5.5rem); }
+    .hero-title .line:nth-child(2) { padding-left: 1.4em; }
+    .hero-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding-top: 1.5rem;
+    }
+    .hero-price-block { align-items: flex-start; text-align: left; }
+
+    .hook { padding: 5rem var(--gutter) 4.5rem; }
+    .hook-inner { gap: 2.25rem; }
+    .hook-statement { font-size: clamp(1.4rem, 5.4vw, 2.4rem); max-width: 100%; }
+    .section-mesh { width: 96px; }
+
+    .gallery { padding: 5rem var(--gutter) 5rem; }
+    .gallery-head { margin-bottom: 2.5rem; }
+  }
+
+  @media (max-width: 860px) {
+    .story { padding: 5rem var(--gutter) 4.5rem; }
+    .story-inner { gap: 2.75rem; }
+    .story-body { grid-template-columns: 1fr; gap: 1.5rem; }
+    .story-title { font-size: clamp(1.6rem, 5.8vw, 2.6rem); max-width: 100%; }
+    .story-text { padding-top: 0; }
+    .story-text p { max-width: 100%; }
+  }
+
+  @media (max-width: 800px) {
+    .spec-cards { grid-template-columns: repeat(2, 1fr); }
+    .spec-card { padding: 1.4rem 1.1rem; gap: 1rem; }
+    .spec-card:nth-child(4n+1) { border-left: 1px solid var(--line); }
+    .spec-card:nth-child(2n+1) { border-left: 0; }
+    .spec-card:nth-child(n+3) { border-top: 1px solid var(--line); }
+  }
+
+  @media (max-width: 768px) {
+    .gallery-slides {
+      height: min(82vw, 560px);
+      min-height: 280px;
+    }
+
+    .gallery-slide {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
+
+    .gallery-slide .gallery-item {
+      display: none;
+    }
+
+    .gallery-slide .g-left {
+      display: block;
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-controls {
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .gallery-progress {
+      order: 3;
+      flex: 0 0 100px;
+    }
+
+    .contact-ctas {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .contact-ctas .btn-primary {
+      width: 100%;
+      justify-content: center;
+    }
+    .contact-ctas .contact-share {
+      align-self: center;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .adp { padding: 5rem var(--gutter) 5rem; }
+    .adp-head { margin-bottom: 2.5rem; }
+    .accordion-trigger { padding: 1.6rem 0; }
+    .accordion-label { font-size: 1.4rem; }
+    .accordion-panel-body { padding-bottom: 2rem; }
+
+    .wellness { padding: 5rem var(--gutter) 5rem; }
+    .wellness-head { margin-bottom: 2.5rem; }
+    .wellness-row { grid-template-columns: 48px 1fr; gap: 1.5rem; padding: 2rem 0; }
+    .wellness-icon { width: 36px; height: 36px; max-height: 38px; }
+
+    .contact { padding: 5rem 0 0; }
+    .contact-inner { gap: 2rem; padding-bottom: 3.5rem; }
+    .contact-title { font-size: clamp(1.8rem, 7vw, 3rem); }
+    .contact-card { padding: 2rem 0; }
+    .contact-name { font-size: clamp(1.5rem, 6vw, 2.2rem); }
+    .contact-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      padding: 1.5rem var(--gutter);
+    }
+    .btn-primary { padding: 1.25em 2rem; letter-spacing: 0.25em; }
+
+    .nav-menu { padding: 5rem var(--gutter) 2rem; }
+    .nav-menu-inner {
+      grid-template-columns: 1fr;
+      column-gap: 0;
+      row-gap: 3rem;
+      align-items: start;
+    }
+    .nav-sections, .nav-footer { grid-column: 1; }
+    .nav-sections a { font-size: clamp(2rem, 9vw, 4rem); }
+    .nav-footer { align-self: start; padding-bottom: 0; }
+
+    .lightbox-stage { padding: 3rem 1rem 1rem; }
+    .lightbox-bar { padding: 1rem var(--gutter) 1.5rem; gap: 1rem; }
+    .lightbox-close, .lightbox-prev, .lightbox-next { width: 44px; height: 44px; }
+  }
+
+  @media (max-width: 780px) {
+    .tech-grid { grid-template-columns: 1fr; gap: 0.5rem; }
+    .tech-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .tech-item:last-child { border-bottom: 0; }
+  }
+
+  @media (max-width: 760px) {
+    .equipment-categories { grid-template-columns: 1fr; gap: 1.8rem; }
+  }
+
+  @media (max-width: 740px) {
+    .description-section { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  @media (max-width: 540px) {
+    .hero-meta-left { font-size: 0.85rem; }
+    .spec-icon { width: 26px; height: 26px; }
+    .spec-value { font-size: 0.98rem; }
+  }
+
+  /* ============================================================
+     VIEWPORT-HEIGHT SCALING — narratiivsed sektsioonid shrinkivad pikkadel monitoridel
+     ============================================================ */
+  @media (min-height: 1300px) {
+    .hook { min-height: 78vh; }
+    .story { min-height: 78vh; }
+    .contact { min-height: 78vh; }
+  }
+  @media (min-height: 2000px) {
+    .hook { min-height: 58vh; }
+    .story { min-height: 58vh; }
+    .contact { min-height: 58vh; }
+  }
+
+  /* ============================================================
+     Faas 5.1 — Hero pin-cinema curtain
+     ============================================================ */
+  .hero-curtain {
+    position: absolute;
+    inset: 0;
+    background: var(--bone);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 1;
+  }
+  .hero-image { will-change: transform; transform-origin: center center; }
+  .hero-content { will-change: transform, filter; }
+
+  /* JS-driven entry — set initial states so no FOUC */
+  html.js .hero-eyebrow .inner,
+  html.js .hero-title .line .inner { transform: translateY(110%); }
+  html.js .hero-meta { opacity: 0; transform: translateY(20px); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-curtain { display: none; }
+    html.js .hero-eyebrow .inner,
+    html.js .hero-title .line .inner { transform: none; }
+    html.js .hero-meta { opacity: 1; transform: none; }
+  }
+
+  /* ============================================================
+     Faas 5.2 — Hook + Spec-grid: horisontaalne mask-sweep
+     Brand-coherent motion language:
+       - clip-path inset reveal (NOT opacity fade)
+       - letter-spacing settle on .em (käsitsi-graveeritud feel)
+       - SVG stroke-dashoffset draw-on (Bentley craftsmanship)
+     ============================================================ */
+  html.js .hook-statement,
+  html.js .spec-card {
+    --reveal-x: 100%;
+    clip-path: inset(0 var(--reveal-x) 0 0);
+    will-change: clip-path;
+  }
+  html.js .spec-icon path,
+  html.js .spec-icon line,
+  html.js .spec-icon circle,
+  html.js .spec-icon rect,
+  html.js .spec-icon polygon,
+  html.js .spec-icon polyline {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.js .hook-statement,
+    html.js .spec-card { clip-path: none; }
+    html.js .spec-icon path,
+    html.js .spec-icon line,
+    html.js .spec-icon circle,
+    html.js .spec-icon rect,
+    html.js .spec-icon polygon,
+    html.js .spec-icon polyline { stroke-dasharray: 0; stroke-dashoffset: 0; }
+  }
+
+  /* ============================================================
+     Faas 5.3 — Story (vertical mask paaridele + horizontal body)
+     ============================================================ */
+  html.js .section-mesh path {
+    stroke-dasharray: 30;
+    stroke-dashoffset: 30;
+  }
+  html.js .story-title,
+  html.js .story-image {
+    --reveal-y: 100%;
+    clip-path: inset(var(--reveal-y) 0 0 0);
+    will-change: clip-path;
+  }
+  html.js .story-text,
+  html.js .es-player {
+    --reveal-x: 100%;
+    clip-path: inset(0 var(--reveal-x) 0 0);
+    will-change: clip-path;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.js .section-mesh path { stroke-dasharray: 0; stroke-dashoffset: 0; }
+    html.js .story-title,
+    html.js .story-image,
+    html.js .story-text,
+    html.js .es-player { clip-path: none; }
+  }
+
+  /* ============================================================
+     Faas 5.4 — Galerii diagonal cascade reveal
+     ============================================================ */
+  html.js .gallery-title {
+    --reveal-y: 100%;
+    clip-path: inset(var(--reveal-y) 0 0 0);
+    will-change: clip-path;
+  }
+  html.js .gallery-intro,
+  html.js .gallery-item {
+    --reveal-x: 100%;
+    clip-path: inset(0 var(--reveal-x) 0 0);
+    will-change: clip-path;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.js .gallery-title,
+    html.js .gallery-intro,
+    html.js .gallery-item { clip-path: none; }
+  }
+
+  /* ============================================================
+     Faas 5.5 — ADP / Lisad cascade reveal
+     ============================================================ */
+  html.js .adp-title {
+    --reveal-y: 100%;
+    clip-path: inset(var(--reveal-y) 0 0 0);
+    will-change: clip-path;
+  }
+  html.js .adp-intro,
+  html.js .accordion {
+    --reveal-x: 100%;
+    clip-path: inset(0 var(--reveal-x) 0 0);
+    will-change: clip-path;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.js .adp-title,
+    html.js .adp-intro,
+    html.js .accordion { clip-path: none; }
+  }
+
+  /* ============================================================
+     Faas 5.6 — Wellness sektsioon (sketch vert + heading + cascade)
+     ============================================================ */
+  html.js .wellness-sketch,
+  html.js .wellness-title {
+    --reveal-y: 100%;
+    clip-path: inset(var(--reveal-y) 0 0 0);
+    will-change: clip-path;
+  }
+  html.js .wellness-intro,
+  html.js .wellness-row {
+    --reveal-x: 100%;
+    clip-path: inset(0 var(--reveal-x) 0 0);
+    will-change: clip-path;
+  }
+  html.js .wellness-icon path,
+  html.js .wellness-icon line,
+  html.js .wellness-icon circle,
+  html.js .wellness-icon rect,
+  html.js .wellness-icon polygon,
+  html.js .wellness-icon polyline {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.js .wellness-sketch,
+    html.js .wellness-title,
+    html.js .wellness-intro,
+    html.js .wellness-row { clip-path: none; }
+    html.js .wellness-icon path,
+    html.js .wellness-icon line,
+    html.js .wellness-icon circle,
+    html.js .wellness-icon rect,
+    html.js .wellness-icon polygon,
+    html.js .wellness-icon polyline { stroke-dasharray: 0; stroke-dashoffset: 0; }
+  }
+
+  /* ============================================================
+     Faas 5.7 — Contact pair-grouped editorial reveal
+     ============================================================ */
+  html.js .contact-bg {
+    opacity: 0;
+    transform: scale(1.06);
+    will-change: transform, opacity;
+  }
+  html.js .contact-title {
+    --reveal-y: 100%;
+    clip-path: inset(var(--reveal-y) 0 0 0);
+    will-change: clip-path;
+  }
+  html.js .contact-lede,
+  html.js .contact-card,
+  html.js .contact-ctas,
+  html.js .contact-bottom {
+    --reveal-x: 100%;
+    clip-path: inset(0 var(--reveal-x) 0 0);
+    will-change: clip-path;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.js .contact-bg { opacity: 0.07; transform: none; }
+    html.js .contact-title,
+    html.js .contact-lede,
+    html.js .contact-card,
+    html.js .contact-ctas,
+    html.js .contact-bottom { clip-path: none; }
+  }
+
+  /* ============================================================
+     Faas 6.X — Brand image grading + film grain
+     Gentle filmic grade KÕIGILE fotodele (mitte sketch'ile) +
+     page-wide soft-light grain catchanges sh lightbox-piltidel.
+     Filter konservatiivne — Mulliner-orange jääb puutumatuks.
+     ============================================================ */
+  .hero-image,
+  .story-image,
+  .g-img,
+  .lightbox-img,
+  .contact-bg {
+    filter: brightness(0.97) contrast(0.96) saturate(0.96);
+  }
+
+  /* Page-wide film grain — Aman/Hermès editorial layer.
+     z-index 9999 katab kõik (lightbox 60, modal 70, FHW 75).
+     soft-light blend = vähim värvi-mõjutus. */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.08;
+    mix-blend-mode: soft-light;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body::after { display: none; }
+  }
+</style>
+<script>document.documentElement.classList.add('js');</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+<header class="brand-bar" role="banner">
+  <div class="brand-bar-left">
+    <span>Bentley <span class="brand-bar-divider"></span> Tallinn</span>
+  </div>
+  <button class="nav-toggle" type="button" aria-label="Ava menüü" aria-expanded="false" aria-controls="nav-menu">
+    <svg class="nav-toggle-icon" viewBox="0 0 28 14" fill="none" aria-hidden="true">
+      <line x1="0" y1="4" x2="22" y2="4" stroke="currentColor" stroke-width="1"/>
+      <line x1="0" y1="10" x2="22" y2="10" stroke="currentColor" stroke-width="1"/>
+    </svg>
+  </button>
+</header>
+
+<!-- ================================================================
+     NAV MENU — Faas 3.1 (staatiline, default-OPEN review'ks)
+     Bentley B-layout: asümmeetriline editorial spread.
+     Faas 4-s: JS toggle (hamburger click → aria-hidden/aria-expanded swap +
+     scroll-lock klass <html>'ile), ESC-key, focus-trap.
+     ================================================================ -->
+<nav class="nav-menu" id="nav-menu" aria-hidden="true" aria-label="Põhinavigatsioon">
+  <div class="nav-menu-inner">
+
+    <ul class="nav-sections">
+      <li><a href="#ulevaade">Ülevaade</a></li>
+      <li><a href="#lugu">Lugu</a></li>
+      <li><a href="#galerii">Galerii</a></li>
+      <li><a href="#lisad">Konfiguratsioon</a></li>
+      <li><a href="#wellness">Wellness</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+
+    <div class="nav-footer">
+      <div class="nav-contact">
+        <span class="nav-contact-label">Müügikontakt</span>
+        <span class="nav-contact-name">Kristjan Uuk</span>
+        <div class="nav-contact-links">
+          <a href="tel:+3725161115">+372 516 1115</a>
+          <a href="mailto:kristjan.uuk@auto100premium.ee">kristjan.uuk@auto100premium.ee</a>
+        </div>
+      </div>
+
+      <!-- TODO: implement i18n switching Faas 4-s -->
+      <div class="nav-lang" role="group" aria-label="Keelevalik">
+        <button class="lang-btn lang-btn--active" type="button" lang="et" aria-pressed="true">ET</button>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <button class="lang-btn" type="button" lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ================================================================
+     LIGHTBOX — Faas 3.2 (staatiline, default-OPEN review'ks)
+     B-layout: pilt üleval-keskel, controls bottom-bar (close + counter + nav).
+     Faas 4-s: JS open/close + click-on-thumb + prev/next + keyboard (ESC, arrows).
+     ================================================================ -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Galerii suurenduses">
+
+  <button class="lightbox-close" type="button" aria-label="Sulge galerii">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
+      <line x1="6" y1="6" x2="18" y2="18"/>
+      <line x1="18" y1="6" x2="6" y2="18"/>
+    </svg>
+  </button>
+
+  <div class="lightbox-stage">
+    <figure class="lightbox-frame">
+      <img class="lightbox-img" src="images/1.png" alt="Bentley Continental GT Azure — galeriifoto 1">
+      <div class="lightbox-progress" aria-hidden="true">
+        <div class="lightbox-progress-fill" style="width: 4.16%"></div>
+      </div>
+    </figure>
+  </div>
+
+  <div class="lightbox-bar">
+
+    <button class="lightbox-prev" type="button" aria-label="Eelmine pilt">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="15 6 9 12 15 18"/>
+      </svg>
+    </button>
+
+    <div class="lightbox-counter">
+      <span class="lightbox-counter-current">01</span>
+      <span class="lightbox-counter-sep" aria-hidden="true">/</span>
+      <span class="lightbox-counter-total">24</span>
+    </div>
+
+    <button class="lightbox-next" type="button" aria-label="Järgmine pilt">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="9 6 15 12 9 18"/>
+      </svg>
+    </button>
+
+  </div>
+</div>
+
+<!-- ================================================================
+     BOOKING MODAL — Faas 3.3 (staatiline, default-OPEN review'ks)
+     3 paneeli stack'itud nähtavad ülevaatuseks. Faas 4 JS lisab:
+     - CTA "Broneeri vaatamine" click → modal open + scroll-lock
+     - Visit-card click → progress dot 2 + pane 2 visible
+     - Form valid + submit → pane 3 visible + summary fill
+     - Close button / ESC / backdrop click → close
+     ================================================================ -->
+<div class="booking-overlay" id="booking-overlay" aria-hidden="true">
+  <div class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+
+    <button class="booking-close" type="button" aria-label="Sulge broneerimine">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
+        <line x1="6" y1="6" x2="18" y2="18"/>
+        <line x1="18" y1="6" x2="6" y2="18"/>
+      </svg>
+    </button>
+
+    <div class="booking-progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3">
+      <span class="booking-step-dot booking-step-dot--active" aria-hidden="true"></span>
+      <span class="booking-step-line" aria-hidden="true"></span>
+      <span class="booking-step-dot" aria-hidden="true"></span>
+      <span class="booking-step-line" aria-hidden="true"></span>
+      <span class="booking-step-dot" aria-hidden="true"></span>
+    </div>
+
+    <!-- Pane 1: visit-tüüp -->
+    <div class="booking-pane" id="booking-pane-1" aria-hidden="false">
+      <h3 class="booking-pane-title" id="booking-title">Kuidas soovid autot vaadata?</h3>
+      <div class="booking-cards">
+        <button class="booking-card" type="button" data-visit="onsite" aria-pressed="true">
+          <span class="booking-card-title">Kohapeal</span>
+          <span class="booking-card-desc">Pirni 1, Tallinn &middot; Tööpäeviti</span>
+          <span class="booking-card-check" aria-hidden="true"></span>
+        </button>
+        <button class="booking-card" type="button" data-visit="virtual" aria-pressed="false">
+          <span class="booking-card-title">Video teel</span>
+          <span class="booking-card-desc">30-minutiline ülevaatus videokõnes</span>
+          <span class="booking-card-check" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Pane 2: andmed + kuupäev + aeg -->
+    <div class="booking-pane" id="booking-pane-2" aria-hidden="true">
+      <h3 class="booking-pane-title">Lisa kontakt ja vali sobiv aeg</h3>
+      <form class="booking-form" novalidate>
+        <div class="booking-field">
+          <label for="b-name">Nimi</label>
+          <input id="b-name" type="text" autocomplete="name">
+        </div>
+        <div class="booking-field">
+          <label for="b-phone">Telefon</label>
+          <input id="b-phone" type="tel" autocomplete="tel">
+        </div>
+        <div class="booking-field">
+          <label for="b-email">E-mail</label>
+          <input id="b-email" type="email" autocomplete="email">
+        </div>
+
+        <div class="date-picker">
+          <div class="date-picker-head">
+            <button class="date-picker-prev" type="button" aria-label="Eelmine kuu">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="15 6 9 12 15 18"/>
+              </svg>
+            </button>
+            <span class="date-picker-month">Juuni 2026</span>
+            <button class="date-picker-next" type="button" aria-label="Järgmine kuu">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 6 15 12 9 18"/>
+              </svg>
+            </button>
+          </div>
+          <div class="date-picker-weekdays" aria-hidden="true">
+            <span>E</span><span>T</span><span>K</span><span>N</span><span>R</span><span>L</span><span>P</span>
+          </div>
+          <div class="date-picker-grid" role="grid">
+            <button class="date-picker-day date-picker-day--empty" disabled aria-hidden="true"></button>
+            <button class="date-picker-day date-picker-day--empty" disabled aria-hidden="true"></button>
+            <button class="date-picker-day date-picker-day--empty" disabled aria-hidden="true"></button>
+            <button class="date-picker-day date-picker-day--empty" disabled aria-hidden="true"></button>
+            <button class="date-picker-day date-picker-day--empty" disabled aria-hidden="true"></button>
+            <button class="date-picker-day date-picker-day--empty" disabled aria-hidden="true"></button>
+            <button class="date-picker-day" type="button">1</button>
+            <button class="date-picker-day" type="button">2</button>
+            <button class="date-picker-day" type="button">3</button>
+            <button class="date-picker-day" type="button">4</button>
+            <button class="date-picker-day" type="button">5</button>
+            <button class="date-picker-day" type="button">6</button>
+            <button class="date-picker-day" type="button">7</button>
+            <button class="date-picker-day" type="button">8</button>
+            <button class="date-picker-day" type="button">9</button>
+            <button class="date-picker-day" type="button">10</button>
+            <button class="date-picker-day" type="button">11</button>
+            <button class="date-picker-day" type="button">12</button>
+            <button class="date-picker-day" type="button">13</button>
+            <button class="date-picker-day date-picker-day--selected" type="button" aria-pressed="true">14</button>
+            <button class="date-picker-day" type="button">15</button>
+            <button class="date-picker-day" type="button">16</button>
+            <button class="date-picker-day" type="button">17</button>
+            <button class="date-picker-day" type="button">18</button>
+            <button class="date-picker-day" type="button">19</button>
+            <button class="date-picker-day" type="button">20</button>
+            <button class="date-picker-day" type="button">21</button>
+            <button class="date-picker-day" type="button">22</button>
+            <button class="date-picker-day" type="button">23</button>
+            <button class="date-picker-day" type="button">24</button>
+            <button class="date-picker-day" type="button">25</button>
+            <button class="date-picker-day" type="button">26</button>
+            <button class="date-picker-day" type="button">27</button>
+            <button class="date-picker-day" type="button">28</button>
+            <button class="date-picker-day" type="button">29</button>
+            <button class="date-picker-day" type="button">30</button>
+          </div>
+        </div>
+
+        <div class="time-picker" role="radiogroup" aria-label="Vali kellaaeg">
+          <button class="time-picker-option" type="button" data-time="morning" aria-pressed="false">Hommik</button>
+          <button class="time-picker-option" type="button" data-time="afternoon" aria-pressed="true">Pärastlõuna</button>
+          <button class="time-picker-option" type="button" data-time="evening" aria-pressed="false">Õhtu</button>
+        </div>
+
+        <div class="booking-field">
+          <label for="b-note">Lisainfo</label>
+          <textarea class="booking-textarea" id="b-note" rows="3"></textarea>
+        </div>
+
+        <button class="btn-primary booking-submit" type="submit">Broneeri aeg</button>
+      </form>
+    </div>
+
+    <!-- Pane 3: success + summary -->
+    <div class="booking-pane" id="booking-pane-3" aria-hidden="true">
+      <div class="booking-success">
+        <div class="booking-success-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="5 13 10 18 19 7"/>
+          </svg>
+        </div>
+        <h3 class="booking-pane-title">Päring saadetud</h3>
+        <p>Võtame sinuga 24 tunni jooksul ühendust ja kinnitame vaatamise aja.</p>
+      </div>
+      <dl class="booking-summary">
+        <dt>Vaatamine</dt><dd>Kohapeal &middot; Pirni 1</dd>
+        <dt>Aeg</dt><dd>14. juuni 2026, pärastlõuna</dd>
+        <dt>Auto</dt><dd>Bentley Continental GT Azure V8 Hybrid</dd>
+      </dl>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================================================================
+     FHW WIDGET — Faas 3.4 (staatiline, panel default-OPEN review'ks)
+     Bentley A-layout: pill-nupp + diamond-mesh ikoon.
+     Faas 4 JS lisab: btn click open/close, teaser load-on-page-ready,
+       teaser dismiss, tab switching, FAQ accordion collapse.
+     ================================================================ -->
+<div id="fhw-root">
+
+  <div class="fhw-panel" id="fhw-panel" aria-hidden="true" role="dialog" aria-label="Abi ja KKK">
+    <div class="fhw-panel-head">
+      <span class="fhw-panel-title">Küsimused enne ostu?</span>
+      <button class="fhw-panel-close" type="button" aria-label="Sulge paneel">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <line x1="6" y1="6" x2="18" y2="18"/>
+          <line x1="18" y1="6" x2="6" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <button class="fhw-booking-card" type="button" data-action="open-booking">
+      <span class="fhw-booking-card-text">
+        <span class="fhw-booking-card-title">Broneeri proovisõit</span>
+      </span>
+      <svg class="fhw-booking-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="5" y1="12" x2="19" y2="12"/>
+        <polyline points="13 6 19 12 13 18"/>
+      </svg>
+    </button>
+
+    <div class="fhw-tabs" role="tablist">
+      <button class="fhw-tab" type="button" role="tab" aria-selected="true" aria-controls="fhw-tab-faq">KKK</button>
+      <button class="fhw-tab" type="button" role="tab" aria-selected="false" aria-controls="fhw-tab-chat">Küsi</button>
+    </div>
+
+    <div class="fhw-tab-panel" id="fhw-tab-faq" role="tabpanel" aria-hidden="false">
+      <div class="fhw-faq">
+        <div class="fhw-faq-item">
+          <button class="fhw-faq-trigger" type="button" aria-expanded="true">Kas auto on Eestis kohapeal? <span class="fhw-faq-icon" aria-hidden="true">−</span></button>
+          <div class="fhw-faq-content">Jah. Auto asub Bentley Tallinna salongis Pirni 1. Vaatamine kokkuleppel tööpäeviti.</div>
+        </div>
+        <div class="fhw-faq-item">
+          <button class="fhw-faq-trigger" type="button" aria-expanded="false">Kas proovisõit on võimalik? <span class="fhw-faq-icon" aria-hidden="true">+</span></button>
+          <div class="fhw-faq-content">Jah. Proovisõit on võimalik eelneval kokkuleppel.</div>
+        </div>
+        <div class="fhw-faq-item">
+          <button class="fhw-faq-trigger" type="button" aria-expanded="false">Kas saab vahetuse vastu osta? <span class="fhw-faq-icon" aria-hidden="true">+</span></button>
+          <div class="fhw-faq-content">Jah. Bentley Tallinn saab hinnata olemasoleva auto sissemakseks.</div>
+        </div>
+        <div class="fhw-faq-item">
+          <button class="fhw-faq-trigger" type="button" aria-expanded="false">Kas finantseerimine on saadaval? <span class="fhw-faq-icon" aria-hidden="true">+</span></button>
+          <div class="fhw-faq-content">Jah. Võimalik on liising ja finantseerimine partnerpankade kaudu.</div>
+        </div>
+        <div class="fhw-faq-item">
+          <button class="fhw-faq-trigger" type="button" aria-expanded="false">Kas saan autot vaadata ka virtuaalselt? <span class="fhw-faq-icon" aria-hidden="true">+</span></button>
+          <div class="fhw-faq-content">Jah. Võimalik on videokõne, kus saab auto detailid üle vaadata.</div>
+        </div>
+        <div class="fhw-faq-item">
+          <button class="fhw-faq-trigger" type="button" aria-expanded="false">Mis on garantii pikkus? <span class="fhw-faq-icon" aria-hidden="true">+</span></button>
+          <div class="fhw-faq-content">Bentley tehasegarantii kehtib kuni 2029. aastani.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fhw-tab-panel fhw-tab-chat" id="fhw-tab-chat" role="tabpanel" aria-hidden="true">
+      AI-assistent tulemas. Hetkel saada küsimus otse: <strong>kristjan.uuk@auto100premium.ee</strong> või helista telefonil <strong>+372 516 1115</strong>.
+    </div>
+  </div>
+
+  <!-- Teaser default-HIDDEN staatilises Faas 3-s. Faas 4: kuvab teaserit ~3s pärast lehe-laadi, esimese klõpsuga dismiss + open panel. -->
+  <div class="fhw-teaser" id="fhw-teaser" aria-hidden="true">
+    <span>Küsi lisainfot või broneeri proovisõit</span>
+    <button class="fhw-teaser-close" type="button" aria-label="Sulge teaser">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <line x1="6" y1="6" x2="18" y2="18"/>
+        <line x1="18" y1="6" x2="6" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <button class="fhw-btn" id="fhw-btn" type="button" aria-label="Ava abi-paneel" aria-expanded="false" aria-controls="fhw-panel">
+    <svg class="fhw-btn-mesh" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+      <path d="M3 11 L7 7 L11 11 L7 15 Z" stroke="currentColor" stroke-width="0.8" fill="none"/>
+      <path d="M11 11 L15 7 L19 11 L15 15 Z" stroke="currentColor" stroke-width="0.8" fill="none"/>
+      <path d="M7 7 L11 3 L15 7" stroke="currentColor" stroke-width="0.8" fill="none"/>
+      <path d="M7 15 L11 19 L15 15" stroke="currentColor" stroke-width="0.8" fill="none"/>
+    </svg>
+    <span>Küsi</span>
+  </button>
+
+</div>
+
+<main>
+
+<!-- ================================================================
+     HERO — Split layout (kasutamata layout-muster vs Urus & Mercedes)
+     ================================================================ -->
+<section class="hero" id="hero">
+
+  <div class="hero-media">
+    <div class="hero-image" role="img" aria-label="Bentley Continental GT Azure külgvaade Orange Flame Satin värvuses"></div>
+    <div class="hero-curtain" aria-hidden="true"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-headline">
+      <div class="hero-eyebrow"><span class="inner">BENTLEY Continental</span></div>
+      <h1 class="hero-title">
+        <span class="line"><span class="inner">GT</span></span>
+        <span class="line"><span class="inner">Azure</span></span>
+      </h1>
+    </div>
+
+    <div class="hero-meta">
+      <div class="hero-meta-left">
+        V8 Hybrid &middot; 01/2026 &middot; 62 km &middot; Orange Flame Satin
+      </div>
+      <div class="hero-price-block">
+        <div class="hero-price-label">Hind</div>
+        <div class="hero-price">386 653&nbsp;€<span class="hero-price-vat">sis. KM 24%</span></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================================================================
+     HOOK + SPEC-GRID — Mercedes-skeleti järgi, Bentley naha-ga.
+     Komponendid säilitatud (.hook-statement, .em, .spec-cards, .spec-card,
+     .spec-icon, .spec-label, .spec-value, .spec-value-accent).
+     Layout-paigutus: hook-statement + spec-cards samas sektsioonis (Mercedes-pattern).
+     Disaini-nahk: bone palett, Migra + Neue Montreal, diamond-mesh signature.
+     ================================================================ -->
+<section class="hook" id="ulevaade">
+  <div class="hook-inner">
+
+    <!-- Signature mark — Bentley grille echo (.section-mesh) -->
+    <svg class="section-mesh" viewBox="0 0 120 14" fill="none" aria-hidden="true">
+      <path d="M3 7 L9 1 L15 7 L9 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+      <path d="M15 7 L21 1 L27 7 L21 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+      <path d="M27 7 L33 1 L39 7 L33 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+      <path d="M39 7 L45 1 L51 7 L45 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+      <path d="M51 7 L57 1 L63 7 L57 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+      <path d="M63 7 L69 1 L75 7 L69 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+      <path d="M75 7 L81 1 L87 7 L81 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+      <path d="M87 7 L93 1 L99 7 L93 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+      <path d="M99 7 L105 1 L111 7 L105 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+    </svg>
+
+    <h2 class="hook-statement">
+      Minus on kaks autot ühes. Hommikul kannan <span class="em">80 km</span> puhast elektrit, V8 magab veel.<br><br>
+      Õhtul, kui kurv kutsub, ärkavad <span class="em">500 kW</span> ja 930 Nm &mdash; sajani 3,7 sekundiga.
+    </h2>
+
+    <div class="spec-cards">
+
+      <!-- 1. Keretüüp — Coupé -->
+      <div class="spec-card">
+        <svg class="spec-icon" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M3 21 L3 17 Q3 15 5 15 L8 15 L11 9 Q12 8 14 8 L21 8 Q23 8 24 9 L28 15 L29 15 Q29 16 29 17 L29 21"/>
+          <line x1="3" y1="21" x2="29" y2="21"/>
+          <circle cx="9" cy="21" r="2.2"/>
+          <circle cx="22" cy="21" r="2.2"/>
+        </svg>
+        <div class="spec-content">
+          <div class="spec-label">Keretüüp</div>
+          <div class="spec-value">Coupé</div>
+        </div>
+      </div>
+
+      <!-- 2. Aasta — 2026 -->
+      <div class="spec-card">
+        <svg class="spec-icon" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="5" y="7" width="22" height="20"/>
+          <line x1="5" y1="13" x2="27" y2="13"/>
+          <line x1="11" y1="4" x2="11" y2="9"/>
+          <line x1="21" y1="4" x2="21" y2="9"/>
+          <circle cx="11" cy="19" r="0.8" fill="currentColor" stroke="none"/>
+          <circle cx="16" cy="19" r="0.8" fill="currentColor" stroke="none"/>
+          <circle cx="21" cy="19" r="0.8" fill="currentColor" stroke="none"/>
+          <circle cx="11" cy="23" r="0.8" fill="currentColor" stroke="none"/>
+          <circle cx="16" cy="23" r="0.8" fill="currentColor" stroke="none"/>
+        </svg>
+        <div class="spec-content">
+          <div class="spec-label">Aasta</div>
+          <div class="spec-value">2026</div>
+        </div>
+      </div>
+
+      <!-- 3. Läbisõit — 62 km (ACCENT — haruldus-stat) -->
+      <div class="spec-card">
+        <svg class="spec-icon" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M5 22 A11 11 0 0 1 27 22"/>
+          <line x1="16" y1="22" x2="22" y2="13"/>
+          <circle cx="16" cy="22" r="1.6" fill="currentColor" stroke="none"/>
+          <line x1="16" y1="12" x2="16" y2="14"/>
+          <line x1="8.5" y1="16" x2="9.8" y2="17.4"/>
+          <line x1="23.5" y1="16" x2="22.2" y2="17.4"/>
+        </svg>
+        <div class="spec-content">
+          <div class="spec-label">Läbisõit</div>
+          <div class="spec-value spec-value-accent">62 km</div>
+        </div>
+      </div>
+
+      <!-- 4. Võimsus — 500 kW -->
+      <div class="spec-card">
+        <svg class="spec-icon" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M3 22 L3 19 Q3 17.5 5 17.5 L8 17.5 L12 11 Q13 10 15 10 L20 10 Q22 10 23 11 L28 17.5 L29 17.5 Q29 18.5 29 19 L29 22"/>
+          <line x1="3" y1="22" x2="29" y2="22"/>
+          <circle cx="9" cy="22" r="2"/>
+          <circle cx="22" cy="22" r="2"/>
+          <path d="M11.5 11 L21.5 11 L26 17.5"/>
+        </svg>
+        <div class="spec-content">
+          <div class="spec-label">Võimsus</div>
+          <div class="spec-value">500 kW</div>
+        </div>
+      </div>
+
+      <!-- 5. Mootor — 500 kW V8 Hybrid -->
+      <div class="spec-card">
+        <svg class="spec-icon" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M5 22 L5 16 L9 16 L9 12 L23 12 L23 16 L27 16 L27 22 Z"/>
+          <line x1="11" y1="12" x2="11" y2="8"/>
+          <line x1="14" y1="12" x2="14" y2="8"/>
+          <line x1="18" y1="12" x2="18" y2="8"/>
+          <line x1="21" y1="12" x2="21" y2="8"/>
+          <circle cx="9" cy="19" r="1.4"/>
+          <circle cx="23" cy="19" r="1.4"/>
+        </svg>
+        <div class="spec-content">
+          <div class="spec-label">Mootor</div>
+          <div class="spec-value">4.0 V8 Hybrid</div>
+        </div>
+      </div>
+
+      <!-- 6. Käigukast — 8-k. automaat -->
+      <div class="spec-card">
+        <svg class="spec-icon" viewBox="0 0 32 32" aria-hidden="true">
+          <line x1="11" y1="7" x2="11" y2="25"/>
+          <line x1="21" y1="7" x2="21" y2="25"/>
+          <line x1="11" y1="7" x2="21" y2="7"/>
+          <line x1="11" y1="16" x2="21" y2="16"/>
+          <line x1="11" y1="25" x2="21" y2="25"/>
+          <circle cx="11" cy="7" r="1.5" fill="currentColor" stroke="none"/>
+          <circle cx="21" cy="16" r="1.5" fill="currentColor" stroke="none"/>
+          <circle cx="11" cy="25" r="1.5" fill="currentColor" stroke="none"/>
+        </svg>
+        <div class="spec-content">
+          <div class="spec-label">Käigukast</div>
+          <div class="spec-value">8-k. automaat</div>
+        </div>
+      </div>
+
+      <!-- 7. Kütus — Pistikhübriid -->
+      <div class="spec-card">
+        <svg class="spec-icon" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="6" y="8" width="11" height="18" rx="0.5"/>
+          <path d="M17 14 L20 14 L20 22 Q20 24 22 24 L22 11 L19 8"/>
+          <line x1="22" y1="14" x2="24" y2="14"/>
+          <line x1="9" y1="13" x2="14" y2="13"/>
+          <line x1="9" y1="17" x2="14" y2="17"/>
+        </svg>
+        <div class="spec-content">
+          <div class="spec-label">Kütus</div>
+          <div class="spec-value">Bensiin / Elekter</div>
+        </div>
+      </div>
+
+      <!-- 8. Vedav sild — Nelivedu -->
+      <div class="spec-card">
+        <svg class="spec-icon" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="9" cy="9" r="3.5"/>
+          <circle cx="23" cy="9" r="3.5"/>
+          <circle cx="9" cy="23" r="3.5"/>
+          <circle cx="23" cy="23" r="3.5"/>
+          <line x1="12.5" y1="9" x2="19.5" y2="9"/>
+          <line x1="12.5" y1="23" x2="19.5" y2="23"/>
+          <line x1="9" y1="12.5" x2="9" y2="19.5"/>
+          <line x1="23" y1="12.5" x2="23" y2="19.5"/>
+        </svg>
+        <div class="spec-content">
+          <div class="spec-label">Vedav sild</div>
+          <div class="spec-value">Nelikvedu</div>
+        </div>
+      </div>
+
+    </div><!-- /.spec-cards -->
+
+  </div><!-- /.hook-inner -->
+</section>
+
+<!-- ================================================================
+     STORY — Faas 2.3 (staatiline, JS Faas 4-s, animatsioon Faas 5-s)
+     Two-column quote-led layout (kasutamata muster).
+     Komponendid kanoonilised: .story-title (.em), .story-text (.accent),
+       .story-media, .story-image, .es-player, .es-btn, .es-info,
+       .es-label, .es-sub, .es-cylinders, .es-cyl, .es-cyl-fire, #es-audio.
+     ================================================================ -->
+<section class="story" id="lugu">
+  <div class="story-inner">
+
+    <div class="story-body">
+
+      <div class="story-text-lead">
+        <svg class="section-mesh" viewBox="0 0 120 14" fill="none" aria-hidden="true">
+          <path d="M3 7 L9 1 L15 7 L9 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+          <path d="M15 7 L21 1 L27 7 L21 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+          <path d="M27 7 L33 1 L39 7 L33 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+          <path d="M39 7 L45 1 L51 7 L45 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+          <path d="M51 7 L57 1 L63 7 L57 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+          <path d="M63 7 L69 1 L75 7 L69 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+          <path d="M75 7 L81 1 L87 7 L81 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+          <path d="M87 7 L93 1 L99 7 L93 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+          <path d="M99 7 L105 1 L111 7 L105 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+        </svg>
+
+        <h2 class="story-title">
+          62 km läbisõitu. Orange Flame Satin. <span class="em">Azure-varustus.</span>
+        </h2>
+      </div>
+
+      <div class="story-text">
+        <p>
+          Auto on tellitud 2025. aasta kevadel ja ehitatud Bentley Crewe tehases. Tegemist on väga madala läbisõiduga Continental GT Azure’iga — 62 km, esmane registreerimine 01/2026. Kõige rohkem jääb silma konfiguratsioon: Orange Flame Satin värv, Blackline välispakett, 22-tollised mustad Azure veljed ja tume kroomiviimistlusega interjöör. See ei ole tavaline hall või must GT, vaid selgelt erilisem kooslus. Varustusest on olulised Naim for Bentley helisüsteem, Apple CarPlay, 360° parkimiskaamera, panoraamkatus, elektriliselt reguleeritavad ja ventileeritavad istmed ning <span class="accent"></span>Bentley pöörlev ekraan.</span>
+        </p>
+      </div>
+
+    </div><!-- /.story-body -->
+
+    <figure class="story-media">
+      <img class="story-image" src="images/story.png" alt="Bentley Continental GT Azure detailivaade Orange Flame Satin värvuses">
+    </figure>
+
+    <audio id="es-audio" src="audio/sound.mp3" loop preload="none"></audio>
+
+    <div class="es-player" id="es-player">
+      <button class="es-btn" id="es-btn" type="button" aria-label="Mängi Bentley V8 mootori heli">
+        <svg class="es-icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <polygon points="7,4 21,12 7,20"/>
+        </svg>
+        <svg class="es-icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <rect x="5" y="4" width="4" height="16" rx="1"/>
+          <rect x="15" y="4" width="4" height="16" rx="1"/>
+        </svg>
+      </button>
+
+      <div class="es-info">
+        <div class="es-label">Kuula auto häält</div>
+        <div class="es-sub">4.0 V8 Hybrid · 500 kW</div>
+      </div>
+
+      <div class="es-cylinders" aria-hidden="true">
+        <div class="es-cyl"><div class="es-cyl-fire"></div></div>
+        <div class="es-cyl"><div class="es-cyl-fire"></div></div>
+        <div class="es-cyl"><div class="es-cyl-fire"></div></div>
+        <div class="es-cyl"><div class="es-cyl-fire"></div></div>
+        <div class="es-cyl"><div class="es-cyl-fire"></div></div>
+        <div class="es-cyl"><div class="es-cyl-fire"></div></div>
+        <div class="es-cyl"><div class="es-cyl-fire"></div></div>
+        <div class="es-cyl"><div class="es-cyl-fire"></div></div>
+      </div>
+
+      <div class="es-error" id="es-error" hidden>Heli pole hetkel saadaval</div>
+    </div>
+
+  </div><!-- /.story-inner -->
+</section>
+
+<!-- ================================================================
+     GALLERY — Faas 2.5 (staatiline, JS Faas 4-s, motion Faas 5-s)
+     Diagonal staggered grid (kasutamata muster vs Urus pin-scroll / Mercedes 5-band).
+     4 vertikaalset veergu offset top-padding'utega; 25 pilti interleaved.
+     ================================================================ -->
+<section class="gallery" id="galerii">
+  <div class="gallery-inner">
+
+    <div class="gallery-head">
+      <h2 class="gallery-title">Galerii</h2>
+      <p class="gallery-intro">
+        Vaata lähemalt väljast, seest ja detailideni.
+      </p>
+    </div>
+
+    <div class="gallery-grid" data-gallery-slideshow>
+
+      <div class="gallery-slides">
+        <div class="gallery-slide is-active" aria-hidden="false" data-gallery-slide>
+          <figure class="gallery-item g-left" data-index="0">
+            <img class="g-img" src="images/1.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 1" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-top" data-index="1">
+            <img class="g-img" src="images/2.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 2" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-bot" data-index="2">
+            <img class="g-img" src="images/3.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 3" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-right" data-index="3">
+            <img class="g-img" src="images/4.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 4" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+        </div>
+
+        <div class="gallery-slide" aria-hidden="true" data-gallery-slide>
+          <figure class="gallery-item g-left" data-index="4">
+            <img class="g-img" src="images/5.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 5" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-top" data-index="5">
+            <img class="g-img" src="images/6.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 6" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-bot" data-index="6">
+            <img class="g-img" src="images/7.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 7" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-right" data-index="7">
+            <img class="g-img" src="images/8.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 8" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+        </div>
+
+        <div class="gallery-slide" aria-hidden="true" data-gallery-slide>
+          <figure class="gallery-item g-left" data-index="8">
+            <img class="g-img" src="images/9.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 9" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-top" data-index="9">
+            <img class="g-img" src="images/10.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 10" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-bot" data-index="10">
+            <img class="g-img" src="images/11.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 11" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-right" data-index="11">
+            <img class="g-img" src="images/12.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 12" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+        </div>
+
+        <div class="gallery-slide" aria-hidden="true" data-gallery-slide>
+          <figure class="gallery-item g-left" data-index="12">
+            <img class="g-img" src="images/13.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 13" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-top" data-index="13">
+            <img class="g-img" src="images/14.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 14" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-bot" data-index="14">
+            <img class="g-img" src="images/15.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 15" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-right" data-index="15">
+            <img class="g-img" src="images/16.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 16" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+        </div>
+
+        <div class="gallery-slide" aria-hidden="true" data-gallery-slide>
+          <figure class="gallery-item g-left" data-index="16">
+            <img class="g-img" src="images/17.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 17" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-top" data-index="17">
+            <img class="g-img" src="images/18.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 18" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-bot" data-index="18">
+            <img class="g-img" src="images/19.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 19" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-right" data-index="19">
+            <img class="g-img" src="images/20.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 20" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+        </div>
+
+        <div class="gallery-slide" aria-hidden="true" data-gallery-slide>
+          <figure class="gallery-item g-left" data-index="20">
+            <img class="g-img" src="images/21.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 21" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-top" data-index="21">
+            <img class="g-img" src="images/22.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 22" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-bot" data-index="22">
+            <img class="g-img" src="images/23.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 23" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+          <figure class="gallery-item g-right" data-index="23">
+            <img class="g-img" src="images/24.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 24" loading="lazy">
+            <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
+          </figure>
+        </div>
+      </div>
+
+      <div class="gallery-controls" aria-label="Galerii slaidid">
+        <button class="lightbox-prev gallery-nav-prev" type="button" aria-label="Eelmine slaid" data-gallery-prev>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 6 9 12 15 18"/>
+          </svg>
+        </button>
+        <div class="gallery-progress" aria-hidden="true">
+          <span class="gallery-progress-fill" data-gallery-progress></span>
+        </div>
+        <button class="lightbox-next gallery-nav-next" type="button" aria-label="Järgmine slaid" data-gallery-next>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 6 15 12 9 18"/>
+          </svg>
+        </button>
+      </div>
+
+    </div><!-- /.gallery-grid -->
+
+  </div><!-- /.gallery-inner -->
+</section>
+
+<!-- ================================================================
+     ADP — Faas 2.7 Konfiguratsioon ja tehnika (staatiline)
+     Canonical 3-accordion'i set (Tehniline / Varustus / Ostuinfo).
+     Bentley layout-valikud: plus/miinus ikoon, default-OPEN, Mulliner-tellimus
+     varustuses esimene kategooria.
+     ================================================================ -->
+<section class="adp" id="lisad">
+  <div class="adp-inner">
+
+    <div class="adp-head">
+      <h2 class="adp-title">Tehnika, mugavus ja Bentley detailid</h2>
+      <p class="adp-intro">
+        Varustus ja tehnilised andmed ühes kohas — jõuallikas, mugavus, juhiabid ja konfiguratsiooni eripärad.
+      </p>
+    </div>
+
+    <div class="accordion-set">
+
+      <!-- 1. Tehniline teave -->
+      <div class="accordion" data-accordion="tech">
+        <button class="accordion-trigger" type="button" aria-expanded="true" aria-controls="acc-tech">
+          <span class="accordion-label">Tehniline teave</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <line class="plus-v" x1="12" y1="5" x2="12" y2="19"/>
+          </svg>
+        </button>
+        <div class="accordion-content" id="acc-tech">
+          <div class="accordion-panel-body">
+            <div class="tech-grid">
+              <div class="tech-item"><div class="tech-label">Mootor</div><div class="tech-value">4.0 l Twin-Turbo V8 + elektrimootor</div></div>
+              <div class="tech-item"><div class="tech-label">Süsteemi koguvõimsus</div><div class="tech-value">500 kW (680 hj)</div></div>
+              <div class="tech-item"><div class="tech-label">Pöördemoment</div><div class="tech-value">930 Nm</div></div>
+              <div class="tech-item"><div class="tech-label">Käigukast</div><div class="tech-value">8-k. topeltsiduriga automaat</div></div>
+              <div class="tech-item"><div class="tech-label">Vedav sild</div><div class="tech-value">Nelikvedu (AWD)</div></div>
+              <div class="tech-item"><div class="tech-label">0&ndash;100 km/h</div><div class="tech-value">3,7 s</div></div>
+              <div class="tech-item"><div class="tech-label">Tippkiirus</div><div class="tech-value">270 km/h</div></div>
+              <div class="tech-item"><div class="tech-label">Aku mahutavus</div><div class="tech-value">25,9 kWh</div></div>
+              <div class="tech-item"><div class="tech-label">Elektriline sõiduulatus (WLTP)</div><div class="tech-value">kuni 80 km</div></div>
+              <div class="tech-item"><div class="tech-label">Kütus</div><div class="tech-value">Pistikhübriid (bensiin / elekter)</div></div>
+              <div class="tech-item"><div class="tech-label">Istekohti</div><div class="tech-value">4</div></div>
+              <div class="tech-item"><div class="tech-label">Uste arv</div><div class="tech-value">2</div></div>
+              <div class="tech-item"><div class="tech-label">Pikkus</div><div class="tech-value">4895 mm</div></div>
+              <div class="tech-item"><div class="tech-label">Kõrgus</div><div class="tech-value">1397 mm</div></div>
+              <div class="tech-item"><div class="tech-label">Mootori maht</div><div class="tech-value">3996 cm³</div></div>
+              <div class="tech-item"><div class="tech-label">Tühimass</div><div class="tech-value">2459 kg</div></div>
+              <div class="tech-item"><div class="tech-label">Välisvärv</div><div class="tech-value">Orange Flame Satin</div></div>
+              <div class="tech-item"><div class="tech-label">Salongi polsterdus</div><div class="tech-value">Linen / Beluga Nappa</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Mulliner-tellimus ja varustus -->
+      <div class="accordion" data-accordion="equipment">
+        <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-equipment">
+          <span class="accordion-label">Mulliner-tellimus ja varustus</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <line class="plus-v" x1="12" y1="5" x2="12" y2="19"/>
+          </svg>
+        </button>
+        <div class="accordion-content" id="acc-equipment">
+          <div class="accordion-panel-body">
+            <div class="equipment-categories">
+
+              <div class="equipment-category">
+                <div class="equipment-cat-title">Värv, viimistlus ja eripärad</div>
+                <ul class="equipment-list">
+                  <li>Orange Flame Satin matt-satiin välisvärv</li>
+                  <li>Bentley Continental Blackline pakett</li>
+                  <li>Naim for Bentley helisüsteem (2200 W, 18 kõlarit)</li>
+                  <li>Bentley Rotating Display pöörlev ekraan</li>
+                  <li>High Gloss Carbon Fibre siseviimistlus</li>
+                  <li>Tumeda kroomviimistlusega interjöör</li>
+                  <li>22" mustad Azure veljed</li>
+                  <li>Mullineri isetasakaalustuvad veljekapslid</li>
+                  <li>Animeeritud LED-tervitustuled</li>
+                </ul>
+              </div>
+
+              <div class="equipment-category">
+                <div class="equipment-cat-title">Šassii ja sõidudünaamika</div>
+                <ul class="equipment-list">
+                  <li>Bentley Performance Active Chassis</li>
+                  <li>Elektrooniline nelikroolimine</li>
+                  <li>Bentley Dynamic Ride 48 V aktiivstabilisaatorid</li>
+                  <li>Kolmekambriline õhkvedrustu</li>
+                  <li>Elektrooniline tagadiferentsiaal (eLSD)</li>
+                  <li>Stabiilsus- ja veojõukontroll</li>
+                </ul>
+              </div>
+
+              <div class="equipment-category">
+                <div class="equipment-cat-title">Juhiabisüsteemid</div>
+                <ul class="equipment-list">
+                  <li>Kohanduv püsikiirushoidja (ACC)</li>
+                  <li>Head-up Display</li>
+                  <li>Night Vision öövaatlussüsteem</li>
+                  <li>360° kaamerasüsteem ja parkimisandurid</li>
+                  <li>Ristmiku hoiatus ja automaatpidurdus</li>
+                  <li>Pimenurga hoiatus</li>
+                  <li>Sõidurea vahetamise abisüsteem</li>
+                  <li>Liiklusmärkide tuvastus</li>
+                  <li>Nutitelefonist juhitav kaugparkimine</li>
+                </ul>
+              </div>
+
+              <div class="equipment-category">
+                <div class="equipment-cat-title">Audio, ekraanid ja ühenduvus</div>
+                <ul class="equipment-list">
+                  <li>Naim for Bentley premium audio</li>
+                  <li>Android Auto ja Apple CarPlay</li>
+                  <li>12,3" keskmine puuteekraan</li>
+                  <li>Navigatsioon hääljuhtimisega</li>
+                  <li>Käed-vabad süsteem</li>
+                  <li>Head-Up Display</li>
+                </ul>
+              </div>
+
+              <div class="equipment-category">
+                <div class="equipment-cat-title">Mugavus ja sisustus</div>
+                <ul class="equipment-list">
+                  <li>20-suunaliselt reguleeritavad mugavusistmed</li>
+                  <li>Massaaži-, soojendus- ja ventilatsioonifunktsiooniga esiistmed</li>
+                  <li>Elektriliselt reguleeritavad peatoed ja nimmetugi</li>
+                  <li>Soojendusega rool</li>
+                  <li>Käiguvahetuslabad roolil</li>
+                  <li>Linen / Beluga Nappa nahksisu</li>
+                  <li>Panoraamkatus</li>
+                  <li>4-tsooniline kliimaautomaatika</li>
+                  <li>Elektriline pakiruumi avamine</li>
+                  <li>Coming Home / Leaving Home valgustus</li>
+                  <li>Juhtmevaba telefonilaadimine</li>
+                  <li>Võtmeta avamine ja käivitus</li>
+                  <li>Uste servosulgurid</li>
+                </ul>
+              </div>
+
+              <div class="equipment-category">
+                <div class="equipment-cat-title">Tuled, veljed ja rehvid</div>
+                <ul class="equipment-list">
+                  <li>22" mustad Azure valuveljed</li>
+                  <li>Pirelli P Zero rehvid PNCS müravähendusega</li>
+                  <li>LED-maatriks esituled</li>
+                  <li>LED päevasõidutuled ja tagatuled</li>
+                  <li>Kaugtulede automaatika</li>
+                  <li>Udutuled</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Seisukord ja ostuinfo -->
+      <div class="accordion" data-accordion="purchase">
+        <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-purchase">
+          <span class="accordion-label">Seisukord ja ostuinfo</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <line class="plus-v" x1="12" y1="5" x2="12" y2="19"/>
+          </svg>
+        </button>
+        <div class="accordion-content" id="acc-purchase">
+          <div class="accordion-panel-body">
+            <div class="description-section">
+              <div class="description-copy">
+                <p class="description-text">
+                  Auto on praktiliselt uus — läbisõit <span class="accent">62 kilomeetrit.</span> ja esmane registreerimine 01/2026. Bentley tehasegarantii kehtib ning hooldusraamat on digitaalne ja täielik. Eesti Liikluskindlustuse Fondi andmetel ei ole sõiduk osalenud kindlustusjuhtumites.
+                </p>
+                <p class="description-text">
+                  Soovi korral saab Bentley Tallinnas arutada vahetust, sissemakset või liisinguvõimalusi.
+                </p>
+              </div>
+              <div class="purchase-facts">
+                <div class="purchase-fact">
+                  <div class="purchase-label">Hind</div>
+                  <div class="purchase-value purchase-value--price">386 653 €</div>
+                </div>
+                <div class="purchase-fact">
+                  <div class="purchase-label">VIN-kood</div>
+                  <div class="purchase-value">Küsi kood müüjalt</div>
+                </div>
+                <div class="purchase-fact">
+                  <div class="purchase-label">Läbisõit</div>
+                  <div class="purchase-value">62 km</div>
+                </div>
+                <div class="purchase-fact">
+                  <div class="purchase-label">Garantii</div>
+                  <div class="purchase-value">Bentley tehasegarantii</div>
+                </div>
+                <div class="purchase-fact">
+                  <div class="purchase-label">Asukoht</div>
+                  <div class="purchase-value">Tallinn</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.accordion-set -->
+
+  </div><!-- /.adp-inner -->
+</section>
+
+<!-- ================================================================
+     WELLNESS — Faas 2.8 (Azure-spetsiifiline, Bentley-only)
+     3-rea editorial vignette — iga rida ikoon + pealkiri + lühi-narratiiv.
+     Käsitleb Bentley Azure variant'i keskset väärtust (wellness).
+     ================================================================ -->
+<section class="wellness" id="wellness">
+  <div class="wellness-inner">
+
+    <figure class="wellness-sketch">
+      <img src="images/sketch.png" alt="Bentley Continental GT Azure visand">
+    </figure>
+
+    <div class="wellness-head">
+      <h2 class="wellness-title">Azure on tehtud <span class="em">pikaks </span>sõiduks.</h2>
+      <p class="wellness-intro">
+        Azure-varustus keskendub sellele, et auto oleks vaikne, mugav ja lihtne juhtida ka pikemal teel. Selle auto puhul tähendavad seda Postural Adjust istmed, õhukvaliteedi süsteem ja Bentley Dynamic Ride.
+      </p>
+    </div>
+
+    <div class="wellness-rows">
+
+      <div class="wellness-row" data-wellness-image="images/istmed.png">
+        <svg class="wellness-icon" viewBox="0 0 22 22" aria-hidden="true">
+          <path d="M3 11 L7 7 L11 11 L7 15 Z"/>
+          <path d="M11 11 L15 7 L19 11 L15 15 Z"/>
+          <path d="M7 7 L11 3 L15 7"/>
+          <path d="M7 15 L11 19 L15 15"/>
+        </svg>
+        <div class="wellness-text">
+          <h3 class="wellness-row-title">Postural Adjust istmed</h3>
+          <p class="wellness-row-body">
+            Esiistmed muudavad õhkpatjade abil istmepinna survet, et keha ei jääks pikemal sõidul ühte asendisse. Soojendus, ventilatsioon ja massaaž töötavad koos istmete automaatse kliimafunktsiooniga.
+          </p>
+        </div>
+      </div>
+
+      <div class="wellness-row" data-wellness-image="images/salong.png">
+        <svg class="wellness-icon" viewBox="0 0 22 22" aria-hidden="true">
+          <path d="M3 11 L7 7 L11 11 L7 15 Z"/>
+          <path d="M11 11 L15 7 L19 11 L15 15 Z"/>
+          <path d="M7 7 L11 3 L15 7"/>
+          <path d="M7 15 L11 19 L15 15"/>
+        </svg>
+        <div class="wellness-text">
+          <h3 class="wellness-row-title">Salongi õhukvaliteet</h3>
+          <p class="wellness-row-body">
+            Kliimasüsteem jälgib salongi ja välisõhu kvaliteeti ning kasutab vajadusel õhu ringlust. Süsteem aitab vähendada peenosakeste ja saaste jõudmist salongi.
+          </p>
+        </div>
+      </div>
+
+      <div class="wellness-row" data-wellness-image="images/ride.png">
+        <svg class="wellness-icon" viewBox="0 0 22 22" aria-hidden="true">
+          <path d="M3 11 L7 7 L11 11 L7 15 Z"/>
+          <path d="M11 11 L15 7 L19 11 L15 15 Z"/>
+          <path d="M7 7 L11 3 L15 7"/>
+          <path d="M7 15 L11 19 L15 15"/>
+        </svg>
+        <div class="wellness-text">
+          <h3 class="wellness-row-title">Bentley Dynamic Ride</h3>
+          <p class="wellness-row-body">
+            48-voldine aktiivne kaldumisvastane süsteem vähendab kere kaldumist kurvides ja hoiab sõidu sirgel teel pehme. Eesmärk ei ole sportlik jäikus, vaid rahulik ja kontrollitud liikumine.
+          </p>
+        </div>
+      </div>
+
+      <div class="wellness-hover-preview" aria-hidden="true">
+        <img src="images/istmed.png" alt="" data-wellness-preview="images/istmed.png">
+        <img src="images/salong.png" alt="" data-wellness-preview="images/salong.png">
+        <img src="images/ride.png" alt="" data-wellness-preview="images/ride.png">
+      </div>
+
+    </div>
+
+  </div><!-- /.wellness-inner -->
+</section>
+
+<!-- ================================================================
+     CONTACT — Faas 2.10 (staatiline, ainult Kristjan Uuk)
+     Bentley layout = vertikaalne editorial stack + integreeritud footer.
+     Vrd Mercedes 2-col grid; vrd Urus centered card.
+     CTA = pressed-into-paper Bentley signature (graphite block + brass-dim inset).
+     ================================================================ -->
+<section class="contact" id="kontakt">
+  <div class="contact-bg" aria-hidden="true"></div>
+  <div class="contact-inner">
+
+    <h2 class="contact-title">Tule vaata autot lähemalt <span class="em">Bentley Tallinna </span>salongis.</h2>
+
+    <p class="contact-lede">
+      Auto asub Pirni 1 salongis Tallinnas. Kohapeal saab üle vaadata seisukorra, konfiguratsiooni ja teha kokkuleppel proovisõidu.
+    </p>
+
+    <div class="contact-card">
+      <div class="contact-org">Bentley Tallinn</div>
+      <div class="contact-name">Kristjan Uuk</div>
+      <div class="contact-info">
+        <a href="tel:+3725161115" class="contact-info-link">+372 516 1115</a>
+        <a href="mailto:kristjan.uuk@auto100premium.ee" class="contact-info-link">kristjan.uuk@auto100premium.ee</a>
+      </div>
+    </div>
+
+    <div class="contact-ctas">
+      <button type="button" class="btn-primary" data-open-booking>Broneeri proovisõit</button>
+      <button type="button" class="contact-share" id="cta-share" aria-label="Jaga seda kuulutust">
+        <svg class="contact-share-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="18" cy="5" r="3"/>
+          <circle cx="6" cy="12" r="3"/>
+          <circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+        </svg>
+        <span class="contact-share-label">Jaga kuulutust</span>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="contact-bottom">
+    <span>© 2026 Bentley Tallinn</span>
+    <span>Bentley Continental GT AZURE V8 HYBRID 4.0 V8 500kW</span>
+  </div>
+</section>
+
+</main>
+
+<script>
+/* ================================================================
+   Faas 4.1 — Universal JS infrastruktuur
+   Globaalne scope: window.bx.* (Bentley namespace)
+   ================================================================ */
+(function () {
+  'use strict';
+  const bx = window.bx = window.bx || {};
+
+  // --- Scroll-lock count-based (nested-lock-safe) ---
+  // <html> klassil 'is-scroll-locked' + scrollbar-gutter: stable hoiab layout-i.
+  let lockCount = 0;
+  bx.lockScroll = function () {
+    if (lockCount === 0) document.documentElement.classList.add('is-scroll-locked');
+    lockCount++;
+  };
+  bx.unlockScroll = function () {
+    lockCount = Math.max(0, lockCount - 1);
+    if (lockCount === 0) document.documentElement.classList.remove('is-scroll-locked');
+  };
+
+  // --- Focus helpers ---
+  const FOCUSABLE = [
+    'a[href]', 'button:not([disabled])', 'input:not([disabled])',
+    'select:not([disabled])', 'textarea:not([disabled])',
+    '[tabindex]:not([tabindex="-1"])'
+  ].join(',');
+
+  bx.getFocusable = function (container) {
+    if (!container) return [];
+    return Array.from(container.querySelectorAll(FOCUSABLE))
+      .filter(el => !el.closest('[aria-hidden="true"]') && el.offsetParent !== null);
+  };
+
+  // Focus-trap: Tab + Shift-Tab loops in container. Returns cleanup fn.
+  bx.trapFocus = function (container) {
+    if (!container) return function () {};
+    function onKey(e) {
+      if (e.key !== 'Tab') return;
+      const focusable = bx.getFocusable(container);
+      if (focusable.length === 0) { e.preventDefault(); return; }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    }
+    container.addEventListener('keydown', onKey);
+    return function () { container.removeEventListener('keydown', onKey); };
+  };
+
+  // --- ESC key listener helper ---
+  // Kasutus: bx.onEscape(() => closeStuff()); returns cleanup fn.
+  bx.onEscape = function (handler) {
+    function onKey(e) { if (e.key === 'Escape') handler(e); }
+    document.addEventListener('keydown', onKey);
+    return function () { document.removeEventListener('keydown', onKey); };
+  };
+})();
+
+/* ================================================================
+   Faas 4.2 — Hamburger toggle + nav-menu open/close
+   ================================================================ */
+(function () {
+  'use strict';
+  const bx = window.bx;
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  if (!toggle || !menu) return;
+
+  let isOpen = false;
+  let lastFocused = null;
+  let cleanupTrap = null;
+  let cleanupEsc = null;
+
+  function openMenu() {
+    if (isOpen) return;
+    isOpen = true;
+    lastFocused = document.activeElement;
+    menu.setAttribute('aria-hidden', 'false');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Sulge menüü');
+    bx.lockScroll();
+    // Focus first link after CSS transition tick
+    requestAnimationFrame(() => {
+      const focusables = bx.getFocusable(menu);
+      if (focusables[0]) focusables[0].focus();
+    });
+    cleanupTrap = bx.trapFocus(menu);
+    cleanupEsc = bx.onEscape(closeMenu);
+  }
+
+  function closeMenu() {
+    if (!isOpen) return;
+    isOpen = false;
+    menu.setAttribute('aria-hidden', 'true');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Ava menüü');
+    bx.unlockScroll();
+    if (cleanupTrap) { cleanupTrap(); cleanupTrap = null; }
+    if (cleanupEsc) { cleanupEsc(); cleanupEsc = null; }
+    if (lastFocused && typeof lastFocused.focus === 'function') {
+      lastFocused.focus();
+    } else {
+      toggle.focus();
+    }
+  }
+
+  toggle.addEventListener('click', function () {
+    if (isOpen) closeMenu(); else openMenu();
+  });
+
+  // Anchor click → close menu BEFORE smooth-scroll (browser handles hash jump)
+  menu.querySelectorAll('.nav-sections a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      // Defer close to next tick so hash-change/scroll triggers first
+      closeMenu();
+    });
+  });
+
+  // Expose for other modules (lightbox / booking can close menu programmatically)
+  bx.closeNavMenu = closeMenu;
+})();
+
+/* ================================================================
+   Faas 4.2b — Brand-mark scroll-direction-aware hide
+   Alla-kerides logo kaob, üles-kerides ilmub. Hamburger jääb alati.
+   Top-zone (< 80px) hoiab logo alati nähtaval (esmamulje terviklik).
+   Universaalpattern (pattern_brand_logo_scroll_hide).
+   ================================================================ */
+(function () {
+  'use strict';
+  const brandLeft = document.querySelector('.brand-bar-left');
+  if (!brandLeft) return;
+
+  const TOP_ZONE = 80;        // px — selles vööndis logo alati nähtav
+  const DELTA_MIN = 5;        // px — minimum scroll-delta jitterivastaseks
+
+  let lastY = window.scrollY;
+  let ticking = false;
+
+  function update() {
+    const y = window.scrollY;
+    const delta = y - lastY;
+
+    if (y < TOP_ZONE) {
+      brandLeft.classList.remove('is-hidden');
+    } else if (delta > DELTA_MIN) {
+      brandLeft.classList.add('is-hidden');     // scroll DOWN → hide
+    } else if (delta < -DELTA_MIN) {
+      brandLeft.classList.remove('is-hidden');  // scroll UP → show
+    }
+
+    lastY = y;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+
+/* ================================================================
+   Faas 4.3 — Lightbox open/close + prev/next + counter + progress
+   ================================================================ */
+(function () {
+  'use strict';
+  const bx = window.bx;
+  const lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
+  const img = lightbox.querySelector('.lightbox-img');
+  const fill = lightbox.querySelector('.lightbox-progress-fill');
+  const counterCurrent = lightbox.querySelector('.lightbox-counter-current');
+  const counterTotal = lightbox.querySelector('.lightbox-counter-total');
+  const btnClose = lightbox.querySelector('.lightbox-close');
+  const btnPrev = lightbox.querySelector('.lightbox-prev');
+  const btnNext = lightbox.querySelector('.lightbox-next');
+  const thumbs = document.querySelectorAll('.gallery-item');
+  const TOTAL = thumbs.length || 24;
+
+  let isOpen = false;
+  let idx = 0;
+  let lastFocused = null;
+  let cleanupTrap = null;
+  let cleanupEsc = null;
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  function update() {
+    img.src = 'images/' + (idx + 1) + '.png';
+    img.alt = 'Bentley Continental GT Azure — galeriifoto ' + (idx + 1);
+    counterCurrent.textContent = pad(idx + 1);
+    counterTotal.textContent = pad(TOTAL);
+    fill.style.width = ((idx + 1) / TOTAL * 100) + '%';
+  }
+
+  function open(startIndex) {
+    if (isOpen) return;
+    isOpen = true;
+    idx = ((startIndex || 0) % TOTAL + TOTAL) % TOTAL;
+    lastFocused = document.activeElement;
+    update();
+    lightbox.setAttribute('aria-hidden', 'false');
+    bx.lockScroll();
+    requestAnimationFrame(() => btnClose.focus());
+    cleanupTrap = bx.trapFocus(lightbox);
+    cleanupEsc = bx.onEscape(close);
+    document.addEventListener('keydown', onArrowKeys);
+  }
+
+  function close() {
+    if (!isOpen) return;
+    isOpen = false;
+    lightbox.setAttribute('aria-hidden', 'true');
+    bx.unlockScroll();
+    if (cleanupTrap) { cleanupTrap(); cleanupTrap = null; }
+    if (cleanupEsc) { cleanupEsc(); cleanupEsc = null; }
+    document.removeEventListener('keydown', onArrowKeys);
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+  }
+
+  function next() { idx = (idx + 1) % TOTAL; update(); }
+  function prev() { idx = (idx - 1 + TOTAL) % TOTAL; update(); }
+
+  function onArrowKeys(e) {
+    if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+  }
+
+  btnClose.addEventListener('click', close);
+  btnNext.addEventListener('click', next);
+  btnPrev.addEventListener('click', prev);
+
+  thumbs.forEach(function (thumb) {
+    thumb.style.cursor = 'zoom-in';
+    thumb.addEventListener('click', function () {
+      const di = parseInt(thumb.getAttribute('data-index'), 10) || 0;
+      open(di);
+    });
+  });
+
+  bx.openLightbox = open;
+  bx.closeLightbox = close;
+})();
+
+/* ================================================================
+   Gallery editorial slideshow controls
+   ================================================================ */
+(function () {
+  'use strict';
+  const gallery = document.querySelector('[data-gallery-slideshow]');
+  if (!gallery) return;
+
+  const slides = Array.from(gallery.querySelectorAll('[data-gallery-slide]'));
+  const btnPrev = gallery.querySelector('[data-gallery-prev]');
+  const btnNext = gallery.querySelector('[data-gallery-next]');
+  const progress = gallery.querySelector('[data-gallery-progress]');
+  if (!slides.length || !btnPrev || !btnNext || !progress) return;
+
+  let current = slides.findIndex(slide => slide.classList.contains('is-active'));
+  if (current < 0) current = 0;
+
+  function updateProgress() {
+    progress.style.width = ((current + 1) / slides.length * 100) + '%';
+  }
+
+  function showSlide(index) {
+    const nextIndex = ((index % slides.length) + slides.length) % slides.length;
+    if (nextIndex === current) return;
+
+    slides[current].classList.remove('is-active');
+    slides[current].setAttribute('aria-hidden', 'true');
+
+    current = nextIndex;
+    slides[current].classList.add('is-active');
+    slides[current].setAttribute('aria-hidden', 'false');
+    updateProgress();
+  }
+
+  btnPrev.addEventListener('click', function () {
+    showSlide(current - 1);
+  });
+
+  btnNext.addEventListener('click', function () {
+    showSlide(current + 1);
+  });
+
+  slides.forEach(function (slide, index) {
+    slide.setAttribute('aria-hidden', index === current ? 'false' : 'true');
+    slide.classList.toggle('is-active', index === current);
+  });
+  updateProgress();
+})();
+
+/* ================================================================
+   Faas 4.4 — Broneerimismodal: open + 3-pane flow + pickers + submit
+   ================================================================ */
+(function () {
+  'use strict';
+  const bx = window.bx;
+  const overlay = document.getElementById('booking-overlay');
+  if (!overlay) return;
+  const modal = overlay.querySelector('.booking-modal');
+  const btnClose = overlay.querySelector('.booking-close');
+  const panes = [
+    overlay.querySelector('#booking-pane-1'),
+    overlay.querySelector('#booking-pane-2'),
+    overlay.querySelector('#booking-pane-3')
+  ];
+  const dots = overlay.querySelectorAll('.booking-step-dot');
+  const progress = overlay.querySelector('.booking-progress');
+  const visitCards = overlay.querySelectorAll('.booking-card[data-visit]');
+  const dayBtns = overlay.querySelectorAll('.date-picker-day:not(.date-picker-day--empty)');
+  const timeBtns = overlay.querySelectorAll('.time-picker-option');
+  const form = overlay.querySelector('.booking-form');
+  const monthLabel = overlay.querySelector('.date-picker-month');
+  const summary = overlay.querySelector('.booking-summary');
+
+  let isOpen = false;
+  let currentPane = 0;
+  let lastFocused = null;
+  let cleanupTrap = null;
+  let cleanupEsc = null;
+
+  // State
+  const state = {
+    visit: 'onsite',
+    day: 14,
+    monthLabel: 'November 2026',
+    time: 'afternoon'
+  };
+
+  const TIME_LABEL = { morning: 'hommik', afternoon: 'pärastlõuna', evening: 'õhtu' };
+  const VISIT_LABEL = { onsite: 'Kohapeal · Pirni 1', virtual: 'Virtuaalne videokõne' };
+
+  function setPane(i) {
+    currentPane = i;
+    panes.forEach((p, idx) => p.setAttribute('aria-hidden', idx === i ? 'false' : 'true'));
+    dots.forEach((d, idx) => d.classList.toggle('booking-step-dot--active', idx <= i));
+    progress.setAttribute('aria-valuenow', String(i + 1));
+    // Move focus into the new pane's first focusable
+    requestAnimationFrame(() => {
+      const f = bx.getFocusable(panes[i]);
+      if (f[0]) f[0].focus();
+    });
+  }
+
+  function open() {
+    if (isOpen) return;
+    isOpen = true;
+    lastFocused = document.activeElement;
+    overlay.setAttribute('aria-hidden', 'false');
+    bx.lockScroll();
+    setPane(0);
+    cleanupTrap = bx.trapFocus(modal);
+    cleanupEsc = bx.onEscape(close);
+  }
+
+  function reset() {
+    state.visit = 'onsite';
+    state.day = 14;
+    state.time = 'afternoon';
+    visitCards.forEach(c => c.setAttribute('aria-pressed', c.dataset.visit === 'onsite' ? 'true' : 'false'));
+    dayBtns.forEach(b => {
+      const isSel = b.textContent.trim() === '14';
+      b.classList.toggle('date-picker-day--selected', isSel);
+      b.setAttribute('aria-pressed', isSel ? 'true' : 'false');
+    });
+    timeBtns.forEach(b => b.setAttribute('aria-pressed', b.dataset.time === 'afternoon' ? 'true' : 'false'));
+    if (form) form.reset();
+  }
+
+  function close() {
+    if (!isOpen) return;
+    isOpen = false;
+    overlay.setAttribute('aria-hidden', 'true');
+    bx.unlockScroll();
+    if (cleanupTrap) { cleanupTrap(); cleanupTrap = null; }
+    if (cleanupEsc) { cleanupEsc(); cleanupEsc = null; }
+    setPane(0);
+    reset();
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+  }
+
+  // Visit cards → select + advance to pane 2
+  visitCards.forEach(card => {
+    card.addEventListener('click', function () {
+      state.visit = card.dataset.visit;
+      visitCards.forEach(c => c.setAttribute('aria-pressed', c === card ? 'true' : 'false'));
+      setPane(1);
+    });
+  });
+
+  // Date-picker days
+  dayBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+      const v = parseInt(btn.textContent.trim(), 10);
+      if (!v) return;
+      state.day = v;
+      dayBtns.forEach(b => {
+        const sel = b === btn;
+        b.classList.toggle('date-picker-day--selected', sel);
+        b.setAttribute('aria-pressed', sel ? 'true' : 'false');
+      });
+    });
+  });
+
+  // Time-picker
+  timeBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+      state.time = btn.dataset.time;
+      timeBtns.forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+    });
+  });
+
+  // Form submit
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = (form.querySelector('#b-name') || {}).value || '';
+      const phone = (form.querySelector('#b-phone') || {}).value || '';
+      const email = (form.querySelector('#b-email') || {}).value || '';
+      // Lihtne valideerimine — nimi + (phone VÕI email)
+      if (!name.trim() || (!phone.trim() && !email.trim())) {
+        form.querySelector('#b-name').focus();
+        return;
+      }
+      // Update summary
+      if (summary) {
+        const monthName = (monthLabel ? monthLabel.textContent.trim().split(' ')[0] : 'november').toLowerCase();
+        const year = (monthLabel ? monthLabel.textContent.trim().split(' ')[1] : '2026');
+        summary.innerHTML =
+          '<dt>Vaatamine</dt><dd>' + VISIT_LABEL[state.visit] + '</dd>' +
+          '<dt>Aeg</dt><dd>' + state.day + '. ' + monthName + ' ' + year + ', ' + TIME_LABEL[state.time] + '</dd>' +
+          '<dt>Auto</dt><dd>Bentley Continental GT Azure V8 Hybrid</dd>';
+      }
+      setPane(2);
+    });
+  }
+
+  // Open triggers
+  document.querySelectorAll('[data-open-booking], [data-action="open-booking"]').forEach(el => {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (bx.closeNavMenu) bx.closeNavMenu();
+      open();
+    });
+  });
+
+  // Close triggers
+  btnClose.addEventListener('click', close);
+  // Backdrop click (click outside modal)
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) close();
+  });
+
+  bx.openBooking = open;
+  bx.closeBooking = close;
+})();
+
+/* ================================================================
+   Faas 4.5 — Audio-pleier play/pause + waveform animation
+   ================================================================ */
+(function () {
+  'use strict';
+  const audio = document.getElementById('es-audio');
+  const btn = document.getElementById('es-btn');
+  const player = document.getElementById('es-player');
+  const errorEl = document.getElementById('es-error');
+  if (!audio || !btn || !player) return;
+
+  function setPlayingState(playing) {
+    btn.classList.toggle('is-playing', playing);
+    player.classList.toggle('is-playing', playing);
+    btn.setAttribute('aria-label', playing ? 'Peata Bentley V8 mootori heli' : 'Mängi Bentley V8 mootori heli');
+    btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
+  }
+
+  function showError() {
+    if (errorEl) errorEl.hidden = false;
+    setPlayingState(false);
+  }
+
+  btn.addEventListener('click', function () {
+    if (audio.paused) {
+      const p = audio.play();
+      if (p && typeof p.then === 'function') {
+        p.then(() => setPlayingState(true)).catch(showError);
+      } else {
+        setPlayingState(true);
+      }
+    } else {
+      audio.pause();
+      setPlayingState(false);
+    }
+  });
+
+  audio.addEventListener('play', () => setPlayingState(true));
+  audio.addEventListener('pause', () => setPlayingState(false));
+  audio.addEventListener('ended', () => setPlayingState(false));
+  audio.addEventListener('error', showError);
+})();
+
+/* ================================================================
+   Faas 4.6 — Accordion JS (ADP + FAQ)
+   Smooth collapse via JS-managed max-height transitions.
+   ================================================================ */
+(function () {
+  'use strict';
+
+  function expand(content) {
+    // Set explicit pixel max-height to enable transition from 0
+    content.style.maxHeight = content.scrollHeight + 'px';
+    content.style.clipPath = 'inset(0 0 0 0)';
+    // After transition ends, switch to 'none' so content can re-flow naturally
+    const onEnd = function (e) {
+      if (e.propertyName !== 'max-height') return;
+      content.style.maxHeight = 'none';
+      content.removeEventListener('transitionend', onEnd);
+    };
+    content.addEventListener('transitionend', onEnd);
+  }
+
+  function collapse(content) {
+    // If currently 'none', first set to scrollHeight so transition has a start value
+    if (content.style.maxHeight === 'none' || content.style.maxHeight === '') {
+      content.style.maxHeight = content.scrollHeight + 'px';
+      // Force reflow
+      void content.offsetHeight;
+    }
+    requestAnimationFrame(() => {
+      content.style.maxHeight = '0px';
+      content.style.clipPath = 'inset(0 100% 0 0)';
+    });
+  }
+
+  function setupAccordion(triggers, contentSelector, iconCb) {
+    triggers.forEach(trigger => {
+      const content = trigger.nextElementSibling;
+      if (!content || !content.matches(contentSelector)) return;
+      // Init state from aria-expanded
+      const open = trigger.getAttribute('aria-expanded') === 'true';
+      content.style.maxHeight = open ? 'none' : '0px';
+      // Faas 5.5 lisand — initial clip-path match aria-expanded
+      content.style.clipPath = open ? 'inset(0 0 0 0)' : 'inset(0 100% 0 0)';
+
+      trigger.addEventListener('click', function () {
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        if (iconCb) iconCb(trigger, !isOpen);
+        if (isOpen) collapse(content); else expand(content);
+      });
+    });
+  }
+
+  // --- ADP accordion (icon swap handled via CSS aria-expanded selector) ---
+  setupAccordion(
+    document.querySelectorAll('.accordion-trigger'),
+    '.accordion-content',
+    null
+  );
+
+  // --- FAQ accordion (text icon +/−) ---
+  // Wrap FAQ text in .fhw-faq-inner for clean padding control
+  document.querySelectorAll('.fhw-faq-content').forEach(content => {
+    if (content.firstElementChild && content.firstElementChild.classList.contains('fhw-faq-inner')) return;
+    const inner = document.createElement('div');
+    inner.className = 'fhw-faq-inner';
+    while (content.firstChild) inner.appendChild(content.firstChild);
+    content.appendChild(inner);
+  });
+
+  setupAccordion(
+    document.querySelectorAll('.fhw-faq-trigger'),
+    '.fhw-faq-content',
+    function (trigger, willOpen) {
+      const icon = trigger.querySelector('.fhw-faq-icon');
+      if (icon) icon.textContent = willOpen ? '−' : '+';
+    }
+  );
+})();
+
+/* ================================================================
+   Faas 4.7 — FHW widget (btn + panel + tabs + teaser)
+   ================================================================ */
+(function () {
+  'use strict';
+  const bx = window.bx;
+  const btn = document.getElementById('fhw-btn');
+  const panel = document.getElementById('fhw-panel');
+  const panelClose = panel ? panel.querySelector('.fhw-panel-close') : null;
+  const teaser = document.getElementById('fhw-teaser');
+  const teaserClose = teaser ? teaser.querySelector('.fhw-teaser-close') : null;
+  const tabs = document.querySelectorAll('.fhw-tab');
+  const tabPanels = document.querySelectorAll('.fhw-tab-panel');
+  if (!btn || !panel) return;
+
+  const TEASER_DELAY = 3000;
+  const TEASER_DISMISS_KEY = 'bx-fhw-teaser-dismissed';
+  let panelOpen = false;
+  let cleanupEsc = null;
+
+  function openPanel() {
+    if (panelOpen) return;
+    panelOpen = true;
+    panel.setAttribute('aria-hidden', 'false');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Sulge abi-paneel');
+    hideTeaser(false); // don't persist dismiss — just hide visually
+    cleanupEsc = bx.onEscape(closePanel);
+  }
+
+  function closePanel() {
+    if (!panelOpen) return;
+    panelOpen = false;
+    panel.setAttribute('aria-hidden', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Ava abi-paneel');
+    if (cleanupEsc) { cleanupEsc(); cleanupEsc = null; }
+  }
+
+  function togglePanel() {
+    if (panelOpen) closePanel(); else openPanel();
+  }
+
+  function hideTeaser(persist) {
+    if (!teaser) return;
+    teaser.setAttribute('aria-hidden', 'true');
+    if (persist) {
+      try { sessionStorage.setItem(TEASER_DISMISS_KEY, '1'); } catch (e) {}
+    }
+  }
+
+  function showTeaser() {
+    if (!teaser) return;
+    if (panelOpen) return;
+    try {
+      if (sessionStorage.getItem(TEASER_DISMISS_KEY) === '1') return;
+    } catch (e) {}
+    teaser.setAttribute('aria-hidden', 'false');
+  }
+
+  // --- Btn toggle ---
+  btn.addEventListener('click', togglePanel);
+  if (panelClose) panelClose.addEventListener('click', closePanel);
+
+  // --- Teaser ---
+  if (teaser) {
+    // Click on teaser body (not close-btn) → open panel
+    teaser.addEventListener('click', function (e) {
+      if (teaserClose && teaserClose.contains(e.target)) return;
+      hideTeaser(true);
+      openPanel();
+    });
+    if (teaserClose) {
+      teaserClose.addEventListener('click', function (e) {
+        e.stopPropagation();
+        hideTeaser(true);
+      });
+    }
+    // Auto-show after delay
+    setTimeout(showTeaser, TEASER_DELAY);
+  }
+
+  // --- Tab switching ---
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function () {
+      const targetId = tab.getAttribute('aria-controls');
+      tabs.forEach(t => t.setAttribute('aria-selected', t === tab ? 'true' : 'false'));
+      tabPanels.forEach(p => p.setAttribute('aria-hidden', p.id === targetId ? 'false' : 'true'));
+    });
+  });
+
+  bx.openHelp = openPanel;
+  bx.closeHelp = closePanel;
+})();
+
+/* ================================================================
+   Faas 4.8 — Share button (Web Share API + clipboard fallback)
+   Mobile: natiivne sharing-leht (WhatsApp/Messenger/email).
+   Desktop: kopeerib URL clipboard'i + "Link kopeeritud ✓" 2.2s feedback.
+   Universaalreegel (pattern_share_button).
+   ================================================================ */
+(function () {
+  'use strict';
+  const shareBtn = document.getElementById('cta-share');
+  if (!shareBtn) return;
+  const shareLabel = shareBtn.querySelector('.contact-share-label');
+  if (!shareLabel) return;
+  const originalText = shareLabel.textContent;
+  let resetTimer;
+
+  function showFeedback(msg) {
+    if (resetTimer) clearTimeout(resetTimer);
+    shareLabel.textContent = msg;
+    shareBtn.classList.add('is-success');
+    resetTimer = setTimeout(function () {
+      shareLabel.textContent = originalText;
+      shareBtn.classList.remove('is-success');
+    }, 2200);
+  }
+
+  const shareData = {
+    title: 'Bentley Continental GT Azure V8 Hybrid · Bentley Tallinn',
+    text: '62 km läbisõiduga Bentley Continental GT Azure V8 Hybrid Satin Orange konfiguratsioonis.',
+    url: window.location.href
+  };
+
+  shareBtn.addEventListener('click', async function () {
+    if (navigator.share && (!navigator.canShare || navigator.canShare(shareData))) {
+      try {
+        await navigator.share(shareData);
+        return;
+      } catch (err) {
+        if (err.name === 'AbortError') return; // kasutaja tühistas — ära näita feedback'it
+        // muu viga → langeb läbi clipboard'i
+      }
+    }
+    // Desktop fallback: kopeeri link clipboard'i
+    try {
+      await navigator.clipboard.writeText(shareData.url);
+      showFeedback('Link kopeeritud ✓');
+    } catch (err) {
+      showFeedback('Kopeerimine ebaõnnestus');
+    }
+  });
+})();
+
+/* ================================================================
+   Faas 6.X — Sticky FHW scroll-fade
+   Peidetud hero'l, ilmub sujuvalt Hook-sektsiooni sisenedes.
+   onLeaveBack: sulge panel + peida teaser + fade out.
+   Mercedes-evolved pattern (universaalreegel listing-projektidele).
+   ================================================================ */
+(function () {
+  'use strict';
+  if (typeof gsap === 'undefined' || !window.ScrollTrigger) return;
+  const fhwRoot = document.getElementById('fhw-root');
+  const hook = document.querySelector('.hook');
+  if (!fhwRoot || !hook) return;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function closeOnLeaveBack() {
+    const panel = document.getElementById('fhw-panel');
+    const btn = document.getElementById('fhw-btn');
+    const teaser = document.getElementById('fhw-teaser');
+    if (panel) panel.setAttribute('aria-hidden', 'true');
+    if (btn) {
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Ava abi-paneel');
+    }
+    if (teaser) teaser.setAttribute('aria-hidden', 'true');
+  }
+
+  if (prefersReduced) {
+    // Instant on/off — austab reduced-motion eelistust
+    ScrollTrigger.create({
+      trigger: hook,
+      start: 'top bottom',
+      onEnter: function () {
+        fhwRoot.style.opacity = '1';
+        fhwRoot.style.visibility = 'visible';
+        fhwRoot.style.pointerEvents = 'auto';
+        fhwRoot.style.transform = 'none';
+      },
+      onLeaveBack: function () {
+        closeOnLeaveBack();
+        fhwRoot.style.opacity = '0';
+        fhwRoot.style.visibility = 'hidden';
+        fhwRoot.style.pointerEvents = 'none';
+      }
+    });
+    return;
+  }
+
+  ScrollTrigger.create({
+    trigger: hook,
+    start: 'top bottom',
+    onEnter: function () {
+      gsap.to(fhwRoot, {
+        opacity: 1,
+        visibility: 'visible',
+        pointerEvents: 'auto',
+        y: 0,
+        duration: 0.5,
+        ease: 'power2.out'
+      });
+    },
+    onLeaveBack: function () {
+      closeOnLeaveBack();
+      gsap.to(fhwRoot, {
+        opacity: 0,
+        visibility: 'hidden',
+        pointerEvents: 'none',
+        y: 10,
+        duration: 0.35,
+        ease: 'power2.in'
+      });
+    }
+  });
+})();
+
+/* ================================================================
+   Faas 5.1 — Hero pin-cinema curtain (variant C)
+   Entry: eyebrow + title-lines + meta sisse-reveal stagger.
+   Pin-scrub: hero-image scale 1 → 1.18, curtain opacity 0 → 0.7,
+              hero-content y 0 → -60 + blur 0 → 4px.
+   ================================================================ */
+(function () {
+  'use strict';
+  if (typeof gsap === 'undefined') return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
+    // Reset entry-states so content visible without animation
+    document.querySelectorAll('.hero-eyebrow .inner, .hero-title .line .inner')
+      .forEach(el => { el.style.transform = 'none'; });
+    document.querySelectorAll('.hero-meta')
+      .forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+    return;
+  }
+
+  if (gsap.registerPlugin && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+  }
+
+  // --- Entry timeline ---
+  const entry = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  entry
+    .to('.hero-eyebrow .inner', { y: '0%', duration: 0.85, delay: 0.2 })
+    .to('.hero-title .line .inner', { y: '0%', duration: 1.1, stagger: 0.12 }, '-=0.55')
+    .to('.hero-meta', { opacity: 1, y: 0, duration: 0.9 }, '-=0.7');
+
+  // --- Pin-cinema curtain scrub ---
+  if (window.ScrollTrigger) {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: '+=100%',
+        pin: true,
+        pinSpacing: true,
+        scrub: 0.6,
+        anticipatePin: 1
+      }
+    });
+    tl.fromTo('.hero-image',
+      { scale: 1 },
+      { scale: 1.18, ease: 'none', immediateRender: false }, 0);
+    tl.fromTo('.hero-curtain',
+      { opacity: 0 },
+      { opacity: 0.7, ease: 'none', immediateRender: false }, 0);
+    tl.fromTo('.hero-content',
+      { y: 0, filter: 'blur(0px)' },
+      { y: -60, filter: 'blur(4px)', ease: 'none', immediateRender: false }, 0);
+  }
+})();
+
+/* ================================================================
+   Faas 5.2 — Hook + Spec-grid: horisontaalne mask-sweep + settle
+   Brand-coherent: clip-path inset, letter-spacing settle, SVG draw-on.
+   ================================================================ */
+(function () {
+  'use strict';
+  if (typeof gsap === 'undefined' || !window.ScrollTrigger) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
+    document.querySelectorAll('.hook-statement, .spec-card').forEach(el => {
+      el.style.clipPath = 'none';
+    });
+    document.querySelectorAll('.spec-icon path, .spec-icon line, .spec-icon circle, .spec-icon rect, .spec-icon polygon, .spec-icon polyline').forEach(el => {
+      el.style.strokeDasharray = '0';
+      el.style.strokeDashoffset = '0';
+    });
+    return;
+  }
+
+  const hook = document.querySelector('.hook');
+  if (!hook) return;
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: hook,
+      start: 'top 72%',
+      toggleActions: 'play none none none'
+    }
+  });
+
+  // Hook-statement: clip-path sweep vasakult-paremale (via --reveal-x)
+  tl.to('.hook-statement', {
+    '--reveal-x': '0%',
+    duration: 1.2,
+    ease: 'power3.out'
+  }, 0);
+
+  // Spec-cards: clip-path sweep, stagger LTR
+  tl.to('.spec-card', {
+    '--reveal-x': '0%',
+    duration: 1.0,
+    stagger: 0.08,
+    ease: 'power3.out'
+  }, 0.45);
+
+  // Spec-icons SVG draw-on (stroke-dashoffset 200 → 0)
+  tl.to('.spec-icon path, .spec-icon line, .spec-icon circle, .spec-icon rect, .spec-icon polygon, .spec-icon polyline', {
+    strokeDashoffset: 0,
+    duration: 0.7,
+    stagger: { each: 0.04, from: 'start' },
+    ease: 'power2.out'
+  }, 0.8);
+})();
+
+/* ================================================================
+   Faas 5.3 — Story sektsioon (vertical mask paaridele + horizontal body)
+   ================================================================ */
+(function () {
+  'use strict';
+  if (typeof gsap === 'undefined' || !window.ScrollTrigger) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const story = document.querySelector('.story');
+  if (!story) return;
+
+  if (prefersReduced) {
+    story.querySelectorAll('.section-mesh path').forEach(p => {
+      p.style.strokeDasharray = '0';
+      p.style.strokeDashoffset = '0';
+    });
+    story.querySelectorAll('.story-title, .story-image, .story-text, .es-player').forEach(el => {
+      el.style.clipPath = 'none';
+    });
+    return;
+  }
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: story,
+      start: 'top 72%',
+      toggleActions: 'play none none none'
+    }
+  });
+
+  // 1. Section-mesh diamondid joonistuvad vasakult-paremale
+  tl.to('.story .section-mesh path', {
+    strokeDashoffset: 0,
+    duration: 0.55,
+    stagger: 0.06,
+    ease: 'power2.out'
+  }, 0);
+
+  // 2. Story-title + story-image SÜNKROONSELT vertikaalne mask
+  //    (konseptuaalselt paaris — headline + visual koos)
+  tl.to('.story-title, .story-image', {
+    '--reveal-y': '0%',
+    duration: 1.2,
+    ease: 'power3.out'
+  }, 0.4);
+
+  // 3. Body-paragraph horisontaalne sweep (Hook-keel)
+  tl.to('.story-text', {
+    '--reveal-x': '0%',
+    duration: 1.0,
+    ease: 'power3.out'
+  }, 0.85);
+
+  // 4. Audio-pleier horisontaalne sweep (sama keel)
+  tl.to('.es-player', {
+    '--reveal-x': '0%',
+    duration: 1.0,
+    ease: 'power3.out'
+  }, 1.05);
+})();
+
+/* ================================================================
+   Faas 5.4 — Galerii diagonal cascade reveal
+   Title vertikaalne + intro horisontaalne + 24 item'it Manhattan-distance stagger.
+   ================================================================ */
+(function () {
+  'use strict';
+  if (typeof gsap === 'undefined' || !window.ScrollTrigger) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const gallery = document.querySelector('.gallery');
+  if (!gallery) return;
+
+  if (prefersReduced) {
+    gallery.querySelectorAll('.gallery-title, .gallery-intro, .gallery-item').forEach(el => {
+      el.style.clipPath = 'none';
+    });
+    return;
+  }
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: gallery,
+      start: 'top 75%',
+      toggleActions: 'play none none none'
+    }
+  });
+
+  // 1. Gallery-title vertikaalne mask + intro horisontaalne SÜNK
+  tl.to('.gallery-title', {
+    '--reveal-y': '0%',
+    duration: 1.1,
+    ease: 'power3.out'
+  }, 0);
+  tl.to('.gallery-intro', {
+    '--reveal-x': '0%',
+    duration: 1.0,
+    ease: 'power3.out'
+  }, 0.15);
+
+  // 2. 24 gallery-item: diagonal cascade
+  //    data-index 0..23 mapib visual grid'i row-major (4 cols × 6 rows).
+  //    Delay = (row + col) * step → Manhattan-distance top-left'ist.
+  tl.to('.gallery-item', {
+    '--reveal-x': '0%',
+    duration: 0.9,
+    ease: 'power3.out',
+    stagger: function (i, target) {
+      const idx = parseInt(target.getAttribute('data-index') || i, 10);
+      const row = Math.floor(idx / 4);
+      const col = idx % 4;
+      return (row + col) * 0.08;
+    }
+  }, 0.5);
+})();
+
+/* ================================================================
+   Wellness hover preview — cursor-follow feature images
+   ================================================================ */
+(function () {
+  'use strict';
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (!canHover) return;
+
+  const rows = document.querySelector('.wellness-rows');
+  if (!rows) return;
+
+  const preview = rows.querySelector('.wellness-hover-preview');
+  const images = preview ? Array.from(preview.querySelectorAll('img[data-wellness-preview]')) : [];
+  const rowEls = Array.from(rows.querySelectorAll('.wellness-row[data-wellness-image]'));
+  if (!preview || !images.length || !rowEls.length) return;
+
+  let hideTimer = null;
+  let activeSrc = '';
+
+  function movePreview(e) {
+    preview.style.transform = 'translate3d(' + (e.clientX + 20) + 'px, ' + (e.clientY + 10) + 'px, 0)';
+  }
+
+  function showImage(src) {
+    if (hideTimer) {
+      clearTimeout(hideTimer);
+      hideTimer = null;
+    }
+    if (src !== activeSrc) {
+      images.forEach(function (img) {
+        img.classList.toggle('is-active', img.getAttribute('data-wellness-preview') === src);
+      });
+      activeSrc = src;
+    }
+    preview.classList.add('is-visible');
+  }
+
+  function scheduleHide() {
+    if (hideTimer) clearTimeout(hideTimer);
+    hideTimer = setTimeout(function () {
+      preview.classList.remove('is-visible');
+      hideTimer = null;
+    }, 80);
+  }
+
+  rows.addEventListener('mousemove', movePreview);
+  rowEls.forEach(function (row) {
+    row.addEventListener('mouseenter', function (e) {
+      movePreview(e);
+      showImage(row.getAttribute('data-wellness-image'));
+    });
+    row.addEventListener('mouseleave', scheduleHide);
+  });
+})();
+
+/* ================================================================
+   Faas 5.5 — ADP / Lisad cascade reveal
+   Title vertikaalne + intro horisontaalne + 3 accordion stagger.
+   ================================================================ */
+(function () {
+  'use strict';
+  if (typeof gsap === 'undefined' || !window.ScrollTrigger) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const adp = document.querySelector('.adp');
+  if (!adp) return;
+
+  if (prefersReduced) {
+    adp.querySelectorAll('.adp-title, .adp-intro, .accordion').forEach(el => {
+      el.style.clipPath = 'none';
+    });
+    return;
+  }
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: adp,
+      start: 'top 75%',
+      toggleActions: 'play none none none'
+    }
+  });
+
+  // 1. Title vertikaalne + intro horisontaalne (sünk)
+  tl.to('.adp-title', {
+    '--reveal-y': '0%',
+    duration: 1.1,
+    ease: 'power3.out'
+  }, 0);
+  tl.to('.adp-intro', {
+    '--reveal-x': '0%',
+    duration: 1.0,
+    ease: 'power3.out'
+  }, 0.15);
+
+  // 2. 3 accordion horisontaalne sweep, stagger 0.15s
+  tl.to('.adp .accordion', {
+    '--reveal-x': '0%',
+    duration: 1.0,
+    stagger: 0.15,
+    ease: 'power3.out'
+  }, 0.5);
+})();
+
+/* ================================================================
+   Faas 5.6 — Wellness sektsioon (sketch + heading + 3 rida)
+   ================================================================ */
+(function () {
+  'use strict';
+  if (typeof gsap === 'undefined' || !window.ScrollTrigger) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wellness = document.querySelector('.wellness');
+  if (!wellness) return;
+
+  if (prefersReduced) {
+    wellness.querySelectorAll('.wellness-sketch, .wellness-title, .wellness-intro, .wellness-row').forEach(el => {
+      el.style.clipPath = 'none';
+    });
+    wellness.querySelectorAll('.wellness-icon path, .wellness-icon line, .wellness-icon circle, .wellness-icon rect, .wellness-icon polygon, .wellness-icon polyline').forEach(el => {
+      el.style.strokeDasharray = '0';
+      el.style.strokeDashoffset = '0';
+    });
+    return;
+  }
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: wellness,
+      start: 'top 75%',
+      toggleActions: 'play none none none'
+    }
+  });
+
+  // 1. Sketch vertikaalne mask — sektsiooni avapilt esimesena
+  tl.to('.wellness-sketch', {
+    '--reveal-y': '0%',
+    duration: 1.2,
+    ease: 'power3.out'
+  }, 0);
+
+  // 2. Title vertikaalne + intro horisontaalne (sünk paar)
+  tl.to('.wellness-title', {
+    '--reveal-y': '0%',
+    duration: 1.1,
+    ease: 'power3.out'
+  }, 0.4);
+  tl.to('.wellness-intro', {
+    '--reveal-x': '0%',
+    duration: 1.0,
+    ease: 'power3.out'
+  }, 0.55);
+
+  // 3. 3 wellness-row horisontaalne sweep cascade ülevalt-alla
+  tl.to('.wellness-row', {
+    '--reveal-x': '0%',
+    duration: 0.95,
+    stagger: 0.18,
+    ease: 'power3.out'
+  }, 0.85);
+
+  // 4. Wellness-icon SVG draw-on, matched stagger row'idega + delay
+  tl.to('.wellness-icon path, .wellness-icon line, .wellness-icon circle, .wellness-icon rect, .wellness-icon polygon, .wellness-icon polyline', {
+    strokeDashoffset: 0,
+    duration: 0.65,
+    stagger: 0.06,
+    ease: 'power2.out'
+  }, 1.15);
+})();
+
+/* ================================================================
+   Faas 5.7 — Contact pair-grouped editorial reveal
+   Title vert üksi + paar 1 (lede+card) sünk + paar 2 (cta+bottom) sünk
+   ================================================================ */
+(function () {
+  'use strict';
+  if (typeof gsap === 'undefined' || !window.ScrollTrigger) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const contact = document.querySelector('.contact');
+  if (!contact) return;
+
+  if (prefersReduced) {
+    const bg = contact.querySelector('.contact-bg');
+    if (bg) { bg.style.opacity = '0.07'; bg.style.transform = 'none'; }
+    contact.querySelectorAll('.contact-title, .contact-lede, .contact-card, .contact-ctas, .contact-bottom').forEach(el => {
+      el.style.clipPath = 'none';
+    });
+    return;
+  }
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: contact,
+      start: 'top 75%',
+      toggleActions: 'play none none none'
+    }
+  });
+
+  // 0. BG: scale 1.06→1 + opacity 0→0.07 — kinemaatiline avanemine
+  tl.to('.contact-bg', {
+    opacity: 0.07,
+    scale: 1,
+    duration: 2.8,
+    ease: 'power2.out'
+  }, 0);
+
+  // 1. Title vertikaalne — kaalukas algus
+  tl.to('.contact-title', {
+    '--reveal-y': '0%',
+    duration: 1.2,
+    ease: 'power3.out'
+  }, 0);
+
+  // 2. Paar 1: lede + card horisontaalne SÜNK ("kus + kes")
+  tl.to(['.contact-lede', '.contact-card'], {
+    '--reveal-x': '0%',
+    duration: 1.0,
+    ease: 'power3.out'
+  }, 0.4);
+
+  // 3. Paar 2: CTA + bottom horisontaalne SÜNK ("action + footer")
+  tl.to(['.contact-ctas', '.contact-bottom'], {
+    '--reveal-x': '0%',
+    duration: 1.0,
+    ease: 'power3.out'
+  }, 0.95);
+})();
+</script>
+
+</body>
+</html>
