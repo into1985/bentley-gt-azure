@@ -1,0 +1,24 @@
+# Dependencies (sharp installib siia, ainult conversion-tool kasutuseks)
+node_modules/
+
+# OS-spetsiifilised
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local dev
+.env
+.env.local
+
+# Local Claude preview konfiguratsioon
+.claude/

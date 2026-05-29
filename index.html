@@ -119,8 +119,7 @@
 
   /* ============================================================
      FONTS — Migra (self-hosted) + PP Neue Montreal (Fontshare)
-     Indrek lisas Migra font-failid font/ kausta.
-     Italic-variante EI kasuta (feedback_no_italic.md).
+     Italic-variante ei kasutata.
      ============================================================ */
   @font-face {
     font-family: 'Migra';
@@ -171,7 +170,7 @@
   }
 
   /* ============================================================
-     CUSTOM SCROLLBAR — Faas 6.3 (A: hairline graphite)
+     CUSTOM SCROLLBAR (A: hairline graphite)
      6px lai · track nähtamatu · thumb graphite 25% → 55% hover
      ============================================================ */
   /* Firefox */
@@ -239,7 +238,7 @@
   }
   .brand-bar-divider {
     display: inline-block;
-    width: 4px; height: 4px;
+    width: 3px; height: 3px;
     background: var(--clay);
     border-radius: 50%;
     margin: 0 0.1em;
@@ -269,13 +268,12 @@
   html.is-scroll-locked { overflow: hidden; }
 
   /* ============================================================
-     NAV MENU — Faas 3.1 (kanooniline skelett + Bentley B-layout)
+     NAV MENU (kanooniline skelett + Bentley B-layout)
      Full-screen overlay, asümmeetriline editorial spread:
        LEFT: sektsioonide lingid (big Migra Extralight typograafia)
        RIGHT-BOTTOM: müüja kontakt + ET/EN lang-lüliti
      Skelett: .nav-menu > .nav-menu-inner > .nav-sections + .nav-footer
        (.nav-contact + .nav-lang > .lang-btn)
-     Default-OPEN Faas 3 review'ks (aria-hidden="false"); Faas 4 lisab toggle.
      ============================================================ */
   .nav-menu {
     position: fixed;
@@ -285,8 +283,23 @@
     display: flex;
     flex-direction: column;
     padding: 6.5rem var(--gutter) 2.5rem;
+    /* Mask-reveal avanemine/sulgemine — clip-path ülevalt alla.
+       --nav-reveal: 100% (peidetud) → 0% (täis-nähtav). GSAP animeerib custom property'd,
+       MITTE clip-path'i otse . */
+    --nav-reveal: 100%;
+    clip-path: inset(var(--nav-reveal) 0 0 0);
   }
-  .nav-menu[aria-hidden="true"] { display: none; }
+  .nav-menu[aria-hidden="true"] {
+    pointer-events: none;
+  }
+  .nav-menu[aria-hidden="false"] {
+    pointer-events: auto;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    /* Reduced-motion: instant snap, ei mask-sweep'i */
+    .nav-menu[aria-hidden="true"] { --nav-reveal: 100%; }
+    .nav-menu[aria-hidden="false"] { --nav-reveal: 0%; }
+  }
 
   .nav-menu-inner {
     flex: 1;
@@ -366,7 +379,6 @@
   .nav-contact-links {
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
   }
   .nav-contact-links a {
     font-family: var(--font-display);
@@ -409,12 +421,10 @@
   }
 
   /* ============================================================
-     LIGHTBOX — Faas 3.2 (galerii suurendus, B-layout: bottom-control-bar)
+     LIGHTBOX (galerii suurendus, B-layout: bottom-control-bar)
      Skelett kanooniline: .lightbox, .lightbox-stage, .lightbox-img,
        .lightbox-close, .lightbox-prev, .lightbox-next, .lightbox-counter
      Bentley layout: pilt üleval-keskel, controls flush-row all servas.
-     Z-index 60 = üle nav-menu (40) ja brand-bar (50).
-     Default-OPEN Faas 3 review'ks; Faas 4 lisab JS-i + click-on-thumb.
      ============================================================ */
   .lightbox {
     position: fixed;
@@ -443,12 +453,40 @@
     min-height: 0;
     gap: 1rem;
   }
-  .lightbox-img {
-    max-width: 100%;
-    min-height: 0;
+  /* Lightbox image stack — 2 imgs samasse grid-cell'i, mask-sweep transit'iks . Brand-coherent mask-reveal language'iga: clip-path
+     inset direction-aware. */
+  .lightbox-img-stack {
     flex: 1 1 auto;
+    min-height: 0;
+    display: grid;
+    grid-template-areas: "img";
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .lightbox-img {
+    grid-area: img;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
     display: block;
+    will-change: clip-path;
+  }
+  /* Direction-aware mask: --reveal-x animeerub 100% → 0% via JS.
+     Next-klikk: pilt sisse paremalt → mask peidab paremalt esiale */
+  .lightbox-img.is-entering-next {
+    --reveal-x: 100%;
+    clip-path: inset(0 var(--reveal-x) 0 0);
+  }
+  /* Prev-klikk: pilt sisse vasakult → mask peidab vasakult esiale */
+  .lightbox-img.is-entering-prev {
+    --reveal-x: 100%;
+    clip-path: inset(0 0 0 var(--reveal-x));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    /* Reduced-motion: instant swap, mask-sweep skipped */
+    .lightbox-img.is-entering-next,
+    .lightbox-img.is-entering-prev { --reveal-x: 0%; clip-path: none; }
   }
 
   .lightbox-bar {
@@ -532,8 +570,7 @@
   .lightbox-counter-total { opacity: 0.65; }
 
   /* Progress-rada — 1px hairline pildi all, kasvab vasakult paremale
-     kui kasutaja kerib läbi galeriid. Kaks kihti (track + fill).
-     Faas 4-s: JS sünkroniseerib `.lightbox-progress-fill` width counter'iga. */
+     kui kasutaja kerib läbi galeriid. Kaks kihti (track + fill). */
   .lightbox-progress {
     position: relative;
     width: 100%;
@@ -551,9 +588,8 @@
   }
 
   /* ============================================================
-     BOOKING MODAL — Faas 3.3 (A: centered card, dim backdrop)
-     3-pane voog: visit-type → form (custom date+time picker) → success
-     Faas 3 staatiline: kõik paneelid stacked review'ks; Faas 4 JS hides 2-3.
+     BOOKING MODAL (A: centered card, dim backdrop)
+     3-pane voog: visit-type → form (custom date+time picker) → success staatiline: kõik paneelid stacked review'ks; JS hides 2-3.
      ============================================================ */
   .booking-overlay {
     position: fixed;
@@ -624,7 +660,7 @@
     flex-direction: column;
     gap: 1.5rem;
   }
-  /* Faas 4 JS — ainult üks paneel nähtav korraga */
+  /* JS — ainult üks paneel nähtav korraga */
   .booking-pane[aria-hidden="true"] { display: none; }
 
   .booking-pane-title {
@@ -886,16 +922,16 @@
   }
 
   /* ============================================================
-     FHW WIDGET — Faas 3.4 (A: pill-nupp + Bentley diamond-mesh ikoon)
+     FHW WIDGET (A: pill-nupp + Bentley diamond-mesh ikoon)
      Paremas alanurgas: pill-button + teaser-bubble + panel (KKK/Küsi tab).
-     Default Faas 3 staatiline: panel OPEN, teaser HIDDEN, btn visible.
-     z-index 75 review'ks (Faas 6 võib alandada 35-le).
+     Default staatiline: panel OPEN, teaser HIDDEN, btn visible.
+     z-index 75 review'ks ( võib alandada 35-le).
      ============================================================ */
   #fhw-root {
     position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
-    z-index: 75;
+    z-index: 35;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -1041,8 +1077,8 @@
     line-height: 1;
   }
   .fhw-faq-trigger[aria-expanded="true"] .fhw-faq-icon { color: var(--flame); }
-  /* Faas 4.6 — smooth collapse via max-height (JS-managed) */
-  /* Faas 5.5 lisand — clip-path mask sweep paralleelselt max-height'iga */
+  /* — smooth collapse via max-height (JS-managed) */
+  /* lisand — clip-path mask sweep paralleelselt max-height'iga */
   .fhw-faq-content {
     overflow: hidden;
     max-height: 0;
@@ -1085,7 +1121,13 @@
     font-size: 0.78rem;
     max-width: 280px;
   }
-  .fhw-teaser[aria-hidden="true"] { display: none; }
+  .fhw-teaser {
+    transition: opacity 0.6s ease;
+  }
+  .fhw-teaser[aria-hidden="true"] {
+    opacity: 0;
+    pointer-events: none;
+  }
   .fhw-teaser-close {
     background: none;
     border: 0;
@@ -1098,7 +1140,7 @@
   }
   .fhw-teaser-close:hover { opacity: 1; }
 
-  /* Pill-nupp + Bentley diamond-mesh ikoon (eristub Urus/Mercedes hexagonist) */
+  /* Pill-nupp + Bentley diamond-mesh ikoon */
   .fhw-btn {
     display: inline-flex;
     align-items: center;
@@ -1141,7 +1183,7 @@
 
   /* ============================================================
      HERO — Split layout (text 5/12 left, image 7/12 right).
-     Kasutamata layout-muster (vs Urus full-bleed, vs Mercedes alanurka).
+     Kasutamata layout-muster.
      Canonical naming: section.hero#hero, .hero-image, .hero-content,
        .hero-headline (.hero-eyebrow > .inner + .hero-title > .line > .inner),
        .hero-meta > .hero-meta-left + .hero-price-block
@@ -1150,7 +1192,11 @@
     min-height: 100vh;
     background: var(--bone);
     display: grid;
-    grid-template-columns: 5fr 7fr;
+    /* Vasak tekst-paneel: 41.67% (= 5fr 12-st) algselt.
+       Scroll-progress'i ajal JS scrub'b --content-w → 0%, kus parem
+       foto-paneel laieneb täis-bleediks (panel-collapse animation). */
+    --content-w: 41.667%;
+    grid-template-columns: var(--content-w) 1fr;
     position: relative;
     overflow: hidden;
   }
@@ -1164,7 +1210,7 @@
   .hero-image {
     position: absolute;
     inset: 0;
-    background-image: url('images/hero.png');
+    background-image: url('images/hero.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1214,7 +1260,6 @@
     overflow: hidden;
   }
   .hero-title .line .inner { display: inline-block; }
-  .hero-title .line:nth-child(2)
 
   .hero-meta {
     display: flex;
@@ -1231,7 +1276,7 @@
     font-weight: 400;
     line-height: 1.55;
     color: var(--graphite);
-    max-width: 22em;
+    max-width: 25em;
   }
 
   .hero-price-block {
@@ -1252,10 +1297,11 @@
   .hero-price {
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: clamp(1.3rem, 1.7vw, 1.7rem);
+    font-size: clamp(1.5rem, 2.2vw, 2.2rem);
     letter-spacing: -0.012em;
-    color: var(--brass-dim);
+    color: var(--flame);
     line-height: 1;
+    white-space: nowrap;
   }
   .hero-price-vat {
     font-family: var(--font-body);
@@ -1267,7 +1313,7 @@
   }
 
   /* ============================================================
-     HOOK + SPECS — üks sektsioon (Mercedes-mall, Urus-spec-card-skelett).
+     HOOK + SPECS — üks sektsioon.
      section.hook#ulevaade > .hook-inner
        > .section-mesh (Bentley signature SVG)
        > h2.hook-statement (.em rõhuarvudele)
@@ -1294,7 +1340,6 @@
   }
 
   /* Bentley signature mark — diamond-mesh hairline (grille echo).
-     Sama roll kui Mercedes .section-grille, Urus .divider. */
   .section-mesh {
     width: 120px;
     height: 14px;
@@ -1317,8 +1362,7 @@
     font-variant-numeric: lining-nums;
   }
 
-  /* Spec-cards — 4×2 grid hairline'idega (mitte gap'idega).
-     Card-skelett Urus järgi: .spec-icon + .spec-content > .spec-label + .spec-value */
+  /* Spec-cards — 4×2 grid hairline'idega (mitte gap'idega)..spec-icon + .spec-content > .spec-label + .spec-value */
   .spec-cards {
     width: 100%;
     display: grid;
@@ -1375,7 +1419,7 @@
   }
 
   /* ============================================================
-     STORY — Two-column quote-led layout (kasutamata muster vs Urus & Mercedes).
+     STORY — Two-column quote-led layout.
      Komponendi-skelett kanooniline: .story, .story-inner, .story-title, .em,
        .story-text, .accent, .story-media, .story-image, .es-player, .es-btn,
        .es-info, .es-label, .es-sub, .es-cylinders, .es-cyl, .es-cyl-fire, .es-error, #es-audio.
@@ -1435,7 +1479,7 @@
     font-weight: 400;
     line-height: 1.65;
     color: var(--graphite);
-    padding-top: 1.6rem;
+
   }
   .story-text p { max-width: 30em; }
   .story-text p + p { margin-top: 1.2rem; }
@@ -1459,12 +1503,12 @@
 
   /* Engine-sound player — Bentley V8 cylinder bank.
      8 vertikaalset silindrit süttivad crossplane firing-order järgi 1-8-4-3-6-5-7-2.
-     Kandiline switchgear-nupp (mitte ring) eristub Mercedes'i ringnupust. */
+     Kandiline switchgear-nupp */
   .es-player {
     display: flex;
     align-items: center;
     gap: 1.6rem;
-    padding: 1.4rem 1.6rem;
+    padding: 1.4rem 0rem;
     width: 100%;
     position: relative;
   }
@@ -1578,11 +1622,20 @@
   .es-player.is-playing .es-cyl:nth-child(7) .es-cyl-fire { animation-delay: 0.60s; }
   .es-player.is-playing .es-cyl:nth-child(8) .es-cyl-fire { animation-delay: 0.10s; }
   @keyframes es-cyl-fire {
-    0%   { transform: scaleY(0.08); }
-    8%   { transform: scaleY(1); }
-    22%  { transform: scaleY(0.45); }
-    35%  { transform: scaleY(0.12); }
+    0% { transform: scaleY(0.08); }
+    8% { transform: scaleY(1); }
+    22% { transform: scaleY(0.45); }
+    35% { transform: scaleY(0.12); }
     100% { transform: scaleY(0.08); }
+  }
+  /* Live Web Audio mode (https:// + AudioContext OK):
+     `.is-analysing` override'b CSS keyframe ja JS RAF-loop drive'b
+     `--fire` custom property'd (0.08-1.0 vahemikus) iga silindri kohta
+     vastavalt MP3 sageduste tegelikule amplitude'le. Vt JS. */
+  .es-player.is-analysing.is-playing .es-cyl-fire {
+    animation: none !important;
+    transform: scaleY(var(--fire, 0.08));
+    transition: transform 0.06s linear;
   }
   @media (prefers-reduced-motion: reduce) {
     .es-player.is-playing .es-cyl-fire { animation: none; transform: scaleY(0.55); }
@@ -1595,10 +1648,10 @@
   }
 
   /* ============================================================
-     GALLERY — Diagonal staggered grid (kasutamata muster vs Urus & Mercedes)
-     Komponendi-skelett (Mercedes-evolved): .gallery, .gallery-inner, .gallery-head,
+     GALLERY — Diagonal staggered grid
+     Komponendi-skelett: .gallery, .gallery-inner, .gallery-head,
        .gallery-title, .gallery-intro, .gallery-grid, .gallery-item (figure),
-       .g-img, .gallery-hover-icon (Faas 4-s lisame zoom-ikooni hover-state).
+       .g-img, .gallery-hover-icon.
      Layout-paigutus: 4 vertikaalset veergu offset top-padding'utega (0 / 5rem / 2rem / 7rem)
        loob diagonaalse cascade'i. Pildid säilitavad natiivse aspect-ratio (<img>).
      ============================================================ */
@@ -1785,8 +1838,7 @@
        .equipment-categories > .equipment-category (.equipment-cat-title + .equipment-list),
        .description-section > .description-copy (.description-text .accent) + .purchase-facts > .purchase-fact (.purchase-label + .purchase-value)
      Layout-valikud Bentley:
-       - Plus/miinus ikoon (Urus + Mercedes = chevron — visuaalne erinevus)
-       - Default-OPEN Faas 2 review'ks
+       - Default-OPEN review'ks
        - Mulliner-tellimus eraldi kategooria esimesena
      ============================================================ */
   .adp {
@@ -1863,7 +1915,7 @@
     color: var(--flame);
   }
 
-  /* Plus/miinus icon — Bentley layout-valik (Urus & Mercedes kasutavad chevron) */
+  /* Plus/miinus icon — Bentley layout-valik */
   .accordion-icon {
     width: 24px;
     height: 24px;
@@ -1884,8 +1936,8 @@
     transform: scaleY(0);
   }
 
-  /* Faas 4.6 — smooth height-collapse via max-height (JS-managed) */
-  /* Faas 5.5 lisand — clip-path mask sweep paralleelselt max-height'iga */
+  /* — smooth height-collapse via max-height (JS-managed) */
+  /* lisand — clip-path mask sweep paralleelselt max-height'iga */
   .accordion-content {
     overflow: hidden;
     max-height: 0;
@@ -2161,7 +2213,7 @@
     border-bottom: 1px solid var(--line);
     align-items: start;
   }
-  .wellness-row[data-wellness-image="images/ride.png"] {
+  .wellness-row[data-wellness-image="images/ride.webp"] {
     border-bottom: 0;
   }
 
@@ -2247,9 +2299,8 @@
     }
   }
 
-
   /* ============================================================
-     CONTACT — Faas 2.10 (paranduspass: graphite bg + subtle foto + invert text)
+     CONTACT (paranduspass: graphite bg + subtle foto + invert text)
      Üks isik (Kristjan Uuk). Bentley layout = vertikaalne editorial stack.
      Värvid invert'itud bone bg-lt graphite bg-le (kasutades olemasolevaid token'eid
      + bone-opacity variandid muted-tooni jaoks). CTA invert (bone block).
@@ -2269,7 +2320,7 @@
   .contact-bg {
     position: absolute;
     inset: 0;
-    background-image: url('images/footer.png');
+    background-image: url('images/footer.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -2297,7 +2348,7 @@
     font-family: var(--font-display);
     font-weight: 200;
     font-size: clamp(2.2rem, 5vw, 5rem);
-    line-height: 1;
+    line-height: 1.05;
     letter-spacing: -0.025em;
     color: var(--bone);
     max-width: 10em;
@@ -2356,7 +2407,6 @@
   .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
     font-family: var(--font-body);
     font-size: 1rem;
     color: var(--bone);
@@ -2470,7 +2520,14 @@
     :root { --gutter: 1.5rem; }
 
     .brand-bar { padding: 1.1rem var(--gutter); }
-    .brand-bar-left { font-size: 0.62rem; letter-spacing: 0.2em; }
+    .brand-bar-left {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      color: var(--bone);
+    }
+    .brand-bar-divider { background: rgba(241, 237, 229, 0.55); }
+    .brand-bar:has(.nav-toggle[aria-expanded="true"]) .brand-bar-left { color: var(--graphite); }
+    .brand-bar:has(.nav-toggle[aria-expanded="true"]) .brand-bar-divider { background: var(--clay); }
     .hero {
       grid-template-columns: 1fr;
       grid-template-rows: 50vh auto;
@@ -2484,15 +2541,7 @@
       gap: 2rem;
     }
     .hero-headline { gap: 1.3rem; margin: 0; }
-    .hero-title { font-size: clamp(3rem, 13vw, 5.5rem); }
-    .hero-title .line:nth-child(2) { padding-left: 1.4em; }
-    .hero-meta {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.5rem;
-      padding-top: 1.5rem;
-    }
-    .hero-price-block { align-items: flex-start; text-align: left; }
+    .hero-title { font-size: clamp(3rem, 15vw, 5.5rem); }
 
     .hook { padding: 5rem var(--gutter) 4.5rem; }
     .hook-inner { gap: 2.25rem; }
@@ -2564,6 +2613,13 @@
     .contact-ctas .contact-share {
       align-self: center;
     }
+
+    .hero-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+    .hero-price-block { align-items: flex-start; text-align: left; }
   }
 
   @media (max-width: 980px) {
@@ -2596,7 +2652,7 @@
       grid-template-columns: 1fr;
       column-gap: 0;
       row-gap: 3rem;
-      align-items: start;
+      align-content: center;
     }
     .nav-sections, .nav-footer { grid-column: 1; }
     .nav-sections a { font-size: clamp(2rem, 9vw, 4rem); }
@@ -2642,18 +2698,13 @@
   }
 
   /* ============================================================
-     Faas 5.1 — Hero pin-cinema curtain
+     Hero split-collapse scrub
+     Scroll'i ajal vasak tekst-paneel kahaneb (--content-w → 0%) ja
+     tühjeneb (opacity, y -80px), foto-paneel laieneb täis-bleediks.
+     Foto jääb paigal (object-fit: cover; object-position: center) —
+     raam laieneb ÜLE, näitab fotost rohkem. Ei blur'i, ei curtain'i.
      ============================================================ */
-  .hero-curtain {
-    position: absolute;
-    inset: 0;
-    background: var(--bone);
-    pointer-events: none;
-    opacity: 0;
-    z-index: 1;
-  }
-  .hero-image { will-change: transform; transform-origin: center center; }
-  .hero-content { will-change: transform, filter; }
+  .hero-content { will-change: transform, opacity; }
 
   /* JS-driven entry — set initial states so no FOUC */
   html.js .hero-eyebrow .inner,
@@ -2661,14 +2712,13 @@
   html.js .hero-meta { opacity: 0; transform: translateY(20px); }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-curtain { display: none; }
     html.js .hero-eyebrow .inner,
     html.js .hero-title .line .inner { transform: none; }
     html.js .hero-meta { opacity: 1; transform: none; }
   }
 
   /* ============================================================
-     Faas 5.2 — Hook + Spec-grid: horisontaalne mask-sweep
+     Hook + Spec-grid: horisontaalne mask-sweep
      Brand-coherent motion language:
        - clip-path inset reveal (NOT opacity fade)
        - letter-spacing settle on .em (käsitsi-graveeritud feel)
@@ -2680,28 +2730,13 @@
     clip-path: inset(0 var(--reveal-x) 0 0);
     will-change: clip-path;
   }
-  html.js .spec-icon path,
-  html.js .spec-icon line,
-  html.js .spec-icon circle,
-  html.js .spec-icon rect,
-  html.js .spec-icon polygon,
-  html.js .spec-icon polyline {
-    stroke-dasharray: 200;
-    stroke-dashoffset: 200;
-  }
   @media (prefers-reduced-motion: reduce) {
     html.js .hook-statement,
     html.js .spec-card { clip-path: none; }
-    html.js .spec-icon path,
-    html.js .spec-icon line,
-    html.js .spec-icon circle,
-    html.js .spec-icon rect,
-    html.js .spec-icon polygon,
-    html.js .spec-icon polyline { stroke-dasharray: 0; stroke-dashoffset: 0; }
   }
 
   /* ============================================================
-     Faas 5.3 — Story (vertical mask paaridele + horizontal body)
+     Story (vertical mask paaridele + horizontal body)
      ============================================================ */
   html.js .section-mesh path {
     stroke-dasharray: 30;
@@ -2728,7 +2763,7 @@
   }
 
   /* ============================================================
-     Faas 5.4 — Galerii diagonal cascade reveal
+     Galerii diagonal cascade reveal
      ============================================================ */
   html.js .gallery-title {
     --reveal-y: 100%;
@@ -2748,7 +2783,7 @@
   }
 
   /* ============================================================
-     Faas 5.5 — ADP / Lisad cascade reveal
+     ADP / Lisad cascade reveal
      ============================================================ */
   html.js .adp-title {
     --reveal-y: 100%;
@@ -2768,7 +2803,7 @@
   }
 
   /* ============================================================
-     Faas 5.6 — Wellness sektsioon (sketch vert + heading + cascade)
+     Wellness sektsioon (sketch vert + heading + cascade)
      ============================================================ */
   html.js .wellness-sketch,
   html.js .wellness-title {
@@ -2805,7 +2840,7 @@
   }
 
   /* ============================================================
-     Faas 5.7 — Contact pair-grouped editorial reveal
+     Contact pair-grouped editorial reveal
      ============================================================ */
   html.js .contact-bg {
     opacity: 0;
@@ -2835,9 +2870,9 @@
   }
 
   /* ============================================================
-     Faas 6.X — Brand image grading + film grain
+     Brand image grading + film grain
      Gentle filmic grade KÕIGILE fotodele (mitte sketch'ile) +
-     page-wide soft-light grain catchanges sh lightbox-piltidel.
+     page-wide soft-light grain sh lightbox-piltidel.
      Filter konservatiivne — Mulliner-orange jääb puutumatuks.
      ============================================================ */
   .hero-image,
@@ -2857,7 +2892,7 @@
     inset: 0;
     pointer-events: none;
     z-index: 9999;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
     opacity: 0.08;
     mix-blend-mode: soft-light;
   }
@@ -2868,6 +2903,7 @@
 <script>document.documentElement.classList.add('js');</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 </head>
 <body>
 
@@ -2884,9 +2920,9 @@
 </header>
 
 <!-- ================================================================
-     NAV MENU — Faas 3.1 (staatiline, default-OPEN review'ks)
+     NAV MENU (staatiline, default-OPEN review'ks)
      Bentley B-layout: asümmeetriline editorial spread.
-     Faas 4-s: JS toggle (hamburger click → aria-hidden/aria-expanded swap +
+     JS: toggle (hamburger click → aria-hidden/aria-expanded swap +
      scroll-lock klass <html>'ile), ESC-key, focus-trap.
      ================================================================ -->
 <nav class="nav-menu" id="nav-menu" aria-hidden="true" aria-label="Põhinavigatsioon">
@@ -2911,7 +2947,7 @@
         </div>
       </div>
 
-      <!-- TODO: implement i18n switching Faas 4-s -->
+      <!-- TODO: implement i18n switching -->
       <div class="nav-lang" role="group" aria-label="Keelevalik">
         <button class="lang-btn lang-btn--active" type="button" lang="et" aria-pressed="true">ET</button>
         <span class="lang-sep" aria-hidden="true">/</span>
@@ -2922,11 +2958,6 @@
   </div>
 </nav>
 
-<!-- ================================================================
-     LIGHTBOX — Faas 3.2 (staatiline, default-OPEN review'ks)
-     B-layout: pilt üleval-keskel, controls bottom-bar (close + counter + nav).
-     Faas 4-s: JS open/close + click-on-thumb + prev/next + keyboard (ESC, arrows).
-     ================================================================ -->
 <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Galerii suurenduses">
 
   <button class="lightbox-close" type="button" aria-label="Sulge galerii">
@@ -2938,7 +2969,10 @@
 
   <div class="lightbox-stage">
     <figure class="lightbox-frame">
-      <img class="lightbox-img" src="images/1.png" alt="Bentley Continental GT Azure — galeriifoto 1">
+      <div class="lightbox-img-stack">
+        <img class="lightbox-img" data-slot="a" src="images/1.webp" alt="Bentley Continental GT Azure — galeriifoto 1">
+        <img class="lightbox-img" data-slot="b" alt="">
+      </div>
       <div class="lightbox-progress" aria-hidden="true">
         <div class="lightbox-progress-fill" style="width: 4.16%"></div>
       </div>
@@ -2969,8 +3003,8 @@
 </div>
 
 <!-- ================================================================
-     BOOKING MODAL — Faas 3.3 (staatiline, default-OPEN review'ks)
-     3 paneeli stack'itud nähtavad ülevaatuseks. Faas 4 JS lisab:
+     BOOKING MODAL (staatiline, default-OPEN review'ks)
+     3 paneeli stack'itud nähtavad ülevaatuseks. JS lisab:
      - CTA "Broneeri vaatamine" click → modal open + scroll-lock
      - Visit-card click → progress dot 2 + pane 2 visible
      - Form valid + submit → pane 3 visible + summary fill
@@ -3122,9 +3156,8 @@
 </div>
 
 <!-- ================================================================
-     FHW WIDGET — Faas 3.4 (staatiline, panel default-OPEN review'ks)
-     Bentley A-layout: pill-nupp + diamond-mesh ikoon.
-     Faas 4 JS lisab: btn click open/close, teaser load-on-page-ready,
+     FHW WIDGET (staatiline, panel default-OPEN review'ks)
+     Bentley A-layout: pill-nupp + diamond-mesh ikoon. JS lisab: btn click open/close, teaser load-on-page-ready,
        teaser dismiss, tab switching, FAQ accordion collapse.
      ================================================================ -->
 <div id="fhw-root">
@@ -3189,7 +3222,6 @@
     </div>
   </div>
 
-  <!-- Teaser default-HIDDEN staatilises Faas 3-s. Faas 4: kuvab teaserit ~3s pärast lehe-laadi, esimese klõpsuga dismiss + open panel. -->
   <div class="fhw-teaser" id="fhw-teaser" aria-hidden="true">
     <span>Küsi lisainfot või broneeri proovisõit</span>
     <button class="fhw-teaser-close" type="button" aria-label="Sulge teaser">
@@ -3215,13 +3247,12 @@
 <main>
 
 <!-- ================================================================
-     HERO — Split layout (kasutamata layout-muster vs Urus & Mercedes)
+     HERO — Split layout
      ================================================================ -->
 <section class="hero" id="hero">
 
   <div class="hero-media">
     <div class="hero-image" role="img" aria-label="Bentley Continental GT Azure külgvaade Orange Flame Satin värvuses"></div>
-    <div class="hero-curtain" aria-hidden="true"></div>
   </div>
 
   <div class="hero-content">
@@ -3235,11 +3266,11 @@
 
     <div class="hero-meta">
       <div class="hero-meta-left">
-        V8 Hybrid &middot; 01/2026 &middot; 62 km &middot; Orange Flame Satin
+        Azure on GT perekonna kõige komfortsem konfiguratsioonivariant. Mulliner Orange Flame Satin, Blackline välispakett, 22" mustad veljed ja Naim audio. Esmaregistreering 01/2026, läbisõit 62 km.
       </div>
       <div class="hero-price-block">
         <div class="hero-price-label">Hind</div>
-        <div class="hero-price">386 653&nbsp;€<span class="hero-price-vat">sis. KM 24%</span></div>
+        <div class="hero-price">386 653&nbsp;€</div>
       </div>
     </div>
   </div>
@@ -3247,31 +3278,17 @@
 </section>
 
 <!-- ================================================================
-     HOOK + SPEC-GRID — Mercedes-skeleti järgi, Bentley naha-ga.
+     HOOK + SPEC-GRID
      Komponendid säilitatud (.hook-statement, .em, .spec-cards, .spec-card,
      .spec-icon, .spec-label, .spec-value, .spec-value-accent).
-     Layout-paigutus: hook-statement + spec-cards samas sektsioonis (Mercedes-pattern).
+     Layout-paigutus: hook-statement + spec-cards samas sektsioonis.
      Disaini-nahk: bone palett, Migra + Neue Montreal, diamond-mesh signature.
      ================================================================ -->
 <section class="hook" id="ulevaade">
   <div class="hook-inner">
 
-    <!-- Signature mark — Bentley grille echo (.section-mesh) -->
-    <svg class="section-mesh" viewBox="0 0 120 14" fill="none" aria-hidden="true">
-      <path d="M3 7 L9 1 L15 7 L9 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-      <path d="M15 7 L21 1 L27 7 L21 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-      <path d="M27 7 L33 1 L39 7 L33 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-      <path d="M39 7 L45 1 L51 7 L45 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-      <path d="M51 7 L57 1 L63 7 L57 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-      <path d="M63 7 L69 1 L75 7 L69 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-      <path d="M75 7 L81 1 L87 7 L81 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-      <path d="M87 7 L93 1 L99 7 L93 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-      <path d="M99 7 L105 1 L111 7 L105 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-    </svg>
-
     <h2 class="hook-statement">
-      Minus on kaks autot ühes. Hommikul kannan <span class="em">80 km</span> puhast elektrit, V8 magab veel.<br><br>
-      Õhtul, kui kurv kutsub, ärkavad <span class="em">500 kW</span> ja 930 Nm &mdash; sajani 3,7 sekundiga.
+      Azure hübriid sõidab <span class="em">80 km</span> puhtalt elektril. Kui soovid enamat, on <span class="em">500 kW</span> ja 930 Nm alati käepärast, nullist sajani <span class="em">3,7 </span>sekundiga.
     </h2>
 
     <div class="spec-cards">
@@ -3328,11 +3345,7 @@
       <!-- 4. Võimsus — 500 kW -->
       <div class="spec-card">
         <svg class="spec-icon" viewBox="0 0 32 32" aria-hidden="true">
-          <path d="M3 22 L3 19 Q3 17.5 5 17.5 L8 17.5 L12 11 Q13 10 15 10 L20 10 Q22 10 23 11 L28 17.5 L29 17.5 Q29 18.5 29 19 L29 22"/>
-          <line x1="3" y1="22" x2="29" y2="22"/>
-          <circle cx="9" cy="22" r="2"/>
-          <circle cx="22" cy="22" r="2"/>
-          <path d="M11.5 11 L21.5 11 L26 17.5"/>
+          <path d="M18 2 L8 18 L15 18 L14 30 L24 14 L17 14 Z"/>
         </svg>
         <div class="spec-content">
           <div class="spec-label">Võimsus</div>
@@ -3360,14 +3373,13 @@
       <!-- 6. Käigukast — 8-k. automaat -->
       <div class="spec-card">
         <svg class="spec-icon" viewBox="0 0 32 32" aria-hidden="true">
-          <line x1="11" y1="7" x2="11" y2="25"/>
-          <line x1="21" y1="7" x2="21" y2="25"/>
-          <line x1="11" y1="7" x2="21" y2="7"/>
-          <line x1="11" y1="16" x2="21" y2="16"/>
-          <line x1="11" y1="25" x2="21" y2="25"/>
-          <circle cx="11" cy="7" r="1.5" fill="currentColor" stroke="none"/>
-          <circle cx="21" cy="16" r="1.5" fill="currentColor" stroke="none"/>
-          <circle cx="11" cy="25" r="1.5" fill="currentColor" stroke="none"/>
+          <line x1="10" y1="5" x2="10" y2="27"/>
+          <line x1="22" y1="5" x2="22" y2="27"/>
+          <line x1="10" y1="16" x2="22" y2="16"/>
+          <circle cx="10" cy="5" r="2" fill="currentColor" stroke="none"/>
+          <circle cx="10" cy="27" r="2" fill="currentColor" stroke="none"/>
+          <circle cx="22" cy="5" r="2" fill="currentColor" stroke="none"/>
+          <circle cx="22" cy="27" r="2" fill="currentColor" stroke="none"/>
         </svg>
         <div class="spec-content">
           <div class="spec-label">Käigukast</div>
@@ -3393,14 +3405,17 @@
       <!-- 8. Vedav sild — Nelivedu -->
       <div class="spec-card">
         <svg class="spec-icon" viewBox="0 0 32 32" aria-hidden="true">
-          <circle cx="9" cy="9" r="3.5"/>
-          <circle cx="23" cy="9" r="3.5"/>
-          <circle cx="9" cy="23" r="3.5"/>
-          <circle cx="23" cy="23" r="3.5"/>
-          <line x1="12.5" y1="9" x2="19.5" y2="9"/>
-          <line x1="12.5" y1="23" x2="19.5" y2="23"/>
-          <line x1="9" y1="12.5" x2="9" y2="19.5"/>
-          <line x1="23" y1="12.5" x2="23" y2="19.5"/>
+          <rect x="2" y="5" width="6" height="9" rx="1.5"/>
+          <rect x="24" y="5" width="6" height="9" rx="1.5"/>
+          <rect x="2" y="18" width="6" height="9" rx="1.5"/>
+          <rect x="24" y="18" width="6" height="9" rx="1.5"/>
+          <line x1="8" y1="9.5" x2="16" y2="9.5"/>
+          <line x1="24" y1="9.5" x2="16" y2="9.5"/>
+          <line x1="8" y1="22.5" x2="16" y2="22.5"/>
+          <line x1="24" y1="22.5" x2="16" y2="22.5"/>
+          <line x1="16" y1="9.5" x2="16" y2="22.5"/>
+          <circle cx="16" cy="9.5" r="1.5" fill="currentColor" stroke="none"/>
+          <circle cx="16" cy="22.5" r="1.5" fill="currentColor" stroke="none"/>
         </svg>
         <div class="spec-content">
           <div class="spec-label">Vedav sild</div>
@@ -3413,46 +3428,27 @@
   </div><!-- /.hook-inner -->
 </section>
 
-<!-- ================================================================
-     STORY — Faas 2.3 (staatiline, JS Faas 4-s, animatsioon Faas 5-s)
-     Two-column quote-led layout (kasutamata muster).
-     Komponendid kanoonilised: .story-title (.em), .story-text (.accent),
-       .story-media, .story-image, .es-player, .es-btn, .es-info,
-       .es-label, .es-sub, .es-cylinders, .es-cyl, .es-cyl-fire, #es-audio.
-     ================================================================ -->
 <section class="story" id="lugu">
   <div class="story-inner">
 
     <div class="story-body">
 
       <div class="story-text-lead">
-        <svg class="section-mesh" viewBox="0 0 120 14" fill="none" aria-hidden="true">
-          <path d="M3 7 L9 1 L15 7 L9 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-          <path d="M15 7 L21 1 L27 7 L21 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-          <path d="M27 7 L33 1 L39 7 L33 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-          <path d="M39 7 L45 1 L51 7 L45 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-          <path d="M51 7 L57 1 L63 7 L57 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-          <path d="M63 7 L69 1 L75 7 L69 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-          <path d="M75 7 L81 1 L87 7 L81 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-          <path d="M87 7 L93 1 L99 7 L93 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-          <path d="M99 7 L105 1 L111 7 L105 13 Z" stroke="currentColor" stroke-width="0.5" fill="none"/>
-        </svg>
-
         <h2 class="story-title">
-          62 km läbisõitu. Orange Flame Satin. <span class="em">Azure-varustus.</span>
+          Blackline, Naim, pöörlev ekraan. <span class="em">Mulliner</span> konfiguratsioon.
         </h2>
       </div>
 
       <div class="story-text">
-        <p>
-          Auto on tellitud 2025. aasta kevadel ja ehitatud Bentley Crewe tehases. Tegemist on väga madala läbisõiduga Continental GT Azure’iga — 62 km, esmane registreerimine 01/2026. Kõige rohkem jääb silma konfiguratsioon: Orange Flame Satin värv, Blackline välispakett, 22-tollised mustad Azure veljed ja tume kroomiviimistlusega interjöör. See ei ole tavaline hall või must GT, vaid selgelt erilisem kooslus. Varustusest on olulised Naim for Bentley helisüsteem, Apple CarPlay, 360° parkimiskaamera, panoraamkatus, elektriliselt reguleeritavad ja ventileeritavad istmed ning <span class="accent"></span>Bentley pöörlev ekraan.</span>
-        </p>
+        <p>Auto on tellitud 2025. aasta kevadel ja ehitatud Bentley Crewe tehases. Tegemist on väga madala läbisõiduga Continental GT Azure’iga — 62 km, esmane registreerimine 01/2026.</p>
+        <p>Kõige rohkem jääb silma konfiguratsioon: Orange Flame Satin värv, Blackline välispakett, 22-tollised mustad Azure veljed ja tume kroomiviimistlusega interjöör. See ei ole tavaline hall või must GT, vaid selgelt erilisem kooslus.</p>
+        <p>Varustusest on olulised Naim for Bentley helisüsteem, Apple CarPlay, 360° parkimiskaamera, panoraamkatus, elektriliselt reguleeritavad ja ventileeritavad istmed ning Bentley pöörlev ekraan.</p>
       </div>
 
     </div><!-- /.story-body -->
 
     <figure class="story-media">
-      <img class="story-image" src="images/story.png" alt="Bentley Continental GT Azure detailivaade Orange Flame Satin värvuses">
+      <img class="story-image" src="images/story.webp" alt="Bentley Continental GT Azure detailivaade Orange Flame Satin värvuses">
     </figure>
 
     <audio id="es-audio" src="audio/sound.mp3" loop preload="none"></audio>
@@ -3490,18 +3486,13 @@
   </div><!-- /.story-inner -->
 </section>
 
-<!-- ================================================================
-     GALLERY — Faas 2.5 (staatiline, JS Faas 4-s, motion Faas 5-s)
-     Diagonal staggered grid (kasutamata muster vs Urus pin-scroll / Mercedes 5-band).
-     4 vertikaalset veergu offset top-padding'utega; 25 pilti interleaved.
-     ================================================================ -->
 <section class="gallery" id="galerii">
   <div class="gallery-inner">
 
     <div class="gallery-head">
       <h2 class="gallery-title">Galerii</h2>
       <p class="gallery-intro">
-        Vaata lähemalt väljast, seest ja detailideni.
+        Vaata lähemalt väljast, seest, detailideni.
       </p>
     </div>
 
@@ -3510,114 +3501,114 @@
       <div class="gallery-slides">
         <div class="gallery-slide is-active" aria-hidden="false" data-gallery-slide>
           <figure class="gallery-item g-left" data-index="0">
-            <img class="g-img" src="images/1.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 1" loading="lazy">
+            <img class="g-img" src="images/1.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 1" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-top" data-index="1">
-            <img class="g-img" src="images/2.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 2" loading="lazy">
+            <img class="g-img" src="images/2.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 2" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-bot" data-index="2">
-            <img class="g-img" src="images/3.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 3" loading="lazy">
+            <img class="g-img" src="images/3.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 3" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-right" data-index="3">
-            <img class="g-img" src="images/4.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 4" loading="lazy">
+            <img class="g-img" src="images/4.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 4" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
         </div>
 
         <div class="gallery-slide" aria-hidden="true" data-gallery-slide>
           <figure class="gallery-item g-left" data-index="4">
-            <img class="g-img" src="images/5.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 5" loading="lazy">
+            <img class="g-img" src="images/5.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 5" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-top" data-index="5">
-            <img class="g-img" src="images/6.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 6" loading="lazy">
+            <img class="g-img" src="images/6.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 6" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-bot" data-index="6">
-            <img class="g-img" src="images/7.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 7" loading="lazy">
+            <img class="g-img" src="images/7.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 7" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-right" data-index="7">
-            <img class="g-img" src="images/8.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 8" loading="lazy">
+            <img class="g-img" src="images/8.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 8" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
         </div>
 
         <div class="gallery-slide" aria-hidden="true" data-gallery-slide>
           <figure class="gallery-item g-left" data-index="8">
-            <img class="g-img" src="images/9.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 9" loading="lazy">
+            <img class="g-img" src="images/9.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 9" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-top" data-index="9">
-            <img class="g-img" src="images/10.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 10" loading="lazy">
+            <img class="g-img" src="images/10.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 10" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-bot" data-index="10">
-            <img class="g-img" src="images/11.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 11" loading="lazy">
+            <img class="g-img" src="images/11.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 11" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-right" data-index="11">
-            <img class="g-img" src="images/12.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 12" loading="lazy">
+            <img class="g-img" src="images/12.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 12" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
         </div>
 
         <div class="gallery-slide" aria-hidden="true" data-gallery-slide>
           <figure class="gallery-item g-left" data-index="12">
-            <img class="g-img" src="images/13.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 13" loading="lazy">
+            <img class="g-img" src="images/13.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 13" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-top" data-index="13">
-            <img class="g-img" src="images/14.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 14" loading="lazy">
+            <img class="g-img" src="images/14.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 14" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-bot" data-index="14">
-            <img class="g-img" src="images/15.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 15" loading="lazy">
+            <img class="g-img" src="images/15.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 15" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-right" data-index="15">
-            <img class="g-img" src="images/16.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 16" loading="lazy">
+            <img class="g-img" src="images/16.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 16" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
         </div>
 
         <div class="gallery-slide" aria-hidden="true" data-gallery-slide>
           <figure class="gallery-item g-left" data-index="16">
-            <img class="g-img" src="images/17.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 17" loading="lazy">
+            <img class="g-img" src="images/17.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 17" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-top" data-index="17">
-            <img class="g-img" src="images/18.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 18" loading="lazy">
+            <img class="g-img" src="images/18.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 18" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-bot" data-index="18">
-            <img class="g-img" src="images/19.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 19" loading="lazy">
+            <img class="g-img" src="images/19.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 19" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-right" data-index="19">
-            <img class="g-img" src="images/20.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 20" loading="lazy">
+            <img class="g-img" src="images/20.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 20" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
         </div>
 
         <div class="gallery-slide" aria-hidden="true" data-gallery-slide>
           <figure class="gallery-item g-left" data-index="20">
-            <img class="g-img" src="images/21.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 21" loading="lazy">
+            <img class="g-img" src="images/21.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 21" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-top" data-index="21">
-            <img class="g-img" src="images/22.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 22" loading="lazy">
+            <img class="g-img" src="images/22.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 22" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-bot" data-index="22">
-            <img class="g-img" src="images/23.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 23" loading="lazy">
+            <img class="g-img" src="images/23.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 23" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
           <figure class="gallery-item g-right" data-index="23">
-            <img class="g-img" src="images/24.png" alt="Bentley Continental GT Azure &mdash; galeriifoto 24" loading="lazy">
+            <img class="g-img" src="images/24.webp" alt="Bentley Continental GT Azure &mdash; galeriifoto 24" loading="lazy">
             <span class="gallery-hover-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg></span>
           </figure>
         </div>
@@ -3645,7 +3636,7 @@
 </section>
 
 <!-- ================================================================
-     ADP — Faas 2.7 Konfiguratsioon ja tehnika (staatiline)
+     ADP — Konfiguratsioon ja tehnika (staatiline)
      Canonical 3-accordion'i set (Tehniline / Varustus / Ostuinfo).
      Bentley layout-valikud: plus/miinus ikoon, default-OPEN, Mulliner-tellimus
      varustuses esimene kategooria.
@@ -3656,7 +3647,7 @@
     <div class="adp-head">
       <h2 class="adp-title">Tehnika, mugavus ja Bentley detailid</h2>
       <p class="adp-intro">
-        Varustus ja tehnilised andmed ühes kohas — jõuallikas, mugavus, juhiabid ja konfiguratsiooni eripärad.
+        See ei ole lihtsalt varustusloend. Siin on Azure tehnika, Mulliner konfiguratsioon ja ostuinfo — kõik ühes kohas.
       </p>
     </div>
 
@@ -3700,7 +3691,7 @@
       <!-- 2. Mulliner-tellimus ja varustus -->
       <div class="accordion" data-accordion="equipment">
         <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-equipment">
-          <span class="accordion-label">Mulliner-tellimus ja varustus</span>
+          <span class="accordion-label">Varustus</span>
           <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"/>
             <line class="plus-v" x1="12" y1="5" x2="12" y2="19"/>
@@ -3803,7 +3794,7 @@
       <!-- 3. Seisukord ja ostuinfo -->
       <div class="accordion" data-accordion="purchase">
         <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="acc-purchase">
-          <span class="accordion-label">Seisukord ja ostuinfo</span>
+          <span class="accordion-label">Seisukord, taust ja ostuinfo</span>
           <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"/>
             <line class="plus-v" x1="12" y1="5" x2="12" y2="19"/>
@@ -3814,8 +3805,8 @@
             <div class="description-section">
               <div class="description-copy">
                 <p class="description-text">
-                  Auto on praktiliselt uus — läbisõit <span class="accent">62 kilomeetrit.</span> ja esmane registreerimine 01/2026. Bentley tehasegarantii kehtib ning hooldusraamat on digitaalne ja täielik. Eesti Liikluskindlustuse Fondi andmetel ei ole sõiduk osalenud kindlustusjuhtumites.
-                </p>
+                  Auto on praktiliselt uus — läbisõit <span class="accent">62 kilomeetrit.</span> ja esmane registreerimine 01/2026. Bentley tehasegarantii kehtib kuni jaanuarini 2029 ning hooldusraamat on digitaalne ja täielik. Eesti Liikluskindlustuse Fondi andmetel ei ole autol kindlustusjuhtumeid.
+Soovi korral saab Bentley Tallinnas rääkida vahetusest, sissemaksest või liisinguvõimalustest.
                 <p class="description-text">
                   Soovi korral saab Bentley Tallinnas arutada vahetust, sissemakset või liisinguvõimalusi.
                 </p>
@@ -3853,7 +3844,7 @@
 </section>
 
 <!-- ================================================================
-     WELLNESS — Faas 2.8 (Azure-spetsiifiline, Bentley-only)
+     WELLNESS (Azure-spetsiifiline, Bentley-only)
      3-rea editorial vignette — iga rida ikoon + pealkiri + lühi-narratiiv.
      Käsitleb Bentley Azure variant'i keskset väärtust (wellness).
      ================================================================ -->
@@ -3861,19 +3852,19 @@
   <div class="wellness-inner">
 
     <figure class="wellness-sketch">
-      <img src="images/sketch.png" alt="Bentley Continental GT Azure visand">
+      <img src="images/sketch.webp" alt="Bentley Continental GT Azure visand">
     </figure>
 
     <div class="wellness-head">
       <h2 class="wellness-title">Azure on tehtud <span class="em">pikaks </span>sõiduks.</h2>
       <p class="wellness-intro">
-        Azure-varustus keskendub sellele, et auto oleks vaikne, mugav ja lihtne juhtida ka pikemal teel. Selle auto puhul tähendavad seda Postural Adjust istmed, õhukvaliteedi süsteem ja Bentley Dynamic Ride.
+        Azure-varustus on ehitatud pika tee jaoks — vaikne, mugav, väsimust vähendav.
       </p>
     </div>
 
     <div class="wellness-rows">
 
-      <div class="wellness-row" data-wellness-image="images/istmed.png">
+      <div class="wellness-row" data-wellness-image="images/istmed.webp">
         <svg class="wellness-icon" viewBox="0 0 22 22" aria-hidden="true">
           <path d="M3 11 L7 7 L11 11 L7 15 Z"/>
           <path d="M11 11 L15 7 L19 11 L15 15 Z"/>
@@ -3888,7 +3879,7 @@
         </div>
       </div>
 
-      <div class="wellness-row" data-wellness-image="images/salong.png">
+      <div class="wellness-row" data-wellness-image="images/salong.webp">
         <svg class="wellness-icon" viewBox="0 0 22 22" aria-hidden="true">
           <path d="M3 11 L7 7 L11 11 L7 15 Z"/>
           <path d="M11 11 L15 7 L19 11 L15 15 Z"/>
@@ -3898,12 +3889,12 @@
         <div class="wellness-text">
           <h3 class="wellness-row-title">Salongi õhukvaliteet</h3>
           <p class="wellness-row-body">
-            Kliimasüsteem jälgib salongi ja välisõhu kvaliteeti ning kasutab vajadusel õhu ringlust. Süsteem aitab vähendada peenosakeste ja saaste jõudmist salongi.
+            Kliimasüsteem jälgib salongi ja välisõhu kvaliteeti ning lülitub vajadusel siseõhu ringlusele. Süsteem aitab vähendada peenosakeste ja saaste jõudmist salongi.
           </p>
         </div>
       </div>
 
-      <div class="wellness-row" data-wellness-image="images/ride.png">
+      <div class="wellness-row" data-wellness-image="images/ride.webp">
         <svg class="wellness-icon" viewBox="0 0 22 22" aria-hidden="true">
           <path d="M3 11 L7 7 L11 11 L7 15 Z"/>
           <path d="M11 11 L15 7 L19 11 L15 15 Z"/>
@@ -3913,15 +3904,15 @@
         <div class="wellness-text">
           <h3 class="wellness-row-title">Bentley Dynamic Ride</h3>
           <p class="wellness-row-body">
-            48-voldine aktiivne kaldumisvastane süsteem vähendab kere kaldumist kurvides ja hoiab sõidu sirgel teel pehme. Eesmärk ei ole sportlik jäikus, vaid rahulik ja kontrollitud liikumine.
+            48-voldine aktiivne kaldumisvastane süsteem vähendab kere kaldumist kurvides ja hoiab sõidu sirgel teel sujuvana. Eesmärk ei ole sportlik jäikus, vaid rahulik ja kontrollitud liikumine.
           </p>
         </div>
       </div>
 
       <div class="wellness-hover-preview" aria-hidden="true">
-        <img src="images/istmed.png" alt="" data-wellness-preview="images/istmed.png">
-        <img src="images/salong.png" alt="" data-wellness-preview="images/salong.png">
-        <img src="images/ride.png" alt="" data-wellness-preview="images/ride.png">
+        <img src="images/istmed.webp" alt="" data-wellness-preview="images/istmed.webp">
+        <img src="images/salong.webp" alt="" data-wellness-preview="images/salong.webp">
+        <img src="images/ride.webp" alt="" data-wellness-preview="images/ride.webp">
       </div>
 
     </div>
@@ -3930,9 +3921,8 @@
 </section>
 
 <!-- ================================================================
-     CONTACT — Faas 2.10 (staatiline, ainult Kristjan Uuk)
+     CONTACT (staatiline, ainult Kristjan Uuk)
      Bentley layout = vertikaalne editorial stack + integreeritud footer.
-     Vrd Mercedes 2-col grid; vrd Urus centered card.
      CTA = pressed-into-paper Bentley signature (graphite block + brass-dim inset).
      ================================================================ -->
 <section class="contact" id="kontakt">
@@ -3942,7 +3932,7 @@
     <h2 class="contact-title">Tule vaata autot lähemalt <span class="em">Bentley Tallinna </span>salongis.</h2>
 
     <p class="contact-lede">
-      Auto asub Pirni 1 salongis Tallinnas. Kohapeal saab üle vaadata seisukorra, konfiguratsiooni ja teha kokkuleppel proovisõidu.
+      Auto asub Pirni 1 salongis Tallinnas. Seisukorra ja konfiguratsiooniga saab kohapeal tutvuda, proovisõit kokkuleppel.
     </p>
 
     <div class="contact-card">
@@ -3980,7 +3970,7 @@
 
 <script>
 /* ================================================================
-   Faas 4.1 — Universal JS infrastruktuur
+   Universal JS infrastruktuur
    Globaalne scope: window.bx.* (Bentley namespace)
    ================================================================ */
 (function () {
@@ -4041,7 +4031,80 @@
 })();
 
 /* ================================================================
-   Faas 4.2 — Hamburger toggle + nav-menu open/close
+   Lenis smooth scroll integratsioon
+   Wraps native scroll RAF-driven lerp-interpoleerimisega → silky
+   editorial-luxury scroll feel (Bentley.com / Aman / Hermès stiil).
+   GSAP ScrollTrigger bridge'itud via gsap.ticker.
+   Disabled: touch-devicidel (smoothTouch: false) + prefers-reduced-motion.
+   ================================================================ */
+(function () {
+  'use strict';
+  const bx = window.bx = window.bx || {};
+  if (typeof Lenis === 'undefined') return;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
+    // Reduced-motion kasutaja saab natiivse scroll'i (ei smooth-wrap'i)
+    bx.scrollTo = function (target, opts) {
+      const el = (typeof target === 'string') ? document.querySelector(target) : target;
+      if (el && el.scrollIntoView) el.scrollIntoView({ behavior: 'auto', block: 'start' });
+    };
+    return;
+  }
+
+  const lenis = new Lenis({
+    duration: 1.15, // 1.0-1.3 = editorial-luxury sweet spot
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // expo-out, smooth deceleration
+    smoothWheel: true,
+    smoothTouch: false, // touch-devicid säilitavad natiivse momentum'i
+    wheelMultiplier: 1,
+    touchMultiplier: 2,
+    infinite: false,
+    autoResize: true
+  });
+
+  // GSAP ScrollTrigger bridge — Lenis emit'b 'scroll' eventit
+  if (window.ScrollTrigger) {
+    lenis.on('scroll', ScrollTrigger.update);
+  }
+
+  // GSAP ticker driveb Lenis'i RAF-loop'i (üks ühtne render-loop, väldib drift'i)
+  if (window.gsap) {
+    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  } else {
+    // Fallback: oma RAF-loop kui GSAP pole laetud (ei peaks juhtuma)
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+  }
+
+  // Expose universaalseks scroll-to helper'iks (nav-menu anchor links jne)
+  bx.lenis = lenis;
+  bx.scrollTo = function (target, opts) {
+    const el = (typeof target === 'string') ? document.querySelector(target) : target;
+    if (!el) return;
+    lenis.scrollTo(el, Object.assign({ duration: 1.4, offset: 0 }, opts || {}));
+  };
+
+  // Scroll-lock integration: kui modal/overlay avaneb, peatame Lenis'i
+  // (vastasel juhul scroll lekib läbi overlay'st backdrop'i).
+  const originalLock = bx.lockScroll;
+  const originalUnlock = bx.unlockScroll;
+  bx.lockScroll = function () {
+    originalLock();
+    lenis.stop();
+  };
+  bx.unlockScroll = function () {
+    originalUnlock();
+    // Käivita uuesti AINULT kui kõik lock'id vabastatud (lockCount 0 = klass eemaldatud)
+    if (!document.documentElement.classList.contains('is-scroll-locked')) {
+      lenis.start();
+    }
+  };
+})();
+
+/* ================================================================
+   Hamburger toggle + nav-menu open/close
    ================================================================ */
 (function () {
   'use strict';
@@ -4049,6 +4112,10 @@
   const toggle = document.querySelector('.nav-toggle');
   const menu = document.getElementById('nav-menu');
   if (!toggle || !menu) return;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const REVEAL_DURATION = 0.5;
+  const REVEAL_EASE = 'power2.inOut';
 
   let isOpen = false;
   let lastFocused = null;
@@ -4063,6 +4130,15 @@
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Sulge menüü');
     bx.lockScroll();
+    // Mask-reveal avamine: clip-path inset ülevalt alla, 100% → 0%
+    // CSS custom property workaround (clip-path ei interpoleeru GSAP'iga otse)
+    if (!prefersReduced && typeof gsap !== 'undefined') {
+      gsap.to(menu, {
+        '--nav-reveal': '0%',
+        duration: REVEAL_DURATION,
+        ease: REVEAL_EASE
+      });
+    }
     // Focus first link after CSS transition tick
     requestAnimationFrame(() => {
       const focusables = bx.getFocusable(menu);
@@ -4075,16 +4151,31 @@
   function closeMenu() {
     if (!isOpen) return;
     isOpen = false;
-    menu.setAttribute('aria-hidden', 'true');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Ava menüü');
-    bx.unlockScroll();
     if (cleanupTrap) { cleanupTrap(); cleanupTrap = null; }
     if (cleanupEsc) { cleanupEsc(); cleanupEsc = null; }
-    if (lastFocused && typeof lastFocused.focus === 'function') {
-      lastFocused.focus();
+
+    function finalize() {
+      menu.setAttribute('aria-hidden', 'true');
+      bx.unlockScroll();
+      if (lastFocused && typeof lastFocused.focus === 'function') {
+        lastFocused.focus();
+      } else {
+        toggle.focus();
+      }
+    }
+
+    // Mask-reveal sulgemine: clip-path inset ülevalt alla, 0% → 100%
+    if (!prefersReduced && typeof gsap !== 'undefined') {
+      gsap.to(menu, {
+        '--nav-reveal': '100%',
+        duration: REVEAL_DURATION,
+        ease: REVEAL_EASE,
+        onComplete: finalize
+      });
     } else {
-      toggle.focus();
+      finalize();
     }
   }
 
@@ -4092,11 +4183,21 @@
     if (isOpen) closeMenu(); else openMenu();
   });
 
-  // Anchor click → close menu BEFORE smooth-scroll (browser handles hash jump)
+  // Anchor click → sulge menüü + Lenis smooth scroll target'ile
+  // (kui Lenis pole aktiivne, bx.scrollTo fallback'b natiivsele scrollIntoView'ile).
   menu.querySelectorAll('.nav-sections a[href^="#"]').forEach(function (link) {
-    link.addEventListener('click', function () {
-      // Defer close to next tick so hash-change/scroll triggers first
-      closeMenu();
+    link.addEventListener('click', function (e) {
+      const href = link.getAttribute('href');
+      const target = href && href.length > 1 ? document.querySelector(href) : null;
+      if (target && bx.scrollTo) {
+        e.preventDefault();
+        closeMenu();
+        // Oota nav-menu mask-reveal close (~0.5s) → siis scroll target'ile
+        // et kasutaja näeks sujuvat transitioni mitte segadust
+        setTimeout(() => bx.scrollTo(target, { duration: 1.4 }), 520);
+      } else {
+        closeMenu();
+      }
     });
   });
 
@@ -4105,18 +4206,17 @@
 })();
 
 /* ================================================================
-   Faas 4.2b — Brand-mark scroll-direction-aware hide
+   Brand-mark scroll-direction-aware hide
    Alla-kerides logo kaob, üles-kerides ilmub. Hamburger jääb alati.
    Top-zone (< 80px) hoiab logo alati nähtaval (esmamulje terviklik).
-   Universaalpattern (pattern_brand_logo_scroll_hide).
    ================================================================ */
 (function () {
   'use strict';
   const brandLeft = document.querySelector('.brand-bar-left');
   if (!brandLeft) return;
 
-  const TOP_ZONE = 80;        // px — selles vööndis logo alati nähtav
-  const DELTA_MIN = 5;        // px — minimum scroll-delta jitterivastaseks
+  const TOP_ZONE = 80; // px — selles vööndis logo alati nähtav
+  const DELTA_MIN = 5; // px — minimum scroll-delta jitterivastaseks
 
   let lastY = window.scrollY;
   let ticking = false;
@@ -4128,9 +4228,9 @@
     if (y < TOP_ZONE) {
       brandLeft.classList.remove('is-hidden');
     } else if (delta > DELTA_MIN) {
-      brandLeft.classList.add('is-hidden');     // scroll DOWN → hide
+      brandLeft.classList.add('is-hidden'); // scroll DOWN → hide
     } else if (delta < -DELTA_MIN) {
-      brandLeft.classList.remove('is-hidden');  // scroll UP → show
+      brandLeft.classList.remove('is-hidden'); // scroll UP → show
     }
 
     lastY = y;
@@ -4146,14 +4246,15 @@
 })();
 
 /* ================================================================
-   Faas 4.3 — Lightbox open/close + prev/next + counter + progress
+   Lightbox open/close + prev/next + counter + progress
    ================================================================ */
 (function () {
   'use strict';
   const bx = window.bx;
   const lightbox = document.getElementById('lightbox');
   if (!lightbox) return;
-  const img = lightbox.querySelector('.lightbox-img');
+  const imgA = lightbox.querySelector('.lightbox-img[data-slot="a"]');
+  const imgB = lightbox.querySelector('.lightbox-img[data-slot="b"]');
   const fill = lightbox.querySelector('.lightbox-progress-fill');
   const counterCurrent = lightbox.querySelector('.lightbox-counter-current');
   const counterTotal = lightbox.querySelector('.lightbox-counter-total');
@@ -4163,20 +4264,82 @@
   const thumbs = document.querySelectorAll('.gallery-item');
   const TOTAL = thumbs.length || 24;
 
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const REVEAL_DURATION = 0.7; // mask-sweep kestus sekundites
+  const REVEAL_EASE = 'power2.inOut'; // ühtne motion-keele ease
+
   let isOpen = false;
   let idx = 0;
   let lastFocused = null;
   let cleanupTrap = null;
   let cleanupEsc = null;
+  let activeImg = imgA; // pilt mis on hetkel "current"
+  let inactiveImg = imgB; // pilt millele uus src tuleb
+  let activeTween = null; // GSAP tween reference (rapid-click abort'iks)
 
   function pad(n) { return n < 10 ? '0' + n : '' + n; }
 
-  function update() {
-    img.src = 'images/' + (idx + 1) + '.png';
-    img.alt = 'Bentley Continental GT Azure — galeriifoto ' + (idx + 1);
-    counterCurrent.textContent = pad(idx + 1);
+  function setMeta(i) {
+    counterCurrent.textContent = pad(i + 1);
     counterTotal.textContent = pad(TOTAL);
-    fill.style.width = ((idx + 1) / TOTAL * 100) + '%';
+    fill.style.width = ((i + 1) / TOTAL * 100) + '%';
+  }
+
+  // Instant set (kasutusel ainult open()-il, kus animatsiooni pole vaja)
+  function setInstant(i) {
+    activeImg.src = 'images/' + (i + 1) + '.png';
+    activeImg.alt = 'Bentley Continental GT Azure — galeriifoto ' + (i + 1);
+    activeImg.classList.remove('is-entering-next', 'is-entering-prev');
+    inactiveImg.removeAttribute('src');
+    inactiveImg.classList.remove('is-entering-next', 'is-entering-prev');
+    setMeta(i);
+  }
+
+  // Mask-sweep transit järgmisele/eelmisele pildile
+  function transitTo(i, direction) {
+    if (activeTween) { activeTween.kill(); activeTween = null; }
+    // Swap roles: inactive saab uue pildi + tuleb peale
+    const incoming = inactiveImg;
+    const outgoing = activeImg;
+    const dirClass = direction === 'next' ? 'is-entering-next' : 'is-entering-prev';
+
+    incoming.src = 'images/' + (i + 1) + '.png';
+    incoming.alt = 'Bentley Continental GT Azure — galeriifoto ' + (i + 1);
+    // z-index'iga incoming peale (CSS grid stack'b mõlemad samasse cell'i)
+    incoming.style.zIndex = '2';
+    outgoing.style.zIndex = '1';
+
+    // Apply mask initial state: incoming on täielikult peidetud (--reveal-x: 100%)
+    incoming.classList.remove('is-entering-next', 'is-entering-prev');
+    incoming.classList.add(dirClass);
+    // Force browser to apply class before animating (style.setProperty väldib reflow-vingumiset)
+    incoming.style.setProperty('--reveal-x', '100%');
+
+    setMeta(i);
+
+    if (prefersReduced || typeof gsap === 'undefined') {
+      // Reduced-motion / no GSAP: instant swap
+      incoming.style.setProperty('--reveal-x', '0%');
+      incoming.classList.remove('is-entering-next', 'is-entering-prev');
+      activeImg = incoming;
+      inactiveImg = outgoing;
+      return;
+    }
+
+    // GSAP animeerib CSS custom property'd (clip-path workaround)
+    activeTween = gsap.to(incoming, {
+      '--reveal-x': '0%',
+      duration: REVEAL_DURATION,
+      ease: REVEAL_EASE,
+      onComplete: function () {
+        // Cleanup: incoming on uus active, direction class eemaldatud
+        incoming.classList.remove('is-entering-next', 'is-entering-prev');
+        incoming.style.removeProperty('--reveal-x');
+        activeImg = incoming;
+        inactiveImg = outgoing;
+        activeTween = null;
+      }
+    });
   }
 
   function open(startIndex) {
@@ -4184,7 +4347,7 @@
     isOpen = true;
     idx = ((startIndex || 0) % TOTAL + TOTAL) % TOTAL;
     lastFocused = document.activeElement;
-    update();
+    setInstant(idx); // avades pole transitionit, kohe õige pilt
     lightbox.setAttribute('aria-hidden', 'false');
     bx.lockScroll();
     requestAnimationFrame(() => btnClose.focus());
@@ -4196,6 +4359,7 @@
   function close() {
     if (!isOpen) return;
     isOpen = false;
+    if (activeTween) { activeTween.kill(); activeTween = null; }
     lightbox.setAttribute('aria-hidden', 'true');
     bx.unlockScroll();
     if (cleanupTrap) { cleanupTrap(); cleanupTrap = null; }
@@ -4204,8 +4368,14 @@
     if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
   }
 
-  function next() { idx = (idx + 1) % TOTAL; update(); }
-  function prev() { idx = (idx - 1 + TOTAL) % TOTAL; update(); }
+  function next() {
+    idx = (idx + 1) % TOTAL;
+    transitTo(idx, 'next');
+  }
+  function prev() {
+    idx = (idx - 1 + TOTAL) % TOTAL;
+    transitTo(idx, 'prev');
+  }
 
   function onArrowKeys(e) {
     if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
@@ -4278,7 +4448,7 @@
 })();
 
 /* ================================================================
-   Faas 4.4 — Broneerimismodal: open + 3-pane flow + pickers + submit
+   Broneerimismodal: open + 3-pane flow + pickers + submit
    ================================================================ */
 (function () {
   'use strict';
@@ -4444,7 +4614,17 @@
 })();
 
 /* ================================================================
-   Faas 4.5 — Audio-pleier play/pause + waveform animation
+   Audio-pleier play/pause + V8 cylinder visualization
+   Kahe-räžiimi:
+     (1) file:// VÕI AudioContext-fail → CSS keyframe animation
+         (crossplane V8 firing order 1-8-4-3-6-5-7-2, hardkodeeritud rütm)
+     (2) https:// + AudioContext OK → Web Audio AnalyserNode (fftSize 128 =
+         64 bins, 8 bin per cylinder averaged → real-time spectrum drives
+         iga silindri scaleY värki MP3 sageduste järgi)
+   Graceful fallback: kui Web Audio setup fail'b mistahes põhjusel, jätkab
+   CSS-animatsioon nähtamatu kasutaja jaoks. Tähtis: `file://` protokollil
+   `createMediaElementSource` taintib audio output'i Chrome/Edge'is (heli
+   muutub vaikseks ilma veateateta) — sellepärast protokolli-kontroll.
    ================================================================ */
 (function () {
   'use strict';
@@ -4454,11 +4634,76 @@
   const errorEl = document.getElementById('es-error');
   if (!audio || !btn || !player) return;
 
+  const cylinders = Array.from(player.querySelectorAll('.es-cyl-fire'));
+
+  // --- Web Audio analyser (live https:// only) ---
+  const AudioCtx = window.AudioContext || window.webkitAudioContext;
+  // file:// taintib Chrome/Edge'is audio output'i kui createMediaElementSource'i
+  // kasutada. Vältida sel protokollil täielikult — CSS-anim jätkab.
+  const canUseWebAudio = !!AudioCtx && location.protocol !== 'file:';
+  let audioCtx = null;
+  let analyser = null;
+  let sourceNode = null;
+  let freqData = null;
+  let rafId = null;
+
+  function setupWebAudio() {
+    if (audioCtx) return true; // juba seatud
+    if (!canUseWebAudio) return false;
+    try {
+      audioCtx = new AudioCtx();
+      sourceNode = audioCtx.createMediaElementSource(audio);
+      analyser = audioCtx.createAnalyser();
+      analyser.fftSize = 128; // → 64 frequency bins
+      analyser.smoothingTimeConstant = 0.72; // pisut pehmem visuaalne (~70ms)
+      sourceNode.connect(analyser);
+      analyser.connect(audioCtx.destination);
+      freqData = new Uint8Array(analyser.frequencyBinCount);
+      player.classList.add('is-analysing');
+      return true;
+    } catch (err) {
+      // Mistahes Web Audio fail → graceful fallback CSS-animatsioonile
+      audioCtx = null; analyser = null; sourceNode = null;
+      player.classList.remove('is-analysing');
+      return false;
+    }
+  }
+
+  function tickAnalyser() {
+    if (!analyser || !cylinders.length) { rafId = null; return; }
+    analyser.getByteFrequencyData(freqData);
+    const binsPerCyl = Math.floor(freqData.length / cylinders.length);
+    for (let i = 0; i < cylinders.length; i++) {
+      let sum = 0;
+      for (let j = 0; j < binsPerCyl; j++) {
+        sum += freqData[i * binsPerCyl + j];
+      }
+      const avg = sum / binsPerCyl / 255; // 0..1
+      // Map 0..1 → 0.08 (idle minimum) ... 1.0 (full fire)
+      const fire = 0.08 + avg * 0.92;
+      cylinders[i].style.setProperty('--fire', fire.toFixed(3));
+    }
+    rafId = requestAnimationFrame(tickAnalyser);
+  }
+
+  function startAnalyser() {
+    if (!analyser || rafId) return;
+    rafId = requestAnimationFrame(tickAnalyser);
+  }
+
+  function stopAnalyser() {
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = null;
+    // Reset cylinders to idle scaleY (kui kasutaja näeb pausi'l)
+    cylinders.forEach(c => c.style.setProperty('--fire', '0.08'));
+  }
+
   function setPlayingState(playing) {
     btn.classList.toggle('is-playing', playing);
     player.classList.toggle('is-playing', playing);
     btn.setAttribute('aria-label', playing ? 'Peata Bentley V8 mootori heli' : 'Mängi Bentley V8 mootori heli');
     btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
+    if (playing) startAnalyser(); else stopAnalyser();
   }
 
   function showError() {
@@ -4468,6 +4713,12 @@
 
   btn.addEventListener('click', function () {
     if (audio.paused) {
+      // User-gesture moment — siin setup Web Audio (autoplay policy nõuab gesture'i)
+      const wa = setupWebAudio();
+      // Resume AudioContext (võib alustada 'suspended' state'is)
+      if (wa && audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
       const p = audio.play();
       if (p && typeof p.then === 'function') {
         p.then(() => setPlayingState(true)).catch(showError);
@@ -4487,7 +4738,7 @@
 })();
 
 /* ================================================================
-   Faas 4.6 — Accordion JS (ADP + FAQ)
+   Accordion JS (ADP + FAQ)
    Smooth collapse via JS-managed max-height transitions.
    ================================================================ */
 (function () {
@@ -4526,7 +4777,7 @@
       // Init state from aria-expanded
       const open = trigger.getAttribute('aria-expanded') === 'true';
       content.style.maxHeight = open ? 'none' : '0px';
-      // Faas 5.5 lisand — initial clip-path match aria-expanded
+      // lisand — initial clip-path match aria-expanded
       content.style.clipPath = open ? 'inset(0 0 0 0)' : 'inset(0 100% 0 0)';
 
       trigger.addEventListener('click', function () {
@@ -4566,7 +4817,7 @@
 })();
 
 /* ================================================================
-   Faas 4.7 — FHW widget (btn + panel + tabs + teaser)
+   FHW widget (btn + panel + tabs + teaser)
    ================================================================ */
 (function () {
   'use strict';
@@ -4631,20 +4882,33 @@
 
   // --- Teaser ---
   if (teaser) {
+    let autoHideTimer = null;
+
+    function startAutoHide() {
+      autoHideTimer = setTimeout(() => hideTeaser(false), 3000);
+    }
+    function cancelAutoHide() {
+      if (autoHideTimer) { clearTimeout(autoHideTimer); autoHideTimer = null; }
+    }
+
     // Click on teaser body (not close-btn) → open panel
     teaser.addEventListener('click', function (e) {
       if (teaserClose && teaserClose.contains(e.target)) return;
+      cancelAutoHide();
       hideTeaser(true);
       openPanel();
     });
     if (teaserClose) {
       teaserClose.addEventListener('click', function (e) {
         e.stopPropagation();
+        cancelAutoHide();
         hideTeaser(true);
       });
     }
-    // Auto-show after delay
-    setTimeout(showTeaser, TEASER_DELAY);
+
+    // Show immediately, auto-hide after 3s
+    showTeaser();
+    startAutoHide();
   }
 
   // --- Tab switching ---
@@ -4661,10 +4925,9 @@
 })();
 
 /* ================================================================
-   Faas 4.8 — Share button (Web Share API + clipboard fallback)
+   Share button (Web Share API + clipboard fallback)
    Mobile: natiivne sharing-leht (WhatsApp/Messenger/email).
    Desktop: kopeerib URL clipboard'i + "Link kopeeritud ✓" 2.2s feedback.
-   Universaalreegel (pattern_share_button).
    ================================================================ */
 (function () {
   'use strict';
@@ -4712,10 +4975,9 @@
 })();
 
 /* ================================================================
-   Faas 6.X — Sticky FHW scroll-fade
+   Sticky FHW scroll-fade
    Peidetud hero'l, ilmub sujuvalt Hook-sektsiooni sisenedes.
    onLeaveBack: sulge panel + peida teaser + fade out.
-   Mercedes-evolved pattern (universaalreegel listing-projektidele).
    ================================================================ */
 (function () {
   'use strict';
@@ -4787,10 +5049,12 @@
 })();
 
 /* ================================================================
-   Faas 5.1 — Hero pin-cinema curtain (variant C)
+   Hero split-collapse scrub
    Entry: eyebrow + title-lines + meta sisse-reveal stagger.
-   Pin-scrub: hero-image scale 1 → 1.18, curtain opacity 0 → 0.7,
-              hero-content y 0 → -60 + blur 0 → 4px.
+   Pin-scrub: tekst-paneel kahaneb (--content-w 41.667% → 0%) ja
+              tühjeneb (y 0 → -80px, opacity 1 → 0). Foto-paneel
+              laieneb täis-bleediks. Foto ise jääb paigal (cover).
+              Mobile (<= 720px): scrub disabled (paneelid juba stack'is).
    ================================================================ */
 (function () {
   'use strict';
@@ -4816,8 +5080,15 @@
     .to('.hero-title .line .inner', { y: '0%', duration: 1.1, stagger: 0.12 }, '-=0.55')
     .to('.hero-meta', { opacity: 1, y: 0, duration: 0.9 }, '-=0.7');
 
-  // --- Pin-cinema curtain scrub ---
-  if (window.ScrollTrigger) {
+  // --- Pin split-collapse scrub (desktop + täppis-pointer only) ---
+  // `pointer: fine` = mouse/trackpad/stylus. Touch-devicid (`pointer: coarse`)
+  // saavad staatilise split-layouti + tavalise scroll'i (pin-scrub on
+  // näpu-flick'ile vale UX — momentum-konflikt + scroll-jacking ootamatus).
+  if (!window.ScrollTrigger) return;
+  const mm = gsap.matchMedia();
+  mm.add('(min-width: 721px) and (pointer: fine)', () => {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: '.hero',
@@ -4829,20 +5100,25 @@
         anticipatePin: 1
       }
     });
-    tl.fromTo('.hero-image',
-      { scale: 1 },
-      { scale: 1.18, ease: 'none', immediateRender: false }, 0);
-    tl.fromTo('.hero-curtain',
-      { opacity: 0 },
-      { opacity: 0.7, ease: 'none', immediateRender: false }, 0);
+    // Vasak paneel kahaneb — grid-template-columns esimene veerg
+    // animeerub CSS custom property kaudu (--content-w 41.667% → 0%).
+    // Duration 1.0 = kogu pin (0 → 100% scroll-progress).
+    tl.fromTo(hero,
+      { '--content-w': '41.667%' },
+      { '--content-w': '0%', duration: 1, ease: 'none', immediateRender: false }, 0);
+    // Tekst-paneeli sisu tühjeneb KIIREMINI — duration 0.45.
+    // Opacity 0 saavutatud ~45% pin'ist (= scroll ~405px). Pärast seda
+    // jätkab paneel ainsana kokku tõmbumist puhtas vaates (kaks faasi:
+    // 1) tekst kaob, 2) paneel suletakse). Väldib mid-state "tekst kleebitakse
+    // serva" muljet.
     tl.fromTo('.hero-content',
-      { y: 0, filter: 'blur(0px)' },
-      { y: -60, filter: 'blur(4px)', ease: 'none', immediateRender: false }, 0);
-  }
+      { y: 0, opacity: 1 },
+      { y: -80, opacity: 0, duration: 0.45, ease: 'none', immediateRender: false }, 0);
+  });
 })();
 
 /* ================================================================
-   Faas 5.2 — Hook + Spec-grid: horisontaalne mask-sweep + settle
+   Hook + Spec-grid: horisontaalne mask-sweep + settle
    Brand-coherent: clip-path inset, letter-spacing settle, SVG draw-on.
    ================================================================ */
 (function () {
@@ -4852,10 +5128,6 @@
   if (prefersReduced) {
     document.querySelectorAll('.hook-statement, .spec-card').forEach(el => {
       el.style.clipPath = 'none';
-    });
-    document.querySelectorAll('.spec-icon path, .spec-icon line, .spec-icon circle, .spec-icon rect, .spec-icon polygon, .spec-icon polyline').forEach(el => {
-      el.style.strokeDasharray = '0';
-      el.style.strokeDashoffset = '0';
     });
     return;
   }
@@ -4878,25 +5150,19 @@
     ease: 'power3.out'
   }, 0);
 
-  // Spec-cards: clip-path sweep, stagger LTR
+  // Spec-cards: clip-path sweep, stagger LTR — ikoonid paljastuvad
+  // kaardi mask-sweep'iga loomulikult, eraldi draw-on'i ei vajata
+  // (vaikseim variant — ).
   tl.to('.spec-card', {
     '--reveal-x': '0%',
     duration: 1.0,
     stagger: 0.08,
     ease: 'power3.out'
   }, 0.45);
-
-  // Spec-icons SVG draw-on (stroke-dashoffset 200 → 0)
-  tl.to('.spec-icon path, .spec-icon line, .spec-icon circle, .spec-icon rect, .spec-icon polygon, .spec-icon polyline', {
-    strokeDashoffset: 0,
-    duration: 0.7,
-    stagger: { each: 0.04, from: 'start' },
-    ease: 'power2.out'
-  }, 0.8);
 })();
 
 /* ================================================================
-   Faas 5.3 — Story sektsioon (vertical mask paaridele + horizontal body)
+   Story sektsioon (vertical mask paaridele + horizontal body)
    ================================================================ */
 (function () {
   'use strict';
@@ -4933,7 +5199,7 @@
   }, 0);
 
   // 2. Story-title + story-image SÜNKROONSELT vertikaalne mask
-  //    (konseptuaalselt paaris — headline + visual koos)
+  // (konseptuaalselt paaris — headline + visual koos)
   tl.to('.story-title, .story-image', {
     '--reveal-y': '0%',
     duration: 1.2,
@@ -4956,7 +5222,7 @@
 })();
 
 /* ================================================================
-   Faas 5.4 — Galerii diagonal cascade reveal
+   Galerii diagonal cascade reveal
    Title vertikaalne + intro horisontaalne + 24 item'it Manhattan-distance stagger.
    ================================================================ */
 (function () {
@@ -4994,8 +5260,8 @@
   }, 0.15);
 
   // 2. 24 gallery-item: diagonal cascade
-  //    data-index 0..23 mapib visual grid'i row-major (4 cols × 6 rows).
-  //    Delay = (row + col) * step → Manhattan-distance top-left'ist.
+  // data-index 0..23 mapib visual grid'i row-major (4 cols × 6 rows).
+  // Delay = (row + col) * step → Manhattan-distance top-left'ist.
   tl.to('.gallery-item', {
     '--reveal-x': '0%',
     duration: 0.9,
@@ -5065,7 +5331,7 @@
 })();
 
 /* ================================================================
-   Faas 5.5 — ADP / Lisad cascade reveal
+   ADP / Lisad cascade reveal
    Title vertikaalne + intro horisontaalne + 3 accordion stagger.
    ================================================================ */
 (function () {
@@ -5112,7 +5378,7 @@
 })();
 
 /* ================================================================
-   Faas 5.6 — Wellness sektsioon (sketch + heading + 3 rida)
+   Wellness sektsioon (sketch + heading + 3 rida)
    ================================================================ */
 (function () {
   'use strict';
@@ -5177,7 +5443,7 @@
 })();
 
 /* ================================================================
-   Faas 5.7 — Contact pair-grouped editorial reveal
+   Contact pair-grouped editorial reveal
    Title vert üksi + paar 1 (lede+card) sünk + paar 2 (cta+bottom) sünk
    ================================================================ */
 (function () {
