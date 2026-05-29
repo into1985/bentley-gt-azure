@@ -4287,7 +4287,7 @@ Soovi korral saab Bentley Tallinnas rääkida vahetusest, sissemaksest või liis
 
   // Instant set (kasutusel ainult open()-il, kus animatsiooni pole vaja)
   function setInstant(i) {
-    activeImg.src = 'images/' + (i + 1) + '.png';
+    activeImg.src = 'images/' + (i + 1) + '.webp';
     activeImg.alt = 'Bentley Continental GT Azure — galeriifoto ' + (i + 1);
     activeImg.classList.remove('is-entering-next', 'is-entering-prev');
     inactiveImg.removeAttribute('src');
@@ -4303,7 +4303,7 @@ Soovi korral saab Bentley Tallinnas rääkida vahetusest, sissemaksest või liis
     const outgoing = activeImg;
     const dirClass = direction === 'next' ? 'is-entering-next' : 'is-entering-prev';
 
-    incoming.src = 'images/' + (i + 1) + '.png';
+    incoming.src = 'images/' + (i + 1) + '.webp';
     incoming.alt = 'Bentley Continental GT Azure — galeriifoto ' + (i + 1);
     // z-index'iga incoming peale (CSS grid stack'b mõlemad samasse cell'i)
     incoming.style.zIndex = '2';
